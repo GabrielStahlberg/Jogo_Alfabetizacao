@@ -40,10 +40,10 @@ public class MenuView extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 546, Short.MAX_VALUE)
+            .addGap(0, 576, Short.MAX_VALUE)
         );
 
-        setBounds(0, 0, 750, 575);
+        setBounds(0, 0, 750, 605);
     }// </editor-fold>//GEN-END:initComponents
 
 

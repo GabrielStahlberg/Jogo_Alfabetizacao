@@ -5,9 +5,11 @@
  */
 package view;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +28,13 @@ public class MainWindow extends javax.swing.JFrame {
         StartView menu = new StartView();
         menu.setVisible(true);
         desktop.add(menu);
+        startSound();
+    }
+    
+    private void startSound(){
+        URL som = MainWindow.class.getResource("resources/startSound.wav");
+        AudioClip sound = Applet.newAudioClip(som);
+        sound.loop();
     }
 
     /**
@@ -51,7 +60,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         desktop.setPreferredSize(new java.awt.Dimension(750, 600));
 
-        buttonExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/exit.png"))); // NOI18N
+        buttonExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/exit.png"))); // NOI18N
         buttonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonExitActionPerformed(evt);
@@ -65,7 +74,7 @@ public class MainWindow extends javax.swing.JFrame {
         labelDate.setFont(new java.awt.Font("Noto Sans", 3, 30)); // NOI18N
         labelDate.setText("10/12/2018");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icons/iconfinder_letter_ABC_1553073.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/iconfinder_letter_ABC_1553073.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Noto Sans", 3, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(205, 58, 58));

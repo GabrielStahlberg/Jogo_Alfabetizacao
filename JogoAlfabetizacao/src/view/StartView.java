@@ -16,14 +16,14 @@ import javax.swing.JDesktopPane;
  * @author gabrielstahlberg
  */
 public class StartView extends javax.swing.JInternalFrame {
-     JDesktopPane desktop;
+     MainWindow mainWindow;
      AudioClip sound;
     /**
      * Creates new form MenuView
      */
-    public StartView(JDesktopPane desktop) {
+    public StartView(MainWindow m) {
         initComponents();
-        this.desktop = desktop;
+        this.mainWindow = m;
         startSound();
     }
     
@@ -116,11 +116,12 @@ public class StartView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlayActionPerformed
-        this.desktop.removeAll();
+        this.mainWindow.getDesktop().removeAll();
         this.sound.stop();
-        MenuView mv = new MenuView();
+        mainWindow.getButtonHome().setEnabled(true);
+        MenuView mv = new MenuView(this.mainWindow);
         mv.setVisible(true);
-        this.desktop.add(mv);                
+        this.mainWindow.getDesktop().add(mv);                
     }//GEN-LAST:event_buttonPlayActionPerformed
 
 

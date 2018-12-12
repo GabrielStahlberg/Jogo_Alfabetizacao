@@ -5,18 +5,32 @@
  */
 package view;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.net.URL;
+import javax.swing.JDesktopPane;
+
 
 /**
  *
  * @author gabrielstahlberg
  */
 public class StartView extends javax.swing.JInternalFrame {
-
+     JDesktopPane desktop;
+     AudioClip sound;
     /**
      * Creates new form MenuView
      */
-    public StartView() {
+    public StartView(JDesktopPane desktop) {
         initComponents();
+        this.desktop = desktop;
+        startSound();
+    }
+    
+    private void startSound(){
+        URL som = MainWindow.class.getResource("resources/startSound.wav");
+        this.sound = Applet.newAudioClip(som);
+        this.sound.loop();
     }
     
 
@@ -46,6 +60,11 @@ public class StartView extends javax.swing.JInternalFrame {
         buttonPlay.setFont(new java.awt.Font("Noto Sans", 1, 36)); // NOI18N
         buttonPlay.setForeground(new java.awt.Color(253, 251, 251));
         buttonPlay.setText("JOGAR");
+        buttonPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPlayActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Manjari Regular", 3, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(53, 44, 200));
@@ -95,6 +114,14 @@ public class StartView extends javax.swing.JInternalFrame {
 
         setBounds(0, 0, 750, 605);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlayActionPerformed
+        this.desktop.removeAll();
+        this.sound.stop();
+        MenuView mv = new MenuView();
+        mv.setVisible(true);
+        this.desktop.add(mv);                
+    }//GEN-LAST:event_buttonPlayActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

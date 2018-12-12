@@ -25,16 +25,9 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         this.labelDate.setText(LocalDate.now().format(formatter));
-        StartView menu = new StartView();
+        StartView menu = new StartView(this.desktop);
         menu.setVisible(true);
         desktop.add(menu);
-        startSound();
-    }
-    
-    private void startSound(){
-        URL som = MainWindow.class.getResource("resources/startSound.wav");
-        AudioClip sound = Applet.newAudioClip(som);
-        sound.loop();
     }
 
     /**

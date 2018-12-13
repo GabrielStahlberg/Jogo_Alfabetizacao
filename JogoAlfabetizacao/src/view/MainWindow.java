@@ -74,7 +74,55 @@ public class MainWindow extends javax.swing.JFrame {
         auxList.add("ROLO");
         auxList.add("SALA");
         auxList.add("PELE");
-        datas.put(3, auxList);        
+        datas.put(3, auxList);
+        auxList = new ArrayList<>(10);
+        
+        auxList.add("DADO");
+        auxList.add("RODA");
+        auxList.add("RÁDIO");
+        auxList.add("REDE");
+        auxList.add("DEDO");
+        auxList.add("RODO");
+        auxList.add("DÁLIA");
+        auxList.add("VEADO");
+        auxList.add("-----");
+        datas.put(4, auxList);
+        auxList = new ArrayList<>(10);
+        
+        auxList.add("COPO");
+        auxList.add("VACA");
+        auxList.add("CAVALO");
+        auxList.add("CAPA");
+        auxList.add("CALO");
+        auxList.add("SACO");
+        auxList.add("PACA");
+        auxList.add("CÔCO");
+        auxList.add("COROA");
+        datas.put(5, auxList);
+        auxList = new ArrayList<>(10);
+        
+        auxList.add("CAMA");
+        auxList.add("MALA");
+        auxList.add("MACACO");
+        auxList.add("MAPA");
+        auxList.add("MACA");
+        auxList.add("LIMA");
+        auxList.add("MÉDICO");
+        auxList.add("CAMELO");
+        auxList.add("REMO");
+        datas.put(6, auxList);
+        auxList = new ArrayList<>(10);
+        
+        auxList.add("TOMATE");
+        auxList.add("SAPATO");
+        auxList.add("RATO");
+        auxList.add("TATU");
+        auxList.add("LATA");
+        auxList.add("TULIPA");
+        auxList.add("PATO");
+        auxList.add("MULETA");
+        auxList.add("TAPETE");
+        datas.put(7, auxList);
     }
 
     public JButton getButtonExit() {

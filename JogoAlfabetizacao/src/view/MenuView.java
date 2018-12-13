@@ -20,8 +20,9 @@ public class MenuView extends javax.swing.JInternalFrame {
     private DefaultTableModel modelDepart;
     private List<String> words;
     private int begin = 1;
-    private int end = 4;
+    private int end = 7;
     private int max;
+    private int countLevel = 0;
     /**
      * Creates new form MenuView
      */
@@ -38,6 +39,11 @@ public class MenuView extends javax.swing.JInternalFrame {
     private void injectTable(){
         List<String> wordsByRow = new ArrayList<>(10);
         modelDepart.setRowCount(0);
+        
+        Object[] levelLine = new Object[]{"Nº "+(countLevel+1), "Nº "+(countLevel+2),
+            "Nº "+(countLevel+3), "Nº "+(countLevel+4), "Nº "+(countLevel+5), "Nº "+(countLevel+6)};
+        modelDepart.addRow(levelLine);
+        
         int aux = 0;
         if(this.radioEasy.isSelected()){
             this.max = 3;
@@ -56,7 +62,7 @@ public class MenuView extends javax.swing.JInternalFrame {
                 wordsByRow.add(words.get(aux));
             }
             Object[] line = new Object[]{wordsByRow.get(0), wordsByRow.get(1),
-                wordsByRow.get(2)/*, wordsByRow.get(3), wordsByRow.get(4), wordsByRow.get(5)*/};
+                wordsByRow.get(2), wordsByRow.get(3), wordsByRow.get(4), wordsByRow.get(5)};
             modelDepart.addRow(line);
             aux++;
             wordsByRow.clear();
@@ -206,13 +212,13 @@ public class MenuView extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(fieldLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(buttonBegin))
-                        .addContainerGap(70, Short.MAX_VALUE))
+                        .addContainerGap(77, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

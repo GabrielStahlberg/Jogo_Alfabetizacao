@@ -110,6 +110,8 @@ public class MenuView extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tableLevel.setEnabled(false);
+        tableLevel.setRowSelectionAllowed(false);
         jScrollPane1.setViewportView(tableLevel);
 
         jLabel2.setFont(new java.awt.Font("Manjari Regular", 3, 30)); // NOI18N
@@ -204,8 +206,8 @@ public class MenuView extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(fieldLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)

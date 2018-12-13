@@ -25,7 +25,10 @@ public class StartView extends javax.swing.JInternalFrame {
         initComponents();
         this.mainWindow = m;
         startSound();
+        
+        
     }
+ 
     
     private void startSound(){
         URL som = MainWindow.class.getResource("resources/startSound.wav");

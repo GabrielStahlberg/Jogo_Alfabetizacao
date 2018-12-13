@@ -14,22 +14,22 @@ import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
-import model.Difficulties;
-import model.WordListByDifficulty;
 
 /**
  *
  * @author gabrielstahlberg
+        wordList = new WordListByDifficulty();
  */
 public class MainWindow extends javax.swing.JFrame {
-    Map<Integer, WordListByDifficulty> datas = new HashMap<>();
-    List<String> auxList = new ArrayList<>();
+    private Map<Integer, List<String>> datas = new HashMap<>();
+    private List<String> auxList = new ArrayList<>(10);
 
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
         initComponents();
+        injectDatas();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         this.labelDate.setText(LocalDate.now().format(formatter));
         StartView startView = new StartView(this);
@@ -38,30 +38,43 @@ public class MainWindow extends javax.swing.JFrame {
         
         this.buttonHome.setEnabled(false);
         this.buttonMenu.setEnabled(false);
-        
-        injectDatas();
     }
     
-    private void injectDatas(){
-        WordListByDifficulty wordList = new WordListByDifficulty();
-        
+    private void injectDatas(){        
         auxList.add("REI");
-        auxList.add("PAI");
         auxList.add("UVA");
         auxList.add("OVO");
-        wordList.addWords(Difficulties.EASY, auxList);
-        
         auxList.add("RIO");
         auxList.add("PAU");
-        wordList.addWords(Difficulties.MEDIUM, auxList);
-        
+        auxList.add("PAI");
         auxList.add("AVE");
         auxList.add("PIA");
         auxList.add("RUA");
-        wordList.addWords(Difficulties.HARD, auxList);
-        datas.put(1, wordList);
-        auxList.clear();
+        this.datas.put(1, auxList);        
+        auxList = new ArrayList<>(10);
         
+        auxList.add("PÉ");
+        auxList.add("SAPO");
+        auxList.add("VOVÓ");
+        auxList.add("PÁ");
+        auxList.add("PÓ");
+        auxList.add("SAPÉ");
+        auxList.add("SOPÉ");
+        auxList.add("SAÚVA");
+        auxList.add("-----");
+        this.datas.put(2, auxList);
+        auxList = new ArrayList<>(10);
+        
+        auxList.add("LUA");
+        auxList.add("LUVA");
+        auxList.add("VELA");
+        auxList.add("SELO");
+        auxList.add("SOLA");
+        auxList.add("RALO");
+        auxList.add("ROLO");
+        auxList.add("SALA");
+        auxList.add("PELE");
+        datas.put(3, auxList);        
     }
 
     public JButton getButtonExit() {
@@ -96,8 +109,8 @@ public class MainWindow extends javax.swing.JFrame {
         this.desktop = desktop;
     }
 
-    public Map<Integer, WordListByDifficulty> getDatas() {
-        return datas;
+    public List<String> getDatas(int level) {
+        return datas.get(level);
     }
     
     /**

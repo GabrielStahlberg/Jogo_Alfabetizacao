@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ButtonGroup;
 import javax.swing.table.DefaultTableModel;
-import model.Difficulties;
 
 /**
  *
@@ -21,7 +20,8 @@ public class MenuView extends javax.swing.JInternalFrame {
     private DefaultTableModel modelDepart;
     private List<String> words;
     private int begin = 1;
-    private int end = 7;
+    private int end = 4;
+    private int max;
     /**
      * Creates new form MenuView
      */
@@ -36,32 +36,30 @@ public class MenuView extends javax.swing.JInternalFrame {
     }
     
     private void injectTable(){
-        Difficulties difficultySelected;
         List<String> wordsByRow = new ArrayList<>(10);
+        modelDepart.setRowCount(0);
         int aux = 0;
         if(this.radioEasy.isSelected()){
-            difficultySelected = Difficulties.EASY;
+            this.max = 3;
         }else if(this.radioMedium.isSelected()){
-            difficultySelected = Difficulties.MEDIUM;
+            this.max = 6;
         }else{
-            difficultySelected = Difficulties.HARD;
+            this.max = 9;
         }
         /*
             O primeiro for() é para percorrer as 9 palavras que tem por nível
             O secundo for() é para pegar a palavra da linha correspondente que dos 6 níveis possíveis 
         */
-        for(int k=0; k<9; k++){
+        for(int k=0; k<this.max; k++){
             for(int i=begin; i<end; i++){
-                this.words = mainWindow.getDatas()
-                        .get(i).getWordList().get(difficultySelected);
-
+                this.words = this.mainWindow.getDatas(i);
                 wordsByRow.add(words.get(aux));
-                aux++;
             }
-            aux = 0;
             Object[] line = new Object[]{wordsByRow.get(0), wordsByRow.get(1),
-                wordsByRow.get(2), wordsByRow.get(3), wordsByRow.get(4), wordsByRow.get(5)};
+                wordsByRow.get(2)/*, wordsByRow.get(3), wordsByRow.get(4), wordsByRow.get(5)*/};
             modelDepart.addRow(line);
+            aux++;
+            wordsByRow.clear();
         }        
     }
 
@@ -135,6 +133,11 @@ public class MenuView extends javax.swing.JInternalFrame {
         buttonChoose.setBackground(new java.awt.Color(222, 127, 35));
         buttonChoose.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         buttonChoose.setText("ESCOLHER");
+        buttonChoose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonChooseActionPerformed(evt);
+            }
+        });
 
         buttonNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/next.png"))); // NOI18N
         buttonNext.setToolTipText("");
@@ -221,6 +224,10 @@ public class MenuView extends javax.swing.JInternalFrame {
 
         setBounds(0, 0, 750, 605);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChooseActionPerformed
+        injectTable();
+    }//GEN-LAST:event_buttonChooseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

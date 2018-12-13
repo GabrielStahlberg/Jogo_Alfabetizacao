@@ -5,20 +5,25 @@
  */
 package view;
 
-import java.applet.Applet;
-import java.applet.AudioClip;
-import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
+import model.Difficulties;
+import model.WordListByDifficulty;
 
 /**
  *
  * @author gabrielstahlberg
  */
 public class MainWindow extends javax.swing.JFrame {
+    Map<Integer, WordListByDifficulty> datas = new HashMap<>();
+    List<String> auxList = new ArrayList<>();
 
     /**
      * Creates new form MainWindow
@@ -33,6 +38,30 @@ public class MainWindow extends javax.swing.JFrame {
         
         this.buttonHome.setEnabled(false);
         this.buttonMenu.setEnabled(false);
+        
+        injectDatas();
+    }
+    
+    private void injectDatas(){
+        WordListByDifficulty wordList = new WordListByDifficulty();
+        
+        auxList.add("REI");
+        auxList.add("PAI");
+        auxList.add("UVA");
+        auxList.add("OVO");
+        wordList.addWords(Difficulties.EASY, auxList);
+        
+        auxList.add("RIO");
+        auxList.add("PAU");
+        wordList.addWords(Difficulties.MEDIUM, auxList);
+        
+        auxList.add("AVE");
+        auxList.add("PIA");
+        auxList.add("RUA");
+        wordList.addWords(Difficulties.HARD, auxList);
+        datas.put(1, wordList);
+        auxList.clear();
+        
     }
 
     public JButton getButtonExit() {
@@ -66,9 +95,11 @@ public class MainWindow extends javax.swing.JFrame {
     public void setDesktop(JDesktopPane desktop) {
         this.desktop = desktop;
     }
-    
-    
 
+    public Map<Integer, WordListByDifficulty> getDatas() {
+        return datas;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -90,6 +121,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Jogo de Alfabetização");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
         desktop.setPreferredSize(new java.awt.Dimension(750, 600));

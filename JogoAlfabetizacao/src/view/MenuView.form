@@ -32,31 +32,31 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonPrevious" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jScrollPane1" min="-2" pref="592" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonNext" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                              <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="radioEasy" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                              <Component id="radioMedium" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="radioHard" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonChoose" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="fieldLevel" min="-2" pref="40" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonBegin" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -65,7 +65,7 @@
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -77,10 +77,10 @@
               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jRadioButton1" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jRadioButton2" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jRadioButton3" alignment="3" max="32767" attributes="0"/>
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="radioEasy" alignment="3" max="32767" attributes="0"/>
+                      <Component id="radioHard" alignment="3" max="32767" attributes="0"/>
+                      <Component id="radioMedium" alignment="3" max="32767" attributes="0"/>
+                      <Component id="buttonChoose" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabel1" pref="0" max="32767" attributes="0"/>
               </Group>
@@ -91,8 +91,8 @@
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldLevel" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="buttonBegin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="70" max="32767" attributes="0"/>
                   </Group>
@@ -100,11 +100,11 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonPrevious" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="buttonNext" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -122,82 +122,16 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable1">
+        <Component class="javax.swing.JTable" name="tableLevel">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="6" rowCount="10">
-                <Column editable="false" title="Vogais &amp; P-V-R" type="java.lang.Object">
-                  <Data value="N&#xba; 1"/>
-                  <Data value="RIO"/>
-                  <Data value="REI"/>
-                  <Data value="N&#xba; 1"/>
-                  <Data value="N&#xba; 1"/>
-                  <Data value="N&#xba; 1"/>
-                  <Data value="N&#xba; 1"/>
-                  <Data value="N&#xba; 1"/>
-                  <Data value="N&#xba; 1"/>
-                  <Data value="N&#xba; 10"/>
-                </Column>
-                <Column editable="false" title="S-E acento agudo" type="java.lang.Object">
-                  <Data value="N&#xba; 2"/>
-                  <Data value="S-E acento agudo"/>
-                  <Data value="         L"/>
-                  <Data value="         D"/>
-                  <Data value="         C"/>
-                  <Data value="         M"/>
-                  <Data value="         T"/>
-                  <Data value="B e Acento circunflexo"/>
-                  <Data value="         F"/>
-                  <Data value="         N"/>
-                </Column>
-                <Column editable="true" title="L" type="java.lang.Object">
-                  <Data value="N&#xba; 3"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="true" title="D" type="java.lang.Object">
-                  <Data value="N&#xba; 4"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="true" title="C" type="java.lang.Object">
-                  <Data value="N&#xba; 5"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="true" title="M" type="java.lang.Object">
-                  <Data value="N&#xba; 6"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                </Column>
+              <Table columnCount="6" rowCount="0">
+                <Column editable="false" title="Vogais &amp; P-V-R" type="java.lang.Object"/>
+                <Column editable="false" title="S-E acento agudo" type="java.lang.Object"/>
+                <Column editable="true" title="L" type="java.lang.Object"/>
+                <Column editable="true" title="D" type="java.lang.Object"/>
+                <Column editable="true" title="C" type="java.lang.Object"/>
+                <Column editable="true" title="M" type="java.lang.Object"/>
               </Table>
             </Property>
           </Properties>
@@ -226,7 +160,7 @@
         <Property name="text" type="java.lang.String" value="DIFICULDADE:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+    <Component class="javax.swing.JRadioButton" name="radioEasy">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Noto Sans" size="12" style="1"/>
@@ -235,7 +169,7 @@
         <Property name="text" type="java.lang.String" value="F&#xc1;CIL"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+    <Component class="javax.swing.JRadioButton" name="radioHard">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Noto Sans" size="12" style="1"/>
@@ -243,7 +177,7 @@
         <Property name="text" type="java.lang.String" value="DIF&#xcd;CIL"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+    <Component class="javax.swing.JRadioButton" name="radioMedium">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Noto Sans" size="12" style="1"/>
@@ -251,7 +185,7 @@
         <Property name="text" type="java.lang.String" value="M&#xc9;DIO"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="buttonChoose">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="23" green="7f" red="de" type="rgb"/>
@@ -262,7 +196,7 @@
         <Property name="text" type="java.lang.String" value="ESCOLHER"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="buttonNext">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/view/resources/next.png"/>
@@ -270,7 +204,7 @@
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="buttonPrevious">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/view/resources/previous.png"/>
@@ -285,9 +219,9 @@
         <Property name="text" type="java.lang.String" value="ESCOLHA O N&#xcd;VEL(N&#xba;) QUE DESEJA:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="fieldLevel">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="buttonBegin">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="39" green="99" red="4d" type="rgb"/>

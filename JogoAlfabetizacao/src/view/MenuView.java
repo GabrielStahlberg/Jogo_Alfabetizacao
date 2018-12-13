@@ -5,18 +5,64 @@
  */
 package view;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.ButtonGroup;
+import javax.swing.table.DefaultTableModel;
+import model.Difficulties;
+
 /**
  *
  * @author gabrielstahlberg
  */
 public class MenuView extends javax.swing.JInternalFrame {
-    MainWindow mainWindow;
+    private MainWindow mainWindow;
+    private ButtonGroup group = new ButtonGroup();
+    private DefaultTableModel modelDepart;
+    private List<String> words;
+    private int begin = 1;
+    private int end = 7;
     /**
      * Creates new form MenuView
      */
     public MenuView(MainWindow m) {
         initComponents();
         this.mainWindow = m;
+        this.group.add(this.radioEasy);
+        this.group.add(this.radioMedium);
+        this.group.add(this.radioHard);
+        this.buttonBegin.setEnabled(false);
+        this.modelDepart = (DefaultTableModel) tableLevel.getModel();
+    }
+    
+    private void injectTable(){
+        Difficulties difficultySelected;
+        List<String> wordsByRow = new ArrayList<>(10);
+        int aux = 0;
+        if(this.radioEasy.isSelected()){
+            difficultySelected = Difficulties.EASY;
+        }else if(this.radioMedium.isSelected()){
+            difficultySelected = Difficulties.MEDIUM;
+        }else{
+            difficultySelected = Difficulties.HARD;
+        }
+        /*
+            O primeiro for() é para percorrer as 9 palavras que tem por nível
+            O secundo for() é para pegar a palavra da linha correspondente que dos 6 níveis possíveis 
+        */
+        for(int k=0; k<9; k++){
+            for(int i=begin; i<end; i++){
+                this.words = mainWindow.getDatas()
+                        .get(i).getWordList().get(difficultySelected);
+
+                wordsByRow.add(words.get(aux));
+                aux++;
+            }
+            aux = 0;
+            Object[] line = new Object[]{wordsByRow.get(0), wordsByRow.get(1),
+                wordsByRow.get(2), wordsByRow.get(3), wordsByRow.get(4), wordsByRow.get(5)};
+            modelDepart.addRow(line);
+        }        
     }
 
     /**
@@ -29,18 +75,18 @@ public class MenuView extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableLevel = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        radioEasy = new javax.swing.JRadioButton();
+        radioHard = new javax.swing.JRadioButton();
+        radioMedium = new javax.swing.JRadioButton();
+        buttonChoose = new javax.swing.JButton();
+        buttonNext = new javax.swing.JButton();
+        buttonPrevious = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        fieldLevel = new javax.swing.JTextField();
+        buttonBegin = new javax.swing.JButton();
 
         setMaximizable(true);
         setResizable(true);
@@ -50,18 +96,9 @@ public class MenuView extends javax.swing.JInternalFrame {
             e1.printStackTrace();
         }
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableLevel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Nº 1", "Nº 2", "Nº 3", "Nº 4", "Nº 5", "Nº 6"},
-                {"RIO", "S-E acento agudo", null, null, null, null},
-                {"REI", "         L", null, null, null, null},
-                {"Nº 1", "         D", null, null, null, null},
-                {"Nº 1", "         C", null, null, null, null},
-                {"Nº 1", "         M", null, null, null, null},
-                {"Nº 1", "         T", null, null, null, null},
-                {"Nº 1", "B e Acento circunflexo", null, null, null, null},
-                {"Nº 1", "         F", null, null, null, null},
-                {"Nº 10", "         N", null, null, null, null}
+
             },
             new String [] {
                 "Vogais & P-V-R", "S-E acento agudo", "L", "D", "C", "M"
@@ -75,7 +112,7 @@ public class MenuView extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableLevel);
 
         jLabel2.setFont(new java.awt.Font("Manjari Regular", 3, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(53, 44, 200));
@@ -85,32 +122,32 @@ public class MenuView extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(222, 127, 35));
         jLabel1.setText("DIFICULDADE:");
 
-        jRadioButton1.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jRadioButton1.setSelected(true);
-        jRadioButton1.setText("FÁCIL");
+        radioEasy.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        radioEasy.setSelected(true);
+        radioEasy.setText("FÁCIL");
 
-        jRadioButton2.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jRadioButton2.setText("DIFÍCIL");
+        radioHard.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        radioHard.setText("DIFÍCIL");
 
-        jRadioButton3.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jRadioButton3.setText("MÉDIO");
+        radioMedium.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        radioMedium.setText("MÉDIO");
 
-        jButton1.setBackground(new java.awt.Color(222, 127, 35));
-        jButton1.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jButton1.setText("ESCOLHER");
+        buttonChoose.setBackground(new java.awt.Color(222, 127, 35));
+        buttonChoose.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        buttonChoose.setText("ESCOLHER");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/next.png"))); // NOI18N
-        jButton2.setToolTipText("");
+        buttonNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/next.png"))); // NOI18N
+        buttonNext.setToolTipText("");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/previous.png"))); // NOI18N
+        buttonPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/previous.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Noto Sans", 1, 24)); // NOI18N
         jLabel3.setText("ESCOLHA O NÍVEL(Nº) QUE DESEJA:");
 
-        jButton4.setBackground(new java.awt.Color(77, 153, 57));
-        jButton4.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(253, 251, 251));
-        jButton4.setText("COMEÇAR");
+        buttonBegin.setBackground(new java.awt.Color(77, 153, 57));
+        buttonBegin.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
+        buttonBegin.setForeground(new java.awt.Color(253, 251, 251));
+        buttonBegin.setText("COMEÇAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,33 +157,33 @@ public class MenuView extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton3)
+                        .addComponent(buttonPrevious)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2))
+                                .addComponent(buttonNext))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(50, 50, 50)
-                                .addComponent(jRadioButton1)
+                                .addComponent(radioEasy)
                                 .addGap(30, 30, 30)
-                                .addComponent(jRadioButton3)
+                                .addComponent(radioMedium)
                                 .addGap(26, 26, 26)
-                                .addComponent(jRadioButton2)
+                                .addComponent(radioHard)
                                 .addGap(48, 48, 48)
-                                .addComponent(jButton1))
+                                .addComponent(buttonChoose))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fieldLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
-                                .addComponent(jButton4))))
+                                .addComponent(buttonBegin))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(125, 125, 125)
                         .addComponent(jLabel2)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,10 +193,10 @@ public class MenuView extends javax.swing.JInternalFrame {
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(radioEasy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(radioHard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(radioMedium, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonChoose))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -168,17 +205,17 @@ public class MenuView extends javax.swing.JInternalFrame {
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4))
+                            .addComponent(fieldLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonBegin))
                         .addContainerGap(70, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton3)
+                                .addComponent(buttonPrevious)
                                 .addGap(231, 231, 231))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(buttonNext)
                                 .addGap(229, 229, 229))))))
         );
 
@@ -187,18 +224,18 @@ public class MenuView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton buttonBegin;
+    private javax.swing.JButton buttonChoose;
+    private javax.swing.JButton buttonNext;
+    private javax.swing.JButton buttonPrevious;
+    private javax.swing.JTextField fieldLevel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JRadioButton radioEasy;
+    private javax.swing.JRadioButton radioHard;
+    private javax.swing.JRadioButton radioMedium;
+    private javax.swing.JTable tableLevel;
     // End of variables declaration//GEN-END:variables
 }

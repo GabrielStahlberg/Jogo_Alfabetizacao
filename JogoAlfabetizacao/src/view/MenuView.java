@@ -247,18 +247,20 @@ public class MenuView extends javax.swing.JInternalFrame {
 
     private void buttonChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChooseActionPerformed
         injectTable();
-        this.buttonBegin.setEnabled(true);
-        this.buttonNext.setEnabled(true);
+        if(!this.buttonNext.isEnabled() && this.countLevel != 42){
+            this.buttonNext.setEnabled(true);
+        }
+        this.buttonBegin.setEnabled(true);        
     }//GEN-LAST:event_buttonChooseActionPerformed
 
     private void buttonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextActionPerformed
         //this.tableLevel.getColumnModel().getColumn(0).setHeaderValue("TESTE");
         if(this.countLevel == 36){
             this.buttonNext.setEnabled(false);
-        }else{
-            this.begin += 6;
-            this.end += 6;
         }
+        this.begin += 6;
+        this.end += 6;
+        
         this.buttonPrevious.setEnabled(true);
         this.countLevel += 6;
         injectTable();
@@ -272,6 +274,7 @@ public class MenuView extends javax.swing.JInternalFrame {
         this.end -= 6;
         
         this.countLevel -= 6;
+        this.buttonNext.setEnabled(true);
         injectTable();
     }//GEN-LAST:event_buttonPreviousActionPerformed
 

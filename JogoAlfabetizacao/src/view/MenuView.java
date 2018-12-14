@@ -33,6 +33,8 @@ public class MenuView extends javax.swing.JInternalFrame {
         this.group.add(this.radioMedium);
         this.group.add(this.radioHard);
         this.buttonBegin.setEnabled(false);
+        this.buttonNext.setEnabled(false);
+        this.buttonPrevious.setEnabled(false);
         this.modelDepart = (DefaultTableModel) tableLevel.getModel();
     }
     
@@ -149,8 +151,18 @@ public class MenuView extends javax.swing.JInternalFrame {
 
         buttonNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/next.png"))); // NOI18N
         buttonNext.setToolTipText("");
+        buttonNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNextActionPerformed(evt);
+            }
+        });
 
         buttonPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/previous.png"))); // NOI18N
+        buttonPrevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPreviousActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Noto Sans", 1, 24)); // NOI18N
         jLabel3.setText("ESCOLHA O NÍVEL(Nº) QUE DESEJA:");
@@ -235,7 +247,33 @@ public class MenuView extends javax.swing.JInternalFrame {
 
     private void buttonChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChooseActionPerformed
         injectTable();
+        this.buttonBegin.setEnabled(true);
+        this.buttonNext.setEnabled(true);
     }//GEN-LAST:event_buttonChooseActionPerformed
+
+    private void buttonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextActionPerformed
+        //this.tableLevel.getColumnModel().getColumn(0).setHeaderValue("TESTE");
+        if(this.countLevel == 36){
+            this.buttonNext.setEnabled(false);
+        }else{
+            this.begin += 6;
+            this.end += 6;
+        }
+        this.buttonPrevious.setEnabled(true);
+        this.countLevel += 6;
+        injectTable();
+    }//GEN-LAST:event_buttonNextActionPerformed
+
+    private void buttonPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPreviousActionPerformed
+        if(this.countLevel == 6){
+            this.buttonPrevious.setEnabled(false);
+        }
+        this.begin -= 6;
+        this.end -= 6;
+        
+        this.countLevel -= 6;
+        injectTable();
+    }//GEN-LAST:event_buttonPreviousActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

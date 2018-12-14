@@ -21,7 +21,6 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 /**
  *
  * @author gabrielstahlberg
-        wordList = new WordListByDifficulty();
  */
 public class MainWindow extends javax.swing.JFrame {
     private Map<Integer, List<String>> datas = new HashMap<>();
@@ -134,6 +133,210 @@ public class MainWindow extends javax.swing.JFrame {
         auxList.add("MULETA");
         auxList.add("TAPETE");
         datas.put(7, auxList);
+        auxList = new ArrayList<>(10);
+
+        auxList.add("BOTA");
+        auxList.add("BOLA");
+        auxList.add("BOCA");
+        auxList.add("BULE");
+        auxList.add("BOLO");
+        auxList.add("BEBÊ");
+        auxList.add("BOI");
+        auxList.add("BODE");
+        auxList.add("BALA");
+        datas.put(8, auxList);
+        auxList = new ArrayList<>(10);
+
+        auxList.add("FACA");
+        auxList.add("FOCA");
+        auxList.add("FADA");
+        auxList.add("BIFE");
+        auxList.add("CAFÉ");
+        auxList.add("FITA");
+        auxList.add("FUBÁ");
+        auxList.add("FIVELA");
+        auxList.add("FUMO");
+        datas.put(9, auxList);
+        auxList = new ArrayList<>(10);
+
+        auxList.add("BANANA");
+        auxList.add("TELEFONE");
+        auxList.add("BONECA");
+        auxList.add("NOVE");
+        auxList.add("CABANA");
+        auxList.add("PENA");
+        auxList.add("CANECA");
+        auxList.add("SINO");
+        auxList.add("CANIVETE");
+        datas.put(10, auxList);
+        auxList = new ArrayList<>(10);
+                
+        auxList.add("JACARÉ");
+        auxList.add("CAJÚ");
+        auxList.add("JANELA");
+        auxList.add("PIJAMA");
+        auxList.add("JACA");
+        auxList.add("JUBA");
+        auxList.add("TIJOLO");
+        auxList.add("JIPE");
+        auxList.add("JAVALI");
+        datas.put(11, auxList);
+        auxList = new ArrayList<>(10);
+        
+        auxList.add("MESA");
+        auxList.add("CASA");
+        auxList.add("CAMISA");
+        auxList.add("VASO");
+        auxList.add("PESO");
+        auxList.add("ROSA");
+        auxList.add("FUSO");
+        auxList.add("RAPOSA");
+        auxList.add("CASACO");
+        datas.put(12, auxList);
+        auxList = new ArrayList<>(10);
+        
+        auxList.add("CHINELO");
+        auxList.add("CHUPETA");
+        auxList.add("CHAVE");
+        auxList.add("CHUVA");
+        auxList.add("MOCHILA");
+        auxList.add("CHICOTE");
+        auxList.add("CHAPÉU");
+        auxList.add("CHAMINÉ");
+        auxList.add("MACHADO");
+        datas.put(13, auxList);
+        auxList = new ArrayList<>(10);
+
+        auxList.add("CABEÇA");
+        auxList.add("LAÇO");
+        auxList.add("FUMAÇA");
+        auxList.add("MOÇA");
+        auxList.add("POÇO");
+        auxList.add("CANIÇO");
+        auxList.add("TAÇA");
+        auxList.add("MAÇO");
+        auxList.add("MAÇANETA");
+        datas.put(14, auxList);
+        auxList = new ArrayList<>(10);
+
+        auxList.add("GALO");
+        auxList.add("FOGO");
+        auxList.add("GATO");
+        auxList.add("GADO");
+        auxList.add("FIGO");
+        auxList.add("LAGO");
+        auxList.add("GAVETA");
+        auxList.add("GORRO");
+        auxList.add("COGUMELO");
+        datas.put(15, auxList);
+        auxList = new ArrayList<>(10);
+
+        auxList.add("PÊRA");
+        auxList.add("CORUJA");
+        auxList.add("PARAFUSO");
+        auxList.add("ARADO");
+        auxList.add("MURO");
+        auxList.add("VARA");
+        auxList.add("PICARETA");
+        auxList.add("ABÓBORA");
+        auxList.add("CHARUTO");
+        datas.put(16, auxList);
+        auxList = new ArrayList<>(10);
+
+        auxList.add("TRIGO");
+        auxList.add("CRAVO");
+        auxList.add("PRATO");
+        auxList.add("LIVRO");
+        auxList.add("BRAÇO");
+        auxList.add("GRUTA");
+        auxList.add("GRAVATA");
+        auxList.add("GRAMA");
+        auxList.add("VIDRAÇA");
+        datas.put(17, auxList);
+        auxList = new ArrayList<>(10);
+
+        auxList.add("GIRAFA");
+        auxList.add("MÁGICO");
+        auxList.add("GELO");
+        auxList.add("JILO");
+        auxList.add("GILETE");
+        auxList.add("GEMA");
+        auxList.add("GELATINA");
+        auxList.add("GIRINO");
+        auxList.add("-----");
+        datas.put(18, auxList);
+        auxList = new ArrayList<>(10);
+
+        auxList.add("-----");
+        auxList.add("-----");
+        auxList.add("-----");
+        auxList.add("-----");
+        auxList.add("-----");
+        auxList.add("-----");
+        auxList.add("-----");
+        auxList.add("-----");
+        auxList.add("-----");
+        datas.put(19, auxList);
+        auxList = new ArrayList<>(10);
+
+        auxList.add("BORBOLETA");
+        auxList.add("PORCO");
+        auxList.add("MARTELO");
+        auxList.add("ÁRVORE");
+        auxList.add("TARTARUGA");
+        auxList.add("FORMIGA");
+        auxList.add("PORTA");
+        auxList.add("ARCO");
+        auxList.add("MARGARIDA");
+        datas.put(20, auxList);
+        auxList = new ArrayList<>(10);
+
+        auxList.add("BICICLETA");
+        auxList.add("PLACA");
+        auxList.add("BLUSA");
+        auxList.add("GLOBO");
+        auxList.add("GLACÊ");
+        auxList.add("CLAVE");
+        auxList.add("ATLETA");
+        auxList.add("PLUMA");
+        auxList.add("FLÂMULA");
+        datas.put(21, auxList);   
+        auxList = new ArrayList<>(10);
+        
+        auxList.add("CENOURA");
+        auxList.add("RELÓGIO");
+        auxList.add("TESOURA");
+        auxList.add("OITO");
+        auxList.add("BALEIA");
+        auxList.add("FLAUTA");
+        auxList.add("MOEDA");
+        auxList.add("CANÔA");
+        auxList.add("GAIOLA");
+        datas.put(22, auxList);   
+        auxList = new ArrayList<>(10);
+
+        auxList.add("ESCADA");
+        auxList.add("CASTELO");
+        auxList.add("DOIS");
+        auxList.add("ESTRELA");
+        auxList.add("DISCO");
+        auxList.add("ESCOVA");
+        auxList.add("TRÊS");
+        auxList.add("PISTA");
+        auxList.add("SEIS");
+        datas.put(23, auxList);   
+        auxList = new ArrayList<>(10);
+
+        auxList.add("MORANGO");
+        auxList.add("PENTE");
+        auxList.add("ONÇA");
+        auxList.add("CINCO");
+        auxList.add("BANDEIRA");
+        auxList.add("PINTO");
+        auxList.add("BANCO");
+        auxList.add("TENDA");
+        auxList.add("BENGALA");
+        datas.put(24, auxList);      
     }
 
     public JButton getButtonExit() {

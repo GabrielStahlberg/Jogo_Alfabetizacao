@@ -23,6 +23,7 @@ public class MenuView extends javax.swing.JInternalFrame {
     private int end = 7;
     private int max;
     private int countLevel = 0;
+    private int page = 1;
     /**
      * Creates new form MenuView
      */
@@ -71,8 +72,17 @@ public class MenuView extends javax.swing.JInternalFrame {
         }        
     }
     
-    private void renameColumns(String n1, String n2, String n3, String n4, String n5, String n6){
-        
+    private void renameColumns(){
+        int numberOfColumns = this.tableLevel.getColumnCount();
+        List<String> names = new ArrayList<>(10);
+        if(numberOfColumns > 0){
+            this.modelDepart = new DefaultTableModel();
+            this.tableLevel.setModel(modelDepart);
+        }
+        names = mainWindow.getColumnsName().get(this.page);
+        for(int i=0; i<6; i++){
+            this.modelDepart.addColumn(names.get(i));
+        }
     }
 
     /**
@@ -242,12 +252,7 @@ public class MenuView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChooseActionPerformed
-        modelDepart.addColumn("VOGAIS & P-V-R");
-        modelDepart.addColumn("S-E ACENTO AGUDO");
-        modelDepart.addColumn("L");
-        modelDepart.addColumn("D");
-        modelDepart.addColumn("C");
-        modelDepart.addColumn("M");
+        renameColumns();
         injectTable();
         if(!this.buttonNext.isEnabled() && this.countLevel != 42){
             this.buttonNext.setEnabled(true);
@@ -256,7 +261,9 @@ public class MenuView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_buttonChooseActionPerformed
 
     private void buttonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextActionPerformed
+        this.page++;
         //this.tableLevel.getColumnModel().getColumn(0).setHeaderValue("TESTE");
+        renameColumns();
         if(this.countLevel == 36){
             this.buttonNext.setEnabled(false);
         }
@@ -269,6 +276,8 @@ public class MenuView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_buttonNextActionPerformed
 
     private void buttonPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPreviousActionPerformed
+        this.page--;
+        renameColumns();
         if(this.countLevel == 6){
             this.buttonPrevious.setEnabled(false);
         }

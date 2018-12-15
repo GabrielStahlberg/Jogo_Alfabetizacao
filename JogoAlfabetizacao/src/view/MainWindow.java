@@ -52,7 +52,9 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonHome.setEnabled(false);
         this.buttonMenu.setEnabled(false);
     }
-    
+    /**
+     * ADICIONA TODOS OS NOMES DAS COLUNAS, REFERENTE AOS SEUS RESPECTIVOS NÍVEIS.
+     */
     private void injectColumnsName(){
         auxListColumns.add("VOGAIS & P-V-R");
         auxListColumns.add("S-E & ACENTO AGUDO");
@@ -126,6 +128,9 @@ public class MainWindow extends javax.swing.JFrame {
         this.columnsName.put(8, auxListColumns);         
     }
     
+    /**
+     * ADICIONA TODAS AS PALAVRAS EM SEUS RESPECTIVOS NÍVEIS
+     */
     private void injectDatas(){        
         auxListDatas.add("REI");
         auxListDatas.add("UVA");

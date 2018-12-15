@@ -29,14 +29,15 @@ public class StartView extends javax.swing.JInternalFrame {
         
     }
  
-    
+    /**
+     * EXECUTA UMA MÚSICA
+     */
     private void startSound(){
         URL som = MainWindow.class.getResource("resources/startSound.wav");
         this.sound = Applet.newAudioClip(som);
         this.sound.loop();
     }
     
-
 
     /**
      * This method is called from within the constructor to initialize the form.

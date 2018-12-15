@@ -39,6 +39,9 @@ public class MenuView extends javax.swing.JInternalFrame {
         this.modelDepart = (DefaultTableModel) tableLevel.getModel();
     }
     
+    /**
+     * POPULA TODA A TABELA
+     */
     private void injectTable(){
         List<String> wordsByRow = new ArrayList<>(10);
         modelDepart.setRowCount(0);
@@ -55,10 +58,7 @@ public class MenuView extends javax.swing.JInternalFrame {
         }else{
             this.max = 9;
         }
-        /*
-            O primeiro for() é para percorrer as 9 palavras que tem por nível
-            O secundo for() é para pegar a palavra da linha correspondente que dos 6 níveis possíveis 
-        */
+
         for(int k=0; k<this.max; k++){
             for(int i=begin; i<end; i++){
                 this.words = this.mainWindow.getDatas(i);

@@ -70,6 +70,10 @@ public class MenuView extends javax.swing.JInternalFrame {
             wordsByRow.clear();
         }        
     }
+    
+    private void renameColumns(String n1, String n2, String n3, String n4, String n5, String n6){
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -107,17 +111,9 @@ public class MenuView extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Vogais & P-V-R", "S-E acento agudo", "L", "D", "C", "M"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, true, true, true, true
-            };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
             }
-        });
+        ));
         tableLevel.setEnabled(false);
         tableLevel.setRowSelectionAllowed(false);
         jScrollPane1.setViewportView(tableLevel);
@@ -246,6 +242,12 @@ public class MenuView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChooseActionPerformed
+        modelDepart.addColumn("VOGAIS & P-V-R");
+        modelDepart.addColumn("S-E ACENTO AGUDO");
+        modelDepart.addColumn("L");
+        modelDepart.addColumn("D");
+        modelDepart.addColumn("C");
+        modelDepart.addColumn("M");
         injectTable();
         if(!this.buttonNext.isEnabled() && this.countLevel != 42){
             this.buttonNext.setEnabled(true);

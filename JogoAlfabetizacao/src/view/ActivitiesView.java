@@ -37,34 +37,61 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         labelImage = new javax.swing.JLabel();
+        buttonNext = new javax.swing.JButton();
+        buttonPrevious = new javax.swing.JButton();
 
         setMaximizable(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         labelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/rei2.png"))); // NOI18N
 
+        buttonNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/next.png"))); // NOI18N
+        buttonNext.setToolTipText("");
+        buttonNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNextActionPerformed(evt);
+            }
+        });
+
+        buttonPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/previous.png"))); // NOI18N
+        buttonPrevious.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(271, Short.MAX_VALUE)
+                .addGap(22, 22, 22)
+                .addComponent(buttonPrevious)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                .addComponent(buttonNext)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(labelImage)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonPrevious)
+                    .addComponent(buttonNext)
+                    .addComponent(labelImage))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         setBounds(0, 0, 750, 605);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextActionPerformed
+
+    }//GEN-LAST:event_buttonNextActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonNext;
+    private javax.swing.JButton buttonPrevious;
     private javax.swing.JLabel labelImage;
     // End of variables declaration//GEN-END:variables
 }

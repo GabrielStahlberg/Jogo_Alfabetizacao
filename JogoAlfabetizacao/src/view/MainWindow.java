@@ -25,6 +25,7 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 public class MainWindow extends javax.swing.JFrame {
     private Map<Integer, List<String>> datas = new HashMap<>();
     private Map<Integer, List<String>> columnsName = new HashMap<>();
+    private Map<String, String> urlImages = new HashMap<>();
     private List<String> auxListDatas = new ArrayList<>(10);
     private List<String> auxListColumns = new ArrayList<>(10);
 
@@ -769,11 +770,13 @@ public class MainWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Jogo de Alfabetização");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setExtendedState(6);
         setResizable(false);
 
         desktop.setPreferredSize(new java.awt.Dimension(750, 600));
 
         buttonHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/home.png"))); // NOI18N
+        buttonHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonHomeActionPerformed(evt);
@@ -798,6 +801,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel4.setText("ALFABETIZAÇÃO");
 
         buttonExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/exit.png"))); // NOI18N
+        buttonExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonExitActionPerformed(evt);
@@ -805,6 +809,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         buttonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/menu.png"))); // NOI18N
+        buttonMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonMenuActionPerformed(evt);
@@ -879,6 +884,7 @@ public class MainWindow extends javax.swing.JFrame {
         startView.setVisible(true);
         this.desktop.add(startView);
         this.buttonHome.setEnabled(false);
+        this.buttonMenu.setEnabled(false);
     }//GEN-LAST:event_buttonHomeActionPerformed
 
     private void buttonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExitActionPerformed
@@ -893,6 +899,7 @@ public class MainWindow extends javax.swing.JFrame {
         MenuView mv = new MenuView(this);
         mv.setVisible(true);
         this.desktop.add(mv);
+        this.buttonMenu.setEnabled(false);
     }//GEN-LAST:event_buttonMenuActionPerformed
 
     /**

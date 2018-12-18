@@ -8,6 +8,7 @@ package view;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,6 +20,7 @@ public class MenuView extends javax.swing.JInternalFrame {
     private ButtonGroup group = new ButtonGroup();
     private DefaultTableModel modelDepart;
     private List<String> words;
+    private List<String> wordsActivity = new ArrayList<>(10);
     private int begin = 1;
     private int end = 7;
     private int max;
@@ -82,6 +84,28 @@ public class MenuView extends javax.swing.JInternalFrame {
         names = mainWindow.getColumnsName().get(this.page);
         for(int i=0; i<6; i++){
             this.modelDepart.addColumn(names.get(i));
+        }
+    }
+    
+    private void prepareWordsForActivity(){
+        int level;
+        try{
+            level = Integer.parseInt(fieldLevel.getText());
+            if(level > 0 && level < 45){
+                for(int i=0; i<this.max; i++){
+                    this.wordsActivity.add(this.mainWindow.getDatas(level).get(i));
+                }
+                this.mainWindow.getDesktop().removeAll();
+                mainWindow.getButtonHome().setEnabled(true);
+                mainWindow.getButtonMenu().setEnabled(true);
+                ActivitiesView av = new ActivitiesView(this.mainWindow, wordsActivity);
+                av.setVisible(true);
+                this.mainWindow.getDesktop().add(av);
+            }else{
+                JOptionPane.showMessageDialog(null, "Não há dados para esse nível.", null, JOptionPane.INFORMATION_MESSAGE);
+            }
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Insira apenas números.", null, JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -149,6 +173,7 @@ public class MenuView extends javax.swing.JInternalFrame {
         buttonChoose.setBackground(new java.awt.Color(222, 127, 35));
         buttonChoose.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         buttonChoose.setText("ESCOLHER");
+        buttonChoose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonChoose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonChooseActionPerformed(evt);
@@ -157,6 +182,7 @@ public class MenuView extends javax.swing.JInternalFrame {
 
         buttonNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/next.png"))); // NOI18N
         buttonNext.setToolTipText("");
+        buttonNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonNextActionPerformed(evt);
@@ -164,6 +190,7 @@ public class MenuView extends javax.swing.JInternalFrame {
         });
 
         buttonPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/previous.png"))); // NOI18N
+        buttonPrevious.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonPrevious.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonPreviousActionPerformed(evt);
@@ -177,6 +204,12 @@ public class MenuView extends javax.swing.JInternalFrame {
         buttonBegin.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
         buttonBegin.setForeground(new java.awt.Color(253, 251, 251));
         buttonBegin.setText("COMEÇAR");
+        buttonBegin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonBegin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBeginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -288,6 +321,10 @@ public class MenuView extends javax.swing.JInternalFrame {
         this.buttonNext.setEnabled(true);
         injectTable();
     }//GEN-LAST:event_buttonPreviousActionPerformed
+
+    private void buttonBeginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBeginActionPerformed
+        prepareWordsForActivity();
+    }//GEN-LAST:event_buttonBeginActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

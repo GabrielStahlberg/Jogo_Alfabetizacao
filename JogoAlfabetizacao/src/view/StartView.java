@@ -64,6 +64,7 @@ public class StartView extends javax.swing.JInternalFrame {
         buttonPlay.setFont(new java.awt.Font("Noto Sans", 1, 36)); // NOI18N
         buttonPlay.setForeground(new java.awt.Color(253, 251, 251));
         buttonPlay.setText("JOGAR");
+        buttonPlay.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonPlay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonPlayActionPerformed(evt);

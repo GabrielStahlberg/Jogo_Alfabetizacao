@@ -26,8 +26,16 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
         this.pageNow = 1;
         this.buttonPrevious.setEnabled(false);
         
-        labelImage.setIcon(new ImageIcon(getClass().getResource("/view/imagens/" + wordsForActivity.get(pageNow-1) + ".png")));
-        this.labelWordShowed.setText("");        
+        labelImage.setIcon(new ImageIcon(getClass().getResource("/view/resources/noimage.png")));
+        this.labelWordShowed.setText("");
+    }
+    
+    private void reset(){
+        this.labelWordShowed.setText("");
+        this.buttonShowWord.setSelected(false);
+        this.buttonShowImage.setSelected(false);
+        this.buttonShowImage.setText("Exibir imagem");
+        this.buttonShowWord.setText("Exibir palavra");
     }
 
     /**
@@ -45,11 +53,12 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
         buttonSound = new javax.swing.JButton();
         buttonShowWord = new javax.swing.JToggleButton();
         labelWordShowed = new javax.swing.JLabel();
+        buttonShowImage = new javax.swing.JToggleButton();
 
         setMaximizable(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        labelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/rei.png"))); // NOI18N
+        labelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/noimage.png"))); // NOI18N
 
         buttonNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/next.png"))); // NOI18N
         buttonNext.setToolTipText("");
@@ -92,20 +101,23 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
         labelWordShowed.setText("PALAVRA AQUI");
         labelWordShowed.setToolTipText("");
 
+        buttonShowImage.setBackground(new java.awt.Color(51, 0, 204));
+        buttonShowImage.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        buttonShowImage.setForeground(new java.awt.Color(255, 255, 255));
+        buttonShowImage.setText("Exibir imagem");
+        buttonShowImage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonShowImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonShowImageActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(buttonPrevious)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonShowWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonNext)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(labelWordShowed, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -113,7 +125,17 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addComponent(buttonSound)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(buttonPrevious)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonShowImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonShowWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonNext)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
@@ -130,6 +152,8 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
                         .addGap(129, 129, 129)
                         .addComponent(labelWordShowed)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonShowImage, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(buttonNext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonPrevious, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -142,24 +166,22 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
 
     private void buttonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextActionPerformed
         this.pageNow++;
-        labelImage.setIcon(new ImageIcon(getClass().getResource("/view/imagens/" + wordsForActivity.get(pageNow-1) + ".png")));
+        labelImage.setIcon(new ImageIcon(getClass().getResource("/view/resources/noimage.png")));
         if(this.pageNow == this.wordsForActivity.size()){
             this.buttonNext.setEnabled(false);
         }
         this.buttonPrevious.setEnabled(true);
-        this.labelWordShowed.setText("");
-        this.buttonShowWord.setSelected(false);
+        reset();
     }//GEN-LAST:event_buttonNextActionPerformed
 
     private void buttonPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPreviousActionPerformed
         this.pageNow--;
-        labelImage.setIcon(new ImageIcon(getClass().getResource("/view/imagens/" + wordsForActivity.get(pageNow-1) + ".png")));
+        labelImage.setIcon(new ImageIcon(getClass().getResource("/view/resources/noimage.png")));
         if(this.pageNow == 1){
             this.buttonPrevious.setEnabled(false);
         }
         this.buttonNext.setEnabled(true);
-        this.labelWordShowed.setText("");
-        this.buttonShowWord.setSelected(false);
+        reset();
     }//GEN-LAST:event_buttonPreviousActionPerformed
 
     private void buttonSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSoundActionPerformed
@@ -169,15 +191,28 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
     private void buttonShowWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowWordActionPerformed
         if(!this.buttonShowWord.isSelected()){
             this.labelWordShowed.setText("");
+            this.buttonShowWord.setText("Exibir palavra");
         }else{
             this.labelWordShowed.setText(this.wordsForActivity.get(pageNow-1));
+            this.buttonShowWord.setText("Ocultar palavra");
         }
     }//GEN-LAST:event_buttonShowWordActionPerformed
+
+    private void buttonShowImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowImageActionPerformed
+        if(!this.buttonShowImage.isSelected()){
+            this.buttonShowImage.setText("Exibir imagem");
+            labelImage.setIcon(new ImageIcon(getClass().getResource("/view/resources/noimage.png")));
+        }else{
+            labelImage.setIcon(new ImageIcon(getClass().getResource("/view/imagens/" + wordsForActivity.get(pageNow-1) + ".png")));
+            this.buttonShowImage.setText("Ocultar imagem");
+        }
+    }//GEN-LAST:event_buttonShowImageActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonNext;
     private javax.swing.JButton buttonPrevious;
+    private javax.swing.JToggleButton buttonShowImage;
     private javax.swing.JToggleButton buttonShowWord;
     private javax.swing.JButton buttonSound;
     private javax.swing.JLabel labelImage;

@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.net.URL;
 import java.util.List;
 import javax.swing.ImageIcon;
 
@@ -200,7 +203,10 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_buttonPreviousActionPerformed
 
     private void buttonSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSoundActionPerformed
-        
+        //URL som = MainWindow.class.getResource("sounds/" + startSound + ".wav");
+        URL som = MainWindow.class.getResource("sounds/rei.wav");
+        AudioClip sound = Applet.newAudioClip(som);
+        sound.play();
     }//GEN-LAST:event_buttonSoundActionPerformed
 
     private void buttonShowWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowWordActionPerformed

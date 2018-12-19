@@ -27,7 +27,7 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
         this.buttonPrevious.setEnabled(false);
         
         labelImage.setIcon(new ImageIcon(getClass().getResource("/view/imagens/" + wordsForActivity.get(pageNow-1) + ".png")));
-        
+        this.labelWordShowed.setText("");        
     }
 
     /**
@@ -42,6 +42,9 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
         labelImage = new javax.swing.JLabel();
         buttonNext = new javax.swing.JButton();
         buttonPrevious = new javax.swing.JButton();
+        buttonSound = new javax.swing.JButton();
+        buttonShowWord = new javax.swing.JToggleButton();
+        labelWordShowed = new javax.swing.JLabel();
 
         setMaximizable(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -65,27 +68,71 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonSound.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/sound.png"))); // NOI18N
+        buttonSound.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonSound.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSoundActionPerformed(evt);
+            }
+        });
+
+        buttonShowWord.setBackground(new java.awt.Color(51, 0, 204));
+        buttonShowWord.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        buttonShowWord.setForeground(new java.awt.Color(255, 255, 255));
+        buttonShowWord.setText("Exibir palavra");
+        buttonShowWord.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonShowWord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonShowWordActionPerformed(evt);
+            }
+        });
+
+        labelWordShowed.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        labelWordShowed.setText("PALAVRA AQUI");
+        labelWordShowed.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(buttonPrevious)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
-                .addComponent(buttonNext)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(buttonPrevious)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonShowWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonNext)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonSound)
+                        .addGap(64, 64, 64))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(labelWordShowed)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(buttonPrevious)
-                    .addComponent(buttonNext)
-                    .addComponent(labelImage))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(labelImage))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(buttonSound)
+                        .addGap(141, 141, 141)
+                        .addComponent(labelWordShowed)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buttonNext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonPrevious, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonShowWord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -98,7 +145,9 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
         if(this.pageNow == this.wordsForActivity.size()){
             this.buttonNext.setEnabled(false);
         }
-        this.buttonPrevious.setEnabled(true);        
+        this.buttonPrevious.setEnabled(true);
+        this.labelWordShowed.setText("");
+        this.buttonShowWord.setSelected(false);
     }//GEN-LAST:event_buttonNextActionPerformed
 
     private void buttonPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPreviousActionPerformed
@@ -108,12 +157,29 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
             this.buttonPrevious.setEnabled(false);
         }
         this.buttonNext.setEnabled(true);
+        this.labelWordShowed.setText("");
+        this.buttonShowWord.setSelected(false);
     }//GEN-LAST:event_buttonPreviousActionPerformed
+
+    private void buttonSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSoundActionPerformed
+        
+    }//GEN-LAST:event_buttonSoundActionPerformed
+
+    private void buttonShowWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowWordActionPerformed
+        if(!this.buttonShowWord.isSelected()){
+            this.labelWordShowed.setText("");
+        }else{
+            this.labelWordShowed.setText(this.wordsForActivity.get(pageNow-1));
+        }
+    }//GEN-LAST:event_buttonShowWordActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonNext;
     private javax.swing.JButton buttonPrevious;
+    private javax.swing.JToggleButton buttonShowWord;
+    private javax.swing.JButton buttonSound;
     private javax.swing.JLabel labelImage;
+    private javax.swing.JLabel labelWordShowed;
     // End of variables declaration//GEN-END:variables
 }

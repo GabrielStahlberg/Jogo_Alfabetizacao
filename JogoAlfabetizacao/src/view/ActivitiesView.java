@@ -28,6 +28,7 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
         
         labelImage.setIcon(new ImageIcon(getClass().getResource("/view/resources/noimage.png")));
         this.labelWordShowed.setText("");
+        this.labelPages.setText("Página " + this.pageNow + " de " + this.wordsForActivity.size());
     }
     
     private void reset(){
@@ -54,6 +55,7 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
         buttonShowWord = new javax.swing.JToggleButton();
         labelWordShowed = new javax.swing.JLabel();
         buttonShowImage = new javax.swing.JToggleButton();
+        labelPages = new javax.swing.JLabel();
 
         setMaximizable(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -112,6 +114,9 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
             }
         });
 
+        labelPages.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        labelPages.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -126,16 +131,22 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
                         .addGap(69, 69, 69)
                         .addComponent(buttonSound)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(buttonPrevious)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonShowImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonShowWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonNext)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(labelPages)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(buttonShowImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(buttonShowWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonNext)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))))
                 .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
@@ -158,7 +169,9 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
                             .addComponent(buttonNext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonPrevious, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonShowWord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(labelPages)
+                .addContainerGap())
         );
 
         setBounds(0, 0, 750, 605);
@@ -172,6 +185,7 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
         }
         this.buttonPrevious.setEnabled(true);
         reset();
+        this.labelPages.setText("Página " + this.pageNow + " de " + this.wordsForActivity.size());
     }//GEN-LAST:event_buttonNextActionPerformed
 
     private void buttonPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPreviousActionPerformed
@@ -182,6 +196,7 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
         }
         this.buttonNext.setEnabled(true);
         reset();
+        this.labelPages.setText("Página " + this.pageNow + " de " + this.wordsForActivity.size());
     }//GEN-LAST:event_buttonPreviousActionPerformed
 
     private void buttonSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSoundActionPerformed
@@ -216,6 +231,7 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
     private javax.swing.JToggleButton buttonShowWord;
     private javax.swing.JButton buttonSound;
     private javax.swing.JLabel labelImage;
+    private javax.swing.JLabel labelPages;
     private javax.swing.JLabel labelWordShowed;
     // End of variables declaration//GEN-END:variables
 }

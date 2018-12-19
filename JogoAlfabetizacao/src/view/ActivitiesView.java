@@ -87,7 +87,8 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
             }
         });
 
-        labelWordShowed.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        labelWordShowed.setFont(new java.awt.Font("Tahoma", 1, 45)); // NOI18N
+        labelWordShowed.setForeground(new java.awt.Color(255, 0, 0));
         labelWordShowed.setText("PALAVRA AQUI");
         labelWordShowed.setToolTipText("");
 
@@ -107,11 +108,11 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonSound)
-                        .addGap(64, 64, 64))
+                        .addComponent(labelWordShowed, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(labelWordShowed)
+                        .addGap(69, 69, 69)
+                        .addComponent(buttonSound)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
@@ -126,7 +127,7 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(buttonSound)
-                        .addGap(141, 141, 141)
+                        .addGap(129, 129, 129)
                         .addComponent(labelWordShowed)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

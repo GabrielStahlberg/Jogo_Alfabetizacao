@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 public class ActivitiesView extends javax.swing.JInternalFrame {
     private MainWindow mainWindow;
     private List<String> wordsForActivity;
+    private int pageNow;
     /**
      * Creates new form ActivitiesView
      */
@@ -22,8 +23,10 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
         initComponents();
         this.mainWindow = m;
         this.wordsForActivity = wordsList;
+        this.pageNow = 1;
+        this.buttonPrevious.setEnabled(false);
         
-        //labelImage.setIcon(new ImageIcon(getClass().getResource("/view/imagens/rei2.png")));
+        labelImage.setIcon(new ImageIcon(getClass().getResource("/view/imagens/" + wordsForActivity.get(pageNow-1) + ".png")));
         
     }
 
@@ -43,7 +46,7 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        labelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/rei2.png"))); // NOI18N
+        labelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/rei.png"))); // NOI18N
 
         buttonNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/next.png"))); // NOI18N
         buttonNext.setToolTipText("");
@@ -56,6 +59,11 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
 
         buttonPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/previous.png"))); // NOI18N
         buttonPrevious.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonPrevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPreviousActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,8 +93,22 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextActionPerformed
-
+        this.pageNow++;
+        labelImage.setIcon(new ImageIcon(getClass().getResource("/view/imagens/" + wordsForActivity.get(pageNow-1) + ".png")));
+        if(this.pageNow == this.wordsForActivity.size()){
+            this.buttonNext.setEnabled(false);
+        }
+        this.buttonPrevious.setEnabled(true);        
     }//GEN-LAST:event_buttonNextActionPerformed
+
+    private void buttonPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPreviousActionPerformed
+        this.pageNow--;
+        labelImage.setIcon(new ImageIcon(getClass().getResource("/view/imagens/" + wordsForActivity.get(pageNow-1) + ".png")));
+        if(this.pageNow == 1){
+            this.buttonPrevious.setEnabled(false);
+        }
+        this.buttonNext.setEnabled(true);
+    }//GEN-LAST:event_buttonPreviousActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

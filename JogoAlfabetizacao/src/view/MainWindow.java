@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
@@ -822,17 +823,35 @@ public class MainWindow extends javax.swing.JFrame {
     public void setWordsForActivity(List<String> wordsForActivity) {
         this.wordsForActivity = wordsForActivity;
     }
-    
-    
+
+    public int getMax() {
+        return max;
+    }
+
+    public void setMax(int max) {
+        this.max = max;
+    }
     
     private void resetButtonsActivities(){
         this.buttonNext.setEnabled(false);
+        this.buttonShowImage.setSelected(false);
+        this.buttonShowWord.setSelected(false);
         this.buttonPrevious.setEnabled(false);  
         this.buttonShowImage.setEnabled(false);
         this.buttonShowWord.setEnabled(false);
         this.buttonSound.setEnabled(false);
         this.labelPagina.setText("Página ? de ?");
         this.labelPagina.setEnabled(false);
+    }
+    
+    private void resetImageWord(){
+        ActivitiesView activitiesView = this.startView.getMv().getAv();
+        activitiesView.getLabelWordShowed().setText("");
+        activitiesView.getLabelImage().setIcon(new ImageIcon(getClass().getResource("/view/resources/noimage.png")));
+        this.buttonShowImage.setSelected(false);
+        this.buttonShowWord.setSelected(false);
+        this.buttonShowWord.setText("Exibir palavra");
+        this.buttonShowImage.setText("Exibir imagem");
     }
     
     /**
@@ -1024,19 +1043,42 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSoundActionPerformed
 
     private void buttonShowWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowWordActionPerformed
-        
+        ActivitiesView activitiesView = this.startView.getMv().getAv();
+        if(!this.buttonShowWord.isSelected()){
+            this.buttonShowWord.setText("Exibir palavra");
+            activitiesView.getLabelWordShowed().setText("");
+        }else{
+            this.buttonShowWord.setText("Ocultar palavra");
+            activitiesView.getLabelWordShowed().setText(this.wordsForActivity.get(this.pageNow - 1));
+        }
     }//GEN-LAST:event_buttonShowWordActionPerformed
 
     private void buttonShowImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowImageActionPerformed
-        
+        if(!this.buttonShowImage.isSelected()){
+            this.buttonShowImage.setText("Exibir imagem");
+        }else{
+            this.buttonShowImage.setText("Ocultar imagem");
+        }
     }//GEN-LAST:event_buttonShowImageActionPerformed
 
     private void buttonPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPreviousActionPerformed
-        
+        this.pageNow--;
+        resetImageWord();
+        this.labelPagina.setText("Página " + this.pageNow + " de " + this.max);
+        if(this.pageNow == 1){
+            this.buttonPrevious.setEnabled(false);
+        }
+        this.buttonNext.setEnabled(true);
     }//GEN-LAST:event_buttonPreviousActionPerformed
 
     private void buttonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextActionPerformed
         this.buttonPrevious.setEnabled(true);
+        resetImageWord();
+        this.pageNow++;
+        this.labelPagina.setText("Página " + this.pageNow + " de " + this.max);
+        if(this.pageNow == this.max){
+            this.buttonNext.setEnabled(false);
+        }
     }//GEN-LAST:event_buttonNextActionPerformed
 
     /**

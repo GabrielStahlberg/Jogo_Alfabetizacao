@@ -18,15 +18,13 @@ import javax.swing.JLabel;
  */
 public class ActivitiesView extends javax.swing.JInternalFrame {
     private MainWindow mainWindow;
-    private List<String> wordsForActivity;
     private int pageNow;
     /**
      * Creates new form ActivitiesView
      */
-    public ActivitiesView(MainWindow m, List<String> wordsList) {
+    public ActivitiesView(MainWindow m) {
         initComponents();
         this.mainWindow = m;
-        this.wordsForActivity = wordsList;
         this.pageNow = 1;
         //this.buttonPrevious.setEnabled(false);
         

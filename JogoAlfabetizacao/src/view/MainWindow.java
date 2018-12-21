@@ -30,8 +30,11 @@ public class MainWindow extends javax.swing.JFrame {
     private Map<String, String> urlImages = new HashMap<>();
     private List<String> auxListDatas = new ArrayList<>(10);
     private List<String> auxListColumns = new ArrayList<>(10);
-    MenuView mv;
-    StartView startView;
+    private MenuView mv;
+    private StartView startView;
+    private List<String> wordsForActivity;
+    private int max;
+    private int pageNow = 1;
 
     /**
      * Creates new form MainWindow
@@ -59,6 +62,7 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonShowImage.setEnabled(false);
         this.buttonShowWord.setEnabled(false);
         this.buttonSound.setEnabled(false);
+        this.labelPagina.setEnabled(false);
     }
     /**
      * ADICIONA TODOS OS NOMES DAS COLUNAS, REFERENTE AOS SEUS RESPECTIVOS NÍVEIS.
@@ -810,6 +814,16 @@ public class MainWindow extends javax.swing.JFrame {
     public void setLabelPagina(JLabel labelPagina) {
         this.labelPagina = labelPagina;
     }
+
+    public List<String> getWordsForActivity() {
+        return wordsForActivity;
+    }
+
+    public void setWordsForActivity(List<String> wordsForActivity) {
+        this.wordsForActivity = wordsForActivity;
+    }
+    
+    
     
     private void resetButtonsActivities(){
         this.buttonNext.setEnabled(false);
@@ -817,6 +831,8 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonShowImage.setEnabled(false);
         this.buttonShowWord.setEnabled(false);
         this.buttonSound.setEnabled(false);
+        this.labelPagina.setText("Página ? de ?");
+        this.labelPagina.setEnabled(false);
     }
     
     /**
@@ -875,12 +891,22 @@ public class MainWindow extends javax.swing.JFrame {
 
         buttonNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/next.png"))); // NOI18N
         buttonNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNextActionPerformed(evt);
+            }
+        });
 
         buttonPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/previous.png"))); // NOI18N
         buttonPrevious.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonPrevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPreviousActionPerformed(evt);
+            }
+        });
 
         labelPagina.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        labelPagina.setText("Página 1 de 3");
+        labelPagina.setText("Página ? de ?");
 
         buttonSound.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/sound.png"))); // NOI18N
         buttonSound.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -895,12 +921,22 @@ public class MainWindow extends javax.swing.JFrame {
         buttonShowImage.setForeground(new java.awt.Color(255, 255, 255));
         buttonShowImage.setText("Exibir imagem");
         buttonShowImage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonShowImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonShowImageActionPerformed(evt);
+            }
+        });
 
         buttonShowWord.setBackground(new java.awt.Color(51, 0, 204));
         buttonShowWord.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         buttonShowWord.setForeground(new java.awt.Color(255, 255, 255));
         buttonShowWord.setText("Exibir palavra");
         buttonShowWord.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonShowWord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonShowWordActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -916,7 +952,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(buttonMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
                         .addComponent(buttonShowWord)
                         .addGap(18, 18, 18)
                         .addComponent(buttonShowImage)
@@ -984,8 +1020,24 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void buttonSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSoundActionPerformed
         ActivitiesView activitiesView = this.startView.getMv().getAv();        
-        activitiesView.getLabelWordShowed().setText("CHEGUEI AQUI");
+        //activitiesView.getLabelWordShowed().setText("CHEGUEI AQUI");
     }//GEN-LAST:event_buttonSoundActionPerformed
+
+    private void buttonShowWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowWordActionPerformed
+        
+    }//GEN-LAST:event_buttonShowWordActionPerformed
+
+    private void buttonShowImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowImageActionPerformed
+        
+    }//GEN-LAST:event_buttonShowImageActionPerformed
+
+    private void buttonPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPreviousActionPerformed
+        
+    }//GEN-LAST:event_buttonPreviousActionPerformed
+
+    private void buttonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextActionPerformed
+        this.buttonPrevious.setEnabled(true);
+    }//GEN-LAST:event_buttonNextActionPerformed
 
     /**
      * @param args the command line arguments

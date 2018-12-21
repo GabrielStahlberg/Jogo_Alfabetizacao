@@ -49,7 +49,7 @@
                       <Component id="buttonMenu" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="buttonExit" min="-2" pref="60" max="-2" attributes="0"/>
-                      <EmptySpace pref="322" max="32767" attributes="0"/>
+                      <EmptySpace pref="324" max="32767" attributes="0"/>
                       <Component id="buttonShowWord" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="buttonShowImage" min="-2" max="-2" attributes="0"/>
@@ -146,6 +146,9 @@
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonNextActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonPrevious">
       <Properties>
@@ -156,13 +159,16 @@
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPreviousActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelPagina">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="P&#xe1;gina 1 de 3"/>
+        <Property name="text" type="java.lang.String" value="P&#xe1;gina ? de ?"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="buttonSound">
@@ -194,6 +200,9 @@
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonShowImageActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="buttonShowWord">
       <Properties>
@@ -211,6 +220,9 @@
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonShowWordActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

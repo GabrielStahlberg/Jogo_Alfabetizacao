@@ -99,10 +99,9 @@ public class MenuView extends javax.swing.JInternalFrame {
                 this.mainWindow.getDesktop().removeAll();
                 mainWindow.getButtonHome().setEnabled(true);
                 mainWindow.getButtonMenu().setEnabled(true);
-                this.av = new ActivitiesView(this.mainWindow, wordsActivity);
+                this.av = new ActivitiesView(this.mainWindow);
                 this.av.setVisible(true);
                 this.mainWindow.getDesktop().add(av);
-                this.mainWindow.getButtonSound().setEnabled(true);
             }else{
                 JOptionPane.showMessageDialog(null, "Não há dados para esse nível.", null, JOptionPane.INFORMATION_MESSAGE);
             }
@@ -118,7 +117,20 @@ public class MenuView extends javax.swing.JInternalFrame {
     public void setAv(ActivitiesView av) {
         this.av = av;
     }
+
+    public List<String> getWordsActivity() {
+        return wordsActivity;
+    }
     
+    private void prepareComponents(){
+        this.mainWindow.getButtonNext().setEnabled(true);
+        this.mainWindow.getButtonShowImage().setEnabled(true);
+        this.mainWindow.getButtonShowWord().setEnabled(true);
+        this.mainWindow.getButtonSound().setEnabled(true);
+        this.mainWindow.setWordsForActivity(wordsActivity);
+        this.mainWindow.getLabelPagina().setEnabled(true);
+        this.mainWindow.getLabelPagina().setText("Página 1 de " + wordsActivity.size());
+    }
     
 
     /**
@@ -342,6 +354,7 @@ public class MenuView extends javax.swing.JInternalFrame {
 
     private void buttonBeginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBeginActionPerformed
         prepareWordsForActivity();
+        prepareComponents();
     }//GEN-LAST:event_buttonBeginActionPerformed
 
 

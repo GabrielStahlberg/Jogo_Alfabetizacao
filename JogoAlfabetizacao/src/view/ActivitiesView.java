@@ -5,11 +5,6 @@
  */
 package view;
 
-import java.applet.Applet;
-import java.applet.AudioClip;
-import java.net.URL;
-import java.util.List;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**

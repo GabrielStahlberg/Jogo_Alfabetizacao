@@ -1056,10 +1056,13 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonShowWordActionPerformed
 
     private void buttonShowImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowImageActionPerformed
+        ActivitiesView activitiesView = this.startView.getMv().getAv();
         if(!this.buttonShowImage.isSelected()){
             this.buttonShowImage.setText("Exibir imagem");
+            activitiesView.getLabelImage().setIcon(new ImageIcon(getClass().getResource("/view/resources/noimage.png")));
         }else{
             this.buttonShowImage.setText("Ocultar imagem");
+            activitiesView.getLabelImage().setIcon(new ImageIcon(getClass().getResource("/view/imagens/" + this.wordsForActivity.get(this.pageNow - 1) + ".png")));
         }
     }//GEN-LAST:event_buttonShowImageActionPerformed
 

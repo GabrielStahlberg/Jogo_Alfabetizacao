@@ -10,6 +10,7 @@ import java.applet.AudioClip;
 import java.net.URL;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -27,21 +28,39 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
         this.mainWindow = m;
         this.wordsForActivity = wordsList;
         this.pageNow = 1;
-        this.buttonPrevious.setEnabled(false);
+        //this.buttonPrevious.setEnabled(false);
         
         labelImage.setIcon(new ImageIcon(getClass().getResource("/view/resources/noimage.png")));
-        this.labelWordShowed.setText("");
-        this.labelPages.setText("Página " + this.pageNow + " de " + this.wordsForActivity.size());
+        //this.labelWordShowed.setText("");
+        //this.labelPages.setText("Página " + this.pageNow + " de " + this.wordsForActivity.size());
     }
     
-    private void reset(){
-        this.labelWordShowed.setText("");
-        this.buttonShowWord.setSelected(false);
-        this.buttonShowImage.setSelected(false);
-        this.buttonShowImage.setText("Exibir imagem");
-        this.buttonShowWord.setText("Exibir palavra");
+//    private void reset(){
+//        this.labelWordShowed.setText("");
+//        this.buttonShowWord.setSelected(false);
+//        this.buttonShowImage.setSelected(false);
+//        this.buttonShowImage.setText("Exibir imagem");
+//        this.buttonShowWord.setText("Exibir palavra");
+//    }
+
+    public JLabel getLabelImage() {
+        return labelImage;
     }
 
+    public void setLabelImage(JLabel labelImage) {
+        this.labelImage = labelImage;
+    }
+
+    public JLabel getLabelWordShowed() {
+        return labelWordShowed;
+    }
+
+    public void setLabelWordShowed(JLabel labelWordShowed) {
+        this.labelWordShowed = labelWordShowed;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,192 +71,48 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         labelImage = new javax.swing.JLabel();
-        buttonNext = new javax.swing.JButton();
-        buttonPrevious = new javax.swing.JButton();
-        buttonSound = new javax.swing.JButton();
-        buttonShowWord = new javax.swing.JToggleButton();
         labelWordShowed = new javax.swing.JLabel();
-        buttonShowImage = new javax.swing.JToggleButton();
-        labelPages = new javax.swing.JLabel();
 
         setMaximizable(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         labelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/noimage.png"))); // NOI18N
 
-        buttonNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/next.png"))); // NOI18N
-        buttonNext.setToolTipText("");
-        buttonNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonNext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonNextActionPerformed(evt);
-            }
-        });
-
-        buttonPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/previous.png"))); // NOI18N
-        buttonPrevious.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonPrevious.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPreviousActionPerformed(evt);
-            }
-        });
-
-        buttonSound.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/sound.png"))); // NOI18N
-        buttonSound.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonSound.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSoundActionPerformed(evt);
-            }
-        });
-
-        buttonShowWord.setBackground(new java.awt.Color(51, 0, 204));
-        buttonShowWord.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        buttonShowWord.setForeground(new java.awt.Color(255, 255, 255));
-        buttonShowWord.setText("Exibir palavra");
-        buttonShowWord.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonShowWord.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonShowWordActionPerformed(evt);
-            }
-        });
-
         labelWordShowed.setFont(new java.awt.Font("Tahoma", 1, 45)); // NOI18N
         labelWordShowed.setForeground(new java.awt.Color(255, 0, 0));
         labelWordShowed.setText("PALAVRA AQUI");
         labelWordShowed.setToolTipText("");
-
-        buttonShowImage.setBackground(new java.awt.Color(51, 0, 204));
-        buttonShowImage.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        buttonShowImage.setForeground(new java.awt.Color(255, 255, 255));
-        buttonShowImage.setText("Exibir imagem");
-        buttonShowImage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonShowImage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonShowImageActionPerformed(evt);
-            }
-        });
-
-        labelPages.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        labelPages.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelWordShowed, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(buttonSound)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(buttonPrevious)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(labelPages)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(buttonShowImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(buttonShowWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonNext)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))))
+                .addGap(113, 113, 113)
+                .addComponent(labelWordShowed, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
                 .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(labelImage))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(buttonSound)
-                        .addGap(129, 129, 129)
-                        .addComponent(labelWordShowed)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonShowImage, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonNext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonPrevious, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonShowWord, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addComponent(labelPages)
-                .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(262, 262, 262)
+                        .addComponent(labelWordShowed)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        setBounds(0, 0, 750, 605);
+        setBounds(0, 0, 1255, 596);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void buttonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextActionPerformed
-        this.pageNow++;
-        labelImage.setIcon(new ImageIcon(getClass().getResource("/view/resources/noimage.png")));
-        if(this.pageNow == this.wordsForActivity.size()){
-            this.buttonNext.setEnabled(false);
-        }
-        this.buttonPrevious.setEnabled(true);
-        reset();
-        this.labelPages.setText("Página " + this.pageNow + " de " + this.wordsForActivity.size());
-    }//GEN-LAST:event_buttonNextActionPerformed
-
-    private void buttonPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPreviousActionPerformed
-        this.pageNow--;
-        labelImage.setIcon(new ImageIcon(getClass().getResource("/view/resources/noimage.png")));
-        if(this.pageNow == 1){
-            this.buttonPrevious.setEnabled(false);
-        }
-        this.buttonNext.setEnabled(true);
-        reset();
-        this.labelPages.setText("Página " + this.pageNow + " de " + this.wordsForActivity.size());
-    }//GEN-LAST:event_buttonPreviousActionPerformed
-
-    private void buttonSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSoundActionPerformed
-        //URL som = MainWindow.class.getResource("sounds/" + startSound + ".wav");
-        URL som = MainWindow.class.getResource("sounds/rei.wav");
-        AudioClip sound = Applet.newAudioClip(som);
-        sound.play();
-    }//GEN-LAST:event_buttonSoundActionPerformed
-
-    private void buttonShowWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowWordActionPerformed
-        if(!this.buttonShowWord.isSelected()){
-            this.labelWordShowed.setText("");
-            this.buttonShowWord.setText("Exibir palavra");
-        }else{
-            this.labelWordShowed.setText(this.wordsForActivity.get(pageNow-1));
-            this.buttonShowWord.setText("Ocultar palavra");
-        }
-    }//GEN-LAST:event_buttonShowWordActionPerformed
-
-    private void buttonShowImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowImageActionPerformed
-        if(!this.buttonShowImage.isSelected()){
-            this.buttonShowImage.setText("Exibir imagem");
-            labelImage.setIcon(new ImageIcon(getClass().getResource("/view/resources/noimage.png")));
-        }else{
-            labelImage.setIcon(new ImageIcon(getClass().getResource("/view/imagens/" + wordsForActivity.get(pageNow-1) + ".png")));
-            this.buttonShowImage.setText("Ocultar imagem");
-        }
-    }//GEN-LAST:event_buttonShowImageActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonNext;
-    private javax.swing.JButton buttonPrevious;
-    private javax.swing.JToggleButton buttonShowImage;
-    private javax.swing.JToggleButton buttonShowWord;
-    private javax.swing.JButton buttonSound;
     private javax.swing.JLabel labelImage;
-    private javax.swing.JLabel labelPages;
     private javax.swing.JLabel labelWordShowed;
     // End of variables declaration//GEN-END:variables
 }

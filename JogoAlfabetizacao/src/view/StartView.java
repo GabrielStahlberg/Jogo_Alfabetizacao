@@ -18,6 +18,7 @@ import javax.swing.JDesktopPane;
 public class StartView extends javax.swing.JInternalFrame {
      MainWindow mainWindow;
      AudioClip sound;
+     MenuView mv;
     /**
      * Creates new form MenuView
      */
@@ -25,8 +26,6 @@ public class StartView extends javax.swing.JInternalFrame {
         initComponents();
         this.mainWindow = m;
         startSound();
-        
-        
     }
  
     /**
@@ -37,8 +36,14 @@ public class StartView extends javax.swing.JInternalFrame {
         this.sound = Applet.newAudioClip(som);
         this.sound.loop();
     }
-    
 
+    public MenuView getMv() {
+        return mv;
+    }
+
+    public void setMv(MenuView mv) {
+        this.mv = mv;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,17 +53,15 @@ public class StartView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         buttonPlay = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setMaximizable(true);
         setResizable(true);
         setPreferredSize(new java.awt.Dimension(750, 600));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/alfabetizacao-e-letramento.jpg"))); // NOI18N
 
         buttonPlay.setBackground(new java.awt.Color(77, 153, 57));
         buttonPlay.setFont(new java.awt.Font("Noto Sans", 1, 36)); // NOI18N
@@ -77,54 +80,54 @@ public class StartView extends javax.swing.JInternalFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/letra-imagem-animada-1143.gif"))); // NOI18N
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(60, 60, 60)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(60, 60, 60)
-                            .addComponent(jLabel3))
-                        .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGap(45, 45, 45)
-                            .addComponent(jLabel4)
-                            .addGap(185, 185, 185)
-                            .addComponent(buttonPlay, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(69, Short.MAX_VALUE))
+                            .addComponent(jLabel4))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(60, 60, 60)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel2)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(386, 386, 386)
+                                    .addComponent(buttonPlay, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(512, 512, 512)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(125, 125, 125)
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39)
+                .addGap(226, 226, 226)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
                     .addComponent(jLabel3)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(8, 8, 8))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(buttonPlay, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addComponent(buttonPlay, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setBounds(0, 0, 750, 600);
+        setBounds(0, 0, 1255, 596);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlayActionPerformed
         this.mainWindow.getDesktop().removeAll();
         this.sound.stop();
         mainWindow.getButtonHome().setEnabled(true);
-        MenuView mv = new MenuView(this.mainWindow);
+        mv = new MenuView(this.mainWindow);
         mv.setVisible(true);
         this.mainWindow.getDesktop().add(mv);                
     }//GEN-LAST:event_buttonPlayActionPerformed

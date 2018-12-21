@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MenuView extends javax.swing.JInternalFrame {
     private MainWindow mainWindow;
+    ActivitiesView av;
     private ButtonGroup group = new ButtonGroup();
     private DefaultTableModel modelDepart;
     private List<String> words;
@@ -98,9 +99,10 @@ public class MenuView extends javax.swing.JInternalFrame {
                 this.mainWindow.getDesktop().removeAll();
                 mainWindow.getButtonHome().setEnabled(true);
                 mainWindow.getButtonMenu().setEnabled(true);
-                ActivitiesView av = new ActivitiesView(this.mainWindow, wordsActivity);
-                av.setVisible(true);
+                this.av = new ActivitiesView(this.mainWindow, wordsActivity);
+                this.av.setVisible(true);
                 this.mainWindow.getDesktop().add(av);
+                this.mainWindow.getButtonSound().setEnabled(true);
             }else{
                 JOptionPane.showMessageDialog(null, "Não há dados para esse nível.", null, JOptionPane.INFORMATION_MESSAGE);
             }
@@ -108,6 +110,16 @@ public class MenuView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Insira apenas números.", null, JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    public ActivitiesView getAv() {
+        return av;
+    }
+
+    public void setAv(ActivitiesView av) {
+        this.av = av;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -156,22 +168,22 @@ public class MenuView extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(53, 44, 200));
         jLabel2.setText("MENU PRINCIPAL");
 
-        jLabel1.setFont(new java.awt.Font("Noto Sans", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Noto Sans", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(222, 127, 35));
         jLabel1.setText("DIFICULDADE:");
 
-        radioEasy.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        radioEasy.setFont(new java.awt.Font("Noto Sans", 1, 20)); // NOI18N
         radioEasy.setSelected(true);
         radioEasy.setText("FÁCIL");
 
-        radioHard.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        radioHard.setFont(new java.awt.Font("Noto Sans", 1, 20)); // NOI18N
         radioHard.setText("DIFÍCIL");
 
-        radioMedium.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        radioMedium.setFont(new java.awt.Font("Noto Sans", 1, 20)); // NOI18N
         radioMedium.setText("MÉDIO");
 
         buttonChoose.setBackground(new java.awt.Color(222, 127, 35));
-        buttonChoose.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        buttonChoose.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
         buttonChoose.setText("ESCOLHER");
         buttonChoose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonChoose.addActionListener(new java.awt.event.ActionListener() {
@@ -197,7 +209,7 @@ public class MenuView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Noto Sans", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Noto Sans", 1, 30)); // NOI18N
         jLabel3.setText("ESCOLHA O NÍVEL(Nº) QUE DESEJA:");
 
         buttonBegin.setBackground(new java.awt.Color(77, 153, 57));
@@ -218,34 +230,36 @@ public class MenuView extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(buttonPrevious)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(125, 125, 125)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(buttonPrevious)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buttonNext))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(50, 50, 50)
-                                .addComponent(radioEasy)
-                                .addGap(30, 30, 30)
-                                .addComponent(radioMedium)
-                                .addGap(26, 26, 26)
-                                .addComponent(radioHard)
-                                .addGap(48, 48, 48)
-                                .addComponent(buttonChoose))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(fieldLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(buttonBegin))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(31, 31, 31)
+                                    .addComponent(fieldLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(89, 89, 89)
+                                    .addComponent(buttonBegin, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addGap(50, 50, 50)
+                                    .addComponent(radioEasy)
+                                    .addGap(30, 30, 30)
+                                    .addComponent(radioMedium)
+                                    .addGap(26, 26, 26)
+                                    .addComponent(radioHard)
+                                    .addGap(76, 76, 76)
+                                    .addComponent(buttonChoose))))))
+                .addContainerGap(209, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,30 +272,34 @@ public class MenuView extends javax.swing.JInternalFrame {
                         .addComponent(radioEasy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(radioHard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(radioMedium, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonChoose))
+                        .addComponent(buttonChoose, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(fieldLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonBegin))
-                        .addContainerGap(77, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(buttonPrevious)
-                                .addGap(231, 231, 231))
+                                .addGap(94, 94, 94))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(buttonNext)
-                                .addGap(229, 229, 229))))))
+                                .addGap(92, 92, 92)))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonBegin, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fieldLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47))))
         );
 
-        setBounds(0, 0, 750, 605);
+        setBounds(0, 0, 1255, 596);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChooseActionPerformed

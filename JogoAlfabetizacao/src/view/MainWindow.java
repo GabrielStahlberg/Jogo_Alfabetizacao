@@ -13,7 +13,9 @@ import java.util.List;
 import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JToggleButton;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
@@ -28,6 +30,8 @@ public class MainWindow extends javax.swing.JFrame {
     private Map<String, String> urlImages = new HashMap<>();
     private List<String> auxListDatas = new ArrayList<>(10);
     private List<String> auxListColumns = new ArrayList<>(10);
+    MenuView mv;
+    StartView startView;
 
     /**
      * Creates new form MainWindow
@@ -44,14 +48,17 @@ public class MainWindow extends javax.swing.JFrame {
         }
         injectDatas();
         injectColumnsName();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        this.labelDate.setText(LocalDate.now().format(formatter));
-        StartView startView = new StartView(this);
+        startView = new StartView(this);
         startView.setVisible(true);
         desktop.add(startView);
         
         this.buttonHome.setEnabled(false);
         this.buttonMenu.setEnabled(false);
+        this.buttonNext.setEnabled(false);
+        this.buttonPrevious.setEnabled(false);
+        this.buttonShowImage.setEnabled(false);
+        this.buttonShowWord.setEnabled(false);
+        this.buttonSound.setEnabled(false);
     }
     /**
      * ADICIONA TODOS OS NOMES DAS COLUNAS, REFERENTE AOS SEUS RESPECTIVOS NÍVEIS.
@@ -747,6 +754,70 @@ public class MainWindow extends javax.swing.JFrame {
     public Map<Integer, List<String>> getColumnsName() {
         return columnsName;
     }
+
+    public Map<String, String> getUrlImages() {
+        return urlImages;
+    }
+
+    public void setUrlImages(Map<String, String> urlImages) {
+        this.urlImages = urlImages;
+    }
+
+    public JButton getButtonNext() {
+        return buttonNext;
+    }
+
+    public void setButtonNext(JButton buttonNext) {
+        this.buttonNext = buttonNext;
+    }
+
+    public JButton getButtonPrevious() {
+        return buttonPrevious;
+    }
+
+    public void setButtonPrevious(JButton buttonPrevious) {
+        this.buttonPrevious = buttonPrevious;
+    }
+
+    public JToggleButton getButtonShowImage() {
+        return buttonShowImage;
+    }
+
+    public void setButtonShowImage(JToggleButton buttonShowImage) {
+        this.buttonShowImage = buttonShowImage;
+    }
+
+    public JToggleButton getButtonShowWord() {
+        return buttonShowWord;
+    }
+
+    public void setButtonShowWord(JToggleButton buttonShowWord) {
+        this.buttonShowWord = buttonShowWord;
+    }
+
+    public JButton getButtonSound() {
+        return buttonSound;
+    }
+
+    public void setButtonSound(JButton buttonSound) {
+        this.buttonSound = buttonSound;
+    }
+
+    public JLabel getLabelPagina() {
+        return labelPagina;
+    }
+
+    public void setLabelPagina(JLabel labelPagina) {
+        this.labelPagina = labelPagina;
+    }
+    
+    private void resetButtonsActivities(){
+        this.buttonNext.setEnabled(false);
+        this.buttonPrevious.setEnabled(false);  
+        this.buttonShowImage.setEnabled(false);
+        this.buttonShowWord.setEnabled(false);
+        this.buttonSound.setEnabled(false);
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -759,13 +830,14 @@ public class MainWindow extends javax.swing.JFrame {
 
         desktop = new javax.swing.JDesktopPane();
         buttonHome = new javax.swing.JButton();
-        labelDate = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         buttonExit = new javax.swing.JButton();
         buttonMenu = new javax.swing.JButton();
+        buttonNext = new javax.swing.JButton();
+        buttonPrevious = new javax.swing.JButton();
+        labelPagina = new javax.swing.JLabel();
+        buttonSound = new javax.swing.JButton();
+        buttonShowImage = new javax.swing.JToggleButton();
+        buttonShowWord = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Jogo de Alfabetização");
@@ -785,23 +857,6 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        labelDate.setFont(new java.awt.Font("Noto Sans", 3, 30)); // NOI18N
-        labelDate.setText("10/12/2018");
-
-        jLabel1.setFont(new java.awt.Font("Noto Sans", 3, 30)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(205, 58, 58));
-        jLabel1.setText("ATIVIDADES");
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/iconfinder_letter_ABC_1553073.png"))); // NOI18N
-
-        jLabel2.setFont(new java.awt.Font("Noto Sans", 3, 30)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(205, 58, 58));
-        jLabel2.setText("DE");
-
-        jLabel4.setFont(new java.awt.Font("Noto Sans", 3, 30)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(205, 58, 58));
-        jLabel4.setText("ALFABETIZAÇÃO");
-
         buttonExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/exit.png"))); // NOI18N
         buttonExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonExit.addActionListener(new java.awt.event.ActionListener() {
@@ -818,76 +873,95 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        buttonNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/next.png"))); // NOI18N
+        buttonNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        buttonPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/previous.png"))); // NOI18N
+        buttonPrevious.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelPagina.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        labelPagina.setText("Página 1 de 3");
+
+        buttonSound.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/sound.png"))); // NOI18N
+        buttonSound.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonSound.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSoundActionPerformed(evt);
+            }
+        });
+
+        buttonShowImage.setBackground(new java.awt.Color(51, 0, 204));
+        buttonShowImage.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        buttonShowImage.setForeground(new java.awt.Color(255, 255, 255));
+        buttonShowImage.setText("Exibir imagem");
+        buttonShowImage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        buttonShowWord.setBackground(new java.awt.Color(51, 0, 204));
+        buttonShowWord.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        buttonShowWord.setForeground(new java.awt.Color(255, 255, 255));
+        buttonShowWord.setText("Exibir palavra");
+        buttonShowWord.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(desktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(desktop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(99, 99, 99)
-                                        .addComponent(jLabel2))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(27, 27, 27)
-                                        .addComponent(jLabel1)))
-                                .addGap(22, 22, 22))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(labelDate, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(51, 51, 51))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(buttonHome)
-                                .addGap(18, 18, 18)
-                                .addComponent(buttonMenu)
-                                .addGap(14, 14, 14)
-                                .addComponent(buttonExit)
-                                .addContainerGap())))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(buttonHome, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
+                        .addComponent(buttonShowWord)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonShowImage)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonSound)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonPrevious)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelPagina)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonNext))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(desktop, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(desktop, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
-                        .addGap(38, 38, 38)
-                        .addComponent(labelDate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(54, 54, 54)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonExit)
-                            .addComponent(buttonMenu)
-                            .addComponent(buttonHome))))
-                .addContainerGap())
+                        .addComponent(labelPagina, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(3, 3, 3))
+                    .addComponent(buttonHome, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(buttonMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(buttonExit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(buttonNext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonPrevious, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonShowWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonShowImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonSound, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        setSize(new java.awt.Dimension(1040, 630));
+        setSize(new java.awt.Dimension(1266, 689));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHomeActionPerformed
         this.desktop.removeAll();
-        StartView startView = new StartView(this);
-        startView.setVisible(true);
+        this.startView = new StartView(this);
+        this.startView.setVisible(true);
         this.desktop.add(startView);
         this.buttonHome.setEnabled(false);
         this.buttonMenu.setEnabled(false);
+        
+        resetButtonsActivities();
     }//GEN-LAST:event_buttonHomeActionPerformed
 
     private void buttonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExitActionPerformed
@@ -899,11 +973,19 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void buttonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMenuActionPerformed
         this.desktop.removeAll();
-        MenuView mv = new MenuView(this);
-        mv.setVisible(true);
+        this.mv = new MenuView(this);
+        this.mv.setVisible(true);
+        this.startView.setMv(this.mv);
         this.desktop.add(mv);
         this.buttonMenu.setEnabled(false);
+        
+        resetButtonsActivities();
     }//GEN-LAST:event_buttonMenuActionPerformed
+
+    private void buttonSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSoundActionPerformed
+        ActivitiesView activitiesView = this.startView.getMv().getAv();        
+        activitiesView.getLabelWordShowed().setText("CHEGUEI AQUI");
+    }//GEN-LAST:event_buttonSoundActionPerformed
 
     /**
      * @param args the command line arguments
@@ -944,11 +1026,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton buttonExit;
     private javax.swing.JButton buttonHome;
     private javax.swing.JButton buttonMenu;
+    private javax.swing.JButton buttonNext;
+    private javax.swing.JButton buttonPrevious;
+    private javax.swing.JToggleButton buttonShowImage;
+    private javax.swing.JToggleButton buttonShowWord;
+    private javax.swing.JButton buttonSound;
     private javax.swing.JDesktopPane desktop;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel labelDate;
+    private javax.swing.JLabel labelPagina;
     // End of variables declaration//GEN-END:variables
 }

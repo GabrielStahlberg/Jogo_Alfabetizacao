@@ -5,8 +5,7 @@
  */
 package view;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -856,6 +855,44 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonShowImage.setText("Exibir imagem");
     }
     
+    private int prepareFontByWordLength(String word){
+        int wordLength = word.length();
+        int fontSize;
+        switch(wordLength){
+            case 2:
+                fontSize = 300;
+                break;
+            case 3:
+                fontSize = 300;
+                break;
+            case 4:
+                fontSize = 223;
+                break;
+            case 5:
+                fontSize = 173;
+                break;
+            case 6:
+                fontSize = 153;
+                break;
+            case 7:
+                fontSize = 133;
+                break;
+            case 8:
+                fontSize = 108;
+                break;
+            case 9:
+                fontSize = 98;
+                break;
+            case 10:
+                fontSize = 75;
+                break;
+            default:
+                fontSize = 80;
+                break;
+        }
+        return fontSize;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1046,11 +1083,16 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void buttonShowWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowWordActionPerformed
         ActivitiesView activitiesView = this.startView.getMv().getAv();
+        int fontSize;
+        //labelWordShowed.setFont(new java.awt.Font("Tahoma", 1, 300));
+        
         if(!this.buttonShowWord.isSelected()){
             this.buttonShowWord.setText("Exibir palavra");
             activitiesView.getLabelWordShowed().setText("");
         }else{
             this.buttonShowWord.setText("Ocultar palavra");
+            fontSize = prepareFontByWordLength(this.wordsForActivity.get(this.pageNow - 1));
+            activitiesView.getLabelWordShowed().setFont(new Font("Tahoma", 1, fontSize));
             activitiesView.getLabelWordShowed().setText(this.wordsForActivity.get(this.pageNow - 1));
         }
     }//GEN-LAST:event_buttonShowWordActionPerformed

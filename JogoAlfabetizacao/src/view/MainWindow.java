@@ -842,6 +842,8 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonSound.setEnabled(false);
         this.labelPagina.setText("Página ? de ?");
         this.labelPagina.setEnabled(false);
+        
+        this.pageNow = 1;
     }
     
     private void resetImageWord(){

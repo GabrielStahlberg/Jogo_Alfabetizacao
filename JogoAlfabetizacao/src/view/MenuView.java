@@ -99,9 +99,10 @@ public class MenuView extends javax.swing.JInternalFrame {
                 this.mainWindow.getDesktop().removeAll();
                 mainWindow.getButtonHome().setEnabled(true);
                 mainWindow.getButtonMenu().setEnabled(true);
-                this.av = new ActivitiesView(this.mainWindow);
+                this.av = new ActivitiesView();
                 this.av.setVisible(true);
                 this.mainWindow.getDesktop().add(av);
+                prepareComponents();
             }else{
                 JOptionPane.showMessageDialog(null, "Não há dados para esse nível.", null, JOptionPane.INFORMATION_MESSAGE);
             }
@@ -355,7 +356,6 @@ public class MenuView extends javax.swing.JInternalFrame {
 
     private void buttonBeginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBeginActionPerformed
         prepareWordsForActivity();
-        prepareComponents();
     }//GEN-LAST:event_buttonBeginActionPerformed
 
 

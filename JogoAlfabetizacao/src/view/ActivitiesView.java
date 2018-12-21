@@ -17,29 +17,12 @@ import javax.swing.JLabel;
  * @author gabri
  */
 public class ActivitiesView extends javax.swing.JInternalFrame {
-    private MainWindow mainWindow;
-    private int pageNow;
     /**
      * Creates new form ActivitiesView
      */
-    public ActivitiesView(MainWindow m) {
+    public ActivitiesView() {
         initComponents();
-        this.mainWindow = m;
-        this.pageNow = 1;
-        //this.buttonPrevious.setEnabled(false);
-        
-        labelImage.setIcon(new ImageIcon(getClass().getResource("/view/resources/noimage.png")));
-        //this.labelWordShowed.setText("");
-        //this.labelPages.setText("Página " + this.pageNow + " de " + this.wordsForActivity.size());
     }
-    
-//    private void reset(){
-//        this.labelWordShowed.setText("");
-//        this.buttonShowWord.setSelected(false);
-//        this.buttonShowImage.setSelected(false);
-//        this.buttonShowImage.setText("Exibir imagem");
-//        this.buttonShowWord.setText("Exibir palavra");
-//    }
 
     public JLabel getLabelImage() {
         return labelImage;

@@ -17,6 +17,7 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
      */
     public ActivitiesView() {
         initComponents();
+        this.labelWordShowed.setText("");
     }
 
     public JLabel getLabelImage() {
@@ -56,7 +57,7 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
 
         labelWordShowed.setFont(new java.awt.Font("Tahoma", 1, 300)); // NOI18N
         labelWordShowed.setForeground(new java.awt.Color(255, 0, 0));
-        labelWordShowed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelWordShowed.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelWordShowed.setText("REI");
         labelWordShowed.setToolTipText("");
 

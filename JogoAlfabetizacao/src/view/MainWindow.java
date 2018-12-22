@@ -63,6 +63,8 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonShowWord.setEnabled(false);
         this.buttonSound.setEnabled(false);
         this.labelPagina.setEnabled(false);
+        this.buttonAlert.setEnabled(false);
+        this.buttonAnagram.setEnabled(false);
     }
     /**
      * ADICIONA TODOS OS NOMES DAS COLUNAS, REFERENTE AOS SEUS RESPECTIVOS NÍVEIS.
@@ -863,7 +865,7 @@ public class MainWindow extends javax.swing.JFrame {
                 fontSize = 300;
                 break;
             case 3:
-                fontSize = 300;
+                fontSize = 280;
                 break;
             case 4:
                 fontSize = 223;
@@ -912,6 +914,8 @@ public class MainWindow extends javax.swing.JFrame {
         buttonSound = new javax.swing.JButton();
         buttonShowImage = new javax.swing.JToggleButton();
         buttonShowWord = new javax.swing.JToggleButton();
+        buttonAnagram = new javax.swing.JButton();
+        buttonAlert = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Jogo de Alfabetização");
@@ -996,6 +1000,22 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        buttonAnagram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/anagrama.png"))); // NOI18N
+        buttonAnagram.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonAnagram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAnagramActionPerformed(evt);
+            }
+        });
+
+        buttonAlert.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/alerta.png"))); // NOI18N
+        buttonAlert.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonAlert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAlertActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1010,7 +1030,11 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(buttonMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                        .addComponent(buttonAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonAnagram, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(buttonShowWord)
                         .addGap(18, 18, 18)
                         .addComponent(buttonShowImage)
@@ -1038,9 +1062,11 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(buttonExit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(buttonNext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonPrevious, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonShowWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonShowImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonSound, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(buttonSound, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonShowWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonAnagram, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(buttonAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
         setSize(new java.awt.Dimension(1266, 689));
@@ -1077,14 +1103,12 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonMenuActionPerformed
 
     private void buttonSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSoundActionPerformed
-        ActivitiesView activitiesView = this.startView.getMv().getAv();        
-        //activitiesView.getLabelWordShowed().setText("CHEGUEI AQUI");
+        ActivitiesView activitiesView = this.startView.getMv().getAv(); 
     }//GEN-LAST:event_buttonSoundActionPerformed
 
     private void buttonShowWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowWordActionPerformed
         ActivitiesView activitiesView = this.startView.getMv().getAv();
         int fontSize;
-        //labelWordShowed.setFont(new java.awt.Font("Tahoma", 1, 300));
         
         if(!this.buttonShowWord.isSelected()){
             this.buttonShowWord.setText("Exibir palavra");
@@ -1128,6 +1152,14 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonNextActionPerformed
 
+    private void buttonAlertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAlertActionPerformed
+        
+    }//GEN-LAST:event_buttonAlertActionPerformed
+
+    private void buttonAnagramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAnagramActionPerformed
+        
+    }//GEN-LAST:event_buttonAnagramActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1164,6 +1196,8 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonAlert;
+    private javax.swing.JButton buttonAnagram;
     private javax.swing.JButton buttonExit;
     private javax.swing.JButton buttonHome;
     private javax.swing.JButton buttonMenu;

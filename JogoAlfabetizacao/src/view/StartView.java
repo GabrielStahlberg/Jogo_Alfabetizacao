@@ -25,7 +25,7 @@ public class StartView extends javax.swing.JInternalFrame {
     public StartView(MainWindow m) {
         initComponents();
         this.mainWindow = m;
-        startSound();
+        //startSound();
     }
  
     /**
@@ -125,7 +125,7 @@ public class StartView extends javax.swing.JInternalFrame {
 
     private void buttonPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlayActionPerformed
         this.mainWindow.getDesktop().removeAll();
-        this.sound.stop();
+        //this.sound.stop();
         mainWindow.getButtonHome().setEnabled(true);
         mv = new MenuView(this.mainWindow);
         mv.setVisible(true);

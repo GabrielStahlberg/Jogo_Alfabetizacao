@@ -831,6 +831,22 @@ public class MainWindow extends javax.swing.JFrame {
     public void setMax(int max) {
         this.max = max;
     }
+
+    public JButton getButtonAlert() {
+        return buttonAlert;
+    }
+
+    public void setButtonAlert(JButton buttonAlert) {
+        this.buttonAlert = buttonAlert;
+    }
+
+    public JButton getButtonAnagram() {
+        return buttonAnagram;
+    }
+
+    public void setButtonAnagram(JButton buttonAnagram) {
+        this.buttonAnagram = buttonAnagram;
+    }
     
     private void resetButtonsActivities(){
         this.buttonNext.setEnabled(false);

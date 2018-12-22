@@ -132,6 +132,8 @@ public class MenuView extends javax.swing.JInternalFrame {
         this.mainWindow.setMax(wordsActivity.size());
         this.mainWindow.getLabelPagina().setEnabled(true);
         this.mainWindow.getLabelPagina().setText("Página 1 de " + wordsActivity.size());
+        this.mainWindow.getButtonAlert().setEnabled(true);
+        this.mainWindow.getButtonAnagram().setEnabled(true);
     }
     
 

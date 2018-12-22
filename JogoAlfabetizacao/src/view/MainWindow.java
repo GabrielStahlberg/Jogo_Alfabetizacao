@@ -46,7 +46,6 @@ public class MainWindow extends javax.swing.JFrame {
             UIManager.setLookAndFeel(NimbusLookAndFeel.class.getName());
         }
         catch(UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-           // handle exception
            e.printStackTrace();
         }
         injectDatas();
@@ -850,7 +849,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void resetImageWord(){
         ActivitiesView activitiesView = this.startView.getMv().getAv();
         activitiesView.getLabelWordShowed().setText("");
-        activitiesView.getLabelImage().setIcon(new ImageIcon(getClass().getResource("/view/resources/noimage.png")));
+        activitiesView.getLabelImage().setIcon(null);
         this.buttonShowImage.setSelected(false);
         this.buttonShowWord.setSelected(false);
         this.buttonShowWord.setText("Exibir palavra");
@@ -1125,7 +1124,7 @@ public class MainWindow extends javax.swing.JFrame {
         ActivitiesView activitiesView = this.startView.getMv().getAv();
         if(!this.buttonShowImage.isSelected()){
             this.buttonShowImage.setText("Exibir imagem");
-            activitiesView.getLabelImage().setIcon(new ImageIcon(getClass().getResource("/view/resources/noimage.png")));
+            activitiesView.getLabelImage().setIcon(null);
         }else{
             this.buttonShowImage.setText("Ocultar imagem");
             activitiesView.getLabelImage().setIcon(new ImageIcon(getClass().getResource("/view/imagens/" + this.wordsForActivity.get(this.pageNow - 1) + ".png")));

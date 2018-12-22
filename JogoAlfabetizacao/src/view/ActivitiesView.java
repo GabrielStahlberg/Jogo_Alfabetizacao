@@ -18,6 +18,7 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
     public ActivitiesView() {
         initComponents();
         this.labelWordShowed.setText("");
+        this.labelImage.setText("");
     }
 
     public JLabel getLabelImage() {
@@ -53,7 +54,8 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        labelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/noimage.png"))); // NOI18N
+        labelImage.setText("1");
+        labelImage.setToolTipText("");
 
         labelWordShowed.setFont(new java.awt.Font("Tahoma", 1, 300)); // NOI18N
         labelWordShowed.setForeground(new java.awt.Color(255, 0, 0));
@@ -82,7 +84,7 @@ public class ActivitiesView extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(152, 152, 152)
                         .addComponent(labelWordShowed, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
 
         setBounds(0, 0, 1255, 596);

@@ -103,6 +103,7 @@ public class MenuView extends javax.swing.JInternalFrame {
                 this.av.setVisible(true);
                 this.mainWindow.getDesktop().add(av);
                 prepareComponents();
+                this.mainWindow.setMv(this);
             }else{
                 JOptionPane.showMessageDialog(null, "Não há dados para esse nível.", null, JOptionPane.INFORMATION_MESSAGE);
             }

@@ -847,6 +847,15 @@ public class MainWindow extends javax.swing.JFrame {
     public void setButtonAnagram(JButton buttonAnagram) {
         this.buttonAnagram = buttonAnagram;
     }
+
+    public MenuView getMv() {
+        return mv;
+    }
+
+    public void setMv(MenuView mv) {
+        this.mv = mv;
+    }
+    
     
     private void resetButtonsActivities(){
         this.buttonNext.setEnabled(false);
@@ -870,6 +879,14 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonShowWord.setSelected(false);
         this.buttonShowWord.setText("Exibir palavra");
         this.buttonShowImage.setText("Exibir imagem");
+    }
+    
+    private void resetButtonsAnagram(){
+        this.buttonAnagram.setEnabled(false);
+        this.buttonShowImage.setEnabled(false);
+        this.buttonShowWord.setEnabled(false);
+        this.buttonNext.setEnabled(false);
+        this.buttonPrevious.setEnabled(false);  
     }
     
     private int prepareFontByWordLength(String word){
@@ -910,6 +927,9 @@ public class MainWindow extends javax.swing.JFrame {
         return fontSize;
     }
     
+    private void showActivitiesView(){
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1172,8 +1192,9 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAlertActionPerformed
 
     private void buttonAnagramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAnagramActionPerformed
+        resetButtonsAnagram();
         this.desktop.removeAll();
-        AnagramView anagramView = new AnagramView();
+        AnagramView anagramView = new AnagramView(this);
         anagramView.setVisible(true);
         this.desktop.add(anagramView);
     }//GEN-LAST:event_buttonAnagramActionPerformed

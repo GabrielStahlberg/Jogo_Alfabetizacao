@@ -49,6 +49,9 @@ public class AnagramView extends javax.swing.JInternalFrame {
         jToggleButton12.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jToggleButton12.setText("G");
 
+        setMaximizable(true);
+        setResizable(true);
+
         panelForWord.setBackground(new java.awt.Color(0, 102, 102));
 
         labelWordFormed.setBackground(new java.awt.Color(255, 255, 255));
@@ -64,7 +67,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
             panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelForWordLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelWordFormed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelWordFormed, javax.swing.GroupLayout.DEFAULT_SIZE, 1219, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelForWordLayout.setVerticalGroup(
@@ -77,36 +80,47 @@ public class AnagramView extends javax.swing.JInternalFrame {
 
         buttonLetter1.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter1.setText("G");
+        buttonLetter1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         buttonLetter2.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter2.setText("G");
+        buttonLetter2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         buttonLetter3.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter3.setText("G");
+        buttonLetter3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         buttonLetter4.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter4.setText("G");
+        buttonLetter4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         buttonLetter5.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter5.setText("G");
+        buttonLetter5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         buttonLetter6.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter6.setText("G");
+        buttonLetter6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         buttonLetter7.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter7.setText("G");
+        buttonLetter7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         buttonLetter8.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter8.setText("G");
+        buttonLetter8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         buttonLetter9.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter9.setText("G");
+        buttonLetter9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         buttonLetter10.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter10.setText("G");
+        buttonLetter10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         buttonLetter11.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter11.setText("G");
+        buttonLetter11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,7 +139,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(buttonLetter5)
                 .addGap(18, 18, 18)
-                .addComponent(buttonLetter6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonLetter6)
                 .addGap(18, 18, 18)
                 .addComponent(buttonLetter7)
                 .addGap(18, 18, 18)
@@ -136,7 +150,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
                 .addComponent(buttonLetter10)
                 .addGap(18, 18, 18)
                 .addComponent(buttonLetter11)
-                .addGap(141, 141, 141))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,10 +169,10 @@ public class AnagramView extends javax.swing.JInternalFrame {
                     .addComponent(buttonLetter9)
                     .addComponent(buttonLetter10)
                     .addComponent(buttonLetter11))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        pack();
+        setBounds(0, 0, 1255, 596);
     }// </editor-fold>//GEN-END:initComponents
 
 

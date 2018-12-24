@@ -1172,7 +1172,10 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAlertActionPerformed
 
     private void buttonAnagramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAnagramActionPerformed
-        
+        this.desktop.removeAll();
+        AnagramView anagramView = new AnagramView();
+        anagramView.setVisible(true);
+        this.desktop.add(anagramView);
     }//GEN-LAST:event_buttonAnagramActionPerformed
 
     /**

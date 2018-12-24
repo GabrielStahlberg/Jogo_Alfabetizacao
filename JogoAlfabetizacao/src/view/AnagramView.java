@@ -142,6 +142,14 @@ public class AnagramView extends javax.swing.JInternalFrame {
         this.labelWordFormed = labelWordFormed;
     }
     
+    private void adjustButtons(){
+        this.mainWindow.getButtonNext().setEnabled(true);
+        this.mainWindow.getButtonPrevious().setEnabled(true);
+        this.mainWindow.getButtonShowImage().setEnabled(true);
+        this.mainWindow.getButtonShowWord().setEnabled(true);
+        this.mainWindow.getButtonAnagram().setEnabled(true);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -329,6 +337,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
     private void buttonReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReturnActionPerformed
         this.setVisible(false);
         this.mainWindow.getDesktop().add(this.mainWindow.getMv().getAv());
+        adjustButtons();
     }//GEN-LAST:event_buttonReturnActionPerformed
 
 

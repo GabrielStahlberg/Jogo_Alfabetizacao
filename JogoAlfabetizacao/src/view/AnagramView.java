@@ -6,6 +6,8 @@
 package view;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JToggleButton;
@@ -29,9 +31,20 @@ public class AnagramView extends javax.swing.JInternalFrame {
 
         
     }
+    
+    private List<String> shuffleLetters(){
+        List<String> letters = new ArrayList<>(11);
+        
+        for(int i=0; i<wordToDo.length(); i++){
+            letters.add(Character.toString(this.wordToDo.charAt(i)));
+        }
+        Collections.shuffle(letters);
+        return letters;
+    }
 
     private void adjustComponents(){
         int wordLength = this.wordToDo.length();
+        List<String> letters = shuffleLetters();
         
         buttonsList.add(this.buttonLetter1);
         buttonsList.add(this.buttonLetter2);
@@ -51,7 +64,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
         }
         
         for(int i=0; i<wordLength; i++){
-            this.buttonsList.get(i).setText(Character.toString(this.wordToDo.charAt(i)));
+            this.buttonsList.get(i).setText(letters.get(i));
         }
     }
     

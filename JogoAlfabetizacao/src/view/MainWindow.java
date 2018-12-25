@@ -855,7 +855,14 @@ public class MainWindow extends javax.swing.JFrame {
     public void setMv(MenuView mv) {
         this.mv = mv;
     }
-    
+
+    public int getPageNow() {
+        return pageNow;
+    }
+
+    public void setPageNow(int pageNow) {
+        this.pageNow = pageNow;
+    }
     
     private void resetButtonsActivities(){
         this.buttonNext.setEnabled(false);

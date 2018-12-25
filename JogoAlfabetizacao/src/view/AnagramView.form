@@ -175,7 +175,6 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="buttonLetter2">
@@ -187,7 +186,6 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="buttonLetter3">
@@ -199,7 +197,6 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="buttonLetter4">
@@ -211,7 +208,6 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="buttonLetter5">
@@ -223,7 +219,6 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="buttonLetter6">
@@ -235,7 +230,6 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="buttonLetter7">
@@ -247,7 +241,6 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="buttonLetter8">
@@ -259,7 +252,6 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="buttonLetter9">
@@ -271,7 +263,6 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="buttonLetter10">
@@ -283,7 +274,6 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="buttonLetter11">
@@ -295,7 +285,6 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -7,7 +7,6 @@ package view;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JToggleButton;
 
@@ -18,16 +17,22 @@ import javax.swing.JToggleButton;
 public class AnagramView extends javax.swing.JInternalFrame {
     private MainWindow mainWindow;
     private List<JToggleButton> buttonsList = new ArrayList<>(11);
+    private String wordToDo;
     /**
      * Creates new form AnagramView
      */
     public AnagramView(MainWindow m) {
         initComponents();
-        adjustComponents();
         this.mainWindow = m;
+        this.wordToDo = mainWindow.getWordsForActivity().get(mainWindow.getPageNow() - 1);
+        adjustComponents();
+
+        
     }
 
     private void adjustComponents(){
+        int wordLength = this.wordToDo.length();
+        
         buttonsList.add(this.buttonLetter1);
         buttonsList.add(this.buttonLetter2);
         buttonsList.add(this.buttonLetter3);
@@ -40,8 +45,13 @@ public class AnagramView extends javax.swing.JInternalFrame {
         buttonsList.add(this.buttonLetter10);
         buttonsList.add(this.buttonLetter11);
         
-        for(int i=0; i<11; i++){
+        for(int i=wordLength; i<11; i++){
             this.buttonsList.get(i).setText("?");
+            this.buttonsList.get(i).setEnabled(false);
+        }
+        
+        for(int i=0; i<wordLength; i++){
+            this.buttonsList.get(i).setText(Character.toString(this.wordToDo.charAt(i)));
         }
     }
     
@@ -229,57 +239,46 @@ public class AnagramView extends javax.swing.JInternalFrame {
         buttonLetter1.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter1.setText("G");
         buttonLetter1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonLetter1.setEnabled(false);
 
         buttonLetter2.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter2.setText("G");
         buttonLetter2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonLetter2.setEnabled(false);
 
         buttonLetter3.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter3.setText("G");
         buttonLetter3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonLetter3.setEnabled(false);
 
         buttonLetter4.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter4.setText("G");
         buttonLetter4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonLetter4.setEnabled(false);
 
         buttonLetter5.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter5.setText("G");
         buttonLetter5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonLetter5.setEnabled(false);
 
         buttonLetter6.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter6.setText("G");
         buttonLetter6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonLetter6.setEnabled(false);
 
         buttonLetter7.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter7.setText("G");
         buttonLetter7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonLetter7.setEnabled(false);
 
         buttonLetter8.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter8.setText("G");
         buttonLetter8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonLetter8.setEnabled(false);
 
         buttonLetter9.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter9.setText("G");
         buttonLetter9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonLetter9.setEnabled(false);
 
         buttonLetter10.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter10.setText("G");
         buttonLetter10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonLetter10.setEnabled(false);
 
         buttonLetter11.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter11.setText("G");
         buttonLetter11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonLetter11.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

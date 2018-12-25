@@ -894,6 +894,17 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonShowWord.setEnabled(false);
         this.buttonNext.setEnabled(false);
         this.buttonPrevious.setEnabled(false);  
+        this.buttonSound.setEnabled(false);
+    }
+    
+    private void resetButtonsAlert(){
+        this.buttonAlert.setEnabled(false);
+        this.buttonShowImage.setEnabled(false);
+        this.buttonShowWord.setEnabled(false);
+        this.buttonNext.setEnabled(false);
+        this.buttonPrevious.setEnabled(false);  
+        this.buttonAnagram.setEnabled(false);
+        this.buttonSound.setEnabled(false);
     }
     
     private int prepareFontByWordLength(String word){
@@ -1192,7 +1203,11 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonNextActionPerformed
 
     private void buttonAlertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAlertActionPerformed
-        
+        resetButtonsAlert();
+        this.desktop.removeAll();
+        CongratsView congratsView = new CongratsView(this);
+        congratsView.setVisible(true);
+        this.desktop.add(congratsView);
     }//GEN-LAST:event_buttonAlertActionPerformed
 
     private void buttonAnagramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAnagramActionPerformed

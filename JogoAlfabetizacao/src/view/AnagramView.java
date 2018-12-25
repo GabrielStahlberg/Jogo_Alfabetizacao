@@ -7,7 +7,9 @@ package view;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -17,8 +19,10 @@ import javax.swing.JLabel;
  */
 public class AnagramView extends javax.swing.JInternalFrame {
     private MainWindow mainWindow;
-    private List<JButton> buttonsList = new ArrayList<>(11);
+    private List<JButton> listButtons = new ArrayList<>(11);
     private String wordToDo;
+    private int roundNow = 1;
+    private Map<Integer, JButton> pressedButtons = new HashMap<>();
     /**
      * Creates new form AnagramView
      */
@@ -27,8 +31,6 @@ public class AnagramView extends javax.swing.JInternalFrame {
         this.mainWindow = m;
         this.wordToDo = mainWindow.getWordsForActivity().get(mainWindow.getPageNow() - 1);
         adjustComponents();
-
-        
     }
     
     private List<String> shuffleLetters(){
@@ -45,26 +47,26 @@ public class AnagramView extends javax.swing.JInternalFrame {
         int wordLength = this.wordToDo.length();
         List<String> letters = shuffleLetters();
         
-        buttonsList.add(this.buttonLetter1);
-        buttonsList.add(this.buttonLetter2);
-        buttonsList.add(this.buttonLetter3);
-        buttonsList.add(this.buttonLetter4);
-        buttonsList.add(this.buttonLetter5);
-        buttonsList.add(this.buttonLetter6);
-        buttonsList.add(this.buttonLetter7);
-        buttonsList.add(this.buttonLetter8);
-        buttonsList.add(this.buttonLetter9);
-        buttonsList.add(this.buttonLetter10);
-        buttonsList.add(this.buttonLetter11);
+        listButtons.add(this.buttonLetter1);
+        listButtons.add(this.buttonLetter2);
+        listButtons.add(this.buttonLetter3);
+        listButtons.add(this.buttonLetter4);
+        listButtons.add(this.buttonLetter5);
+        listButtons.add(this.buttonLetter6);
+        listButtons.add(this.buttonLetter7);
+        listButtons.add(this.buttonLetter8);
+        listButtons.add(this.buttonLetter9);
+        listButtons.add(this.buttonLetter10);
+        listButtons.add(this.buttonLetter11);
         this.labelWordFormed.setText("");
         
         for(int i=wordLength; i<11; i++){
-            this.buttonsList.get(i).setText("?");
-            this.buttonsList.get(i).setEnabled(false);
+            this.listButtons.get(i).setText("?");
+            this.listButtons.get(i).setEnabled(false);
         }
         
         for(int i=0; i<wordLength; i++){
-            this.buttonsList.get(i).setText(letters.get(i));
+            this.listButtons.get(i).setText(letters.get(i));
         }
     }
 
@@ -128,6 +130,18 @@ public class AnagramView extends javax.swing.JInternalFrame {
         this.mainWindow.getButtonAnagram().setEnabled(true);
     }
     
+    private void actionsByButtons(JButton button){
+        this.pressedButtons.put(this.roundNow++, button);
+        String wordStarted = this.labelWordFormed.getText();
+        String newLetter = button.getText();
+        String newWord = wordStarted + newLetter;
+        this.labelWordFormed.setText(newWord);
+        button.setEnabled(false);
+        
+        this.buttonDelete.setEnabled(true);
+        this.buttonDeleteAll.setEnabled(true);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -142,6 +156,8 @@ public class AnagramView extends javax.swing.JInternalFrame {
         panelForWord = new javax.swing.JPanel();
         labelWordFormed = new javax.swing.JLabel();
         buttonReturn = new javax.swing.JButton();
+        buttonDelete = new javax.swing.JButton();
+        buttonDeleteAll = new javax.swing.JButton();
         buttonLetter11 = new javax.swing.JButton();
         buttonLetter1 = new javax.swing.JButton();
         buttonLetter2 = new javax.swing.JButton();
@@ -181,18 +197,50 @@ public class AnagramView extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonDelete.setBackground(new java.awt.Color(102, 102, 102));
+        buttonDelete.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        buttonDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/delete.png"))); // NOI18N
+        buttonDelete.setText("Apagar");
+        buttonDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonDelete.setEnabled(false);
+        buttonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteActionPerformed(evt);
+            }
+        });
+
+        buttonDeleteAll.setBackground(new java.awt.Color(102, 102, 102));
+        buttonDeleteAll.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        buttonDeleteAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/deleteall.png"))); // NOI18N
+        buttonDeleteAll.setText("Apagar tudo");
+        buttonDeleteAll.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonDeleteAll.setEnabled(false);
+        buttonDeleteAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteAllActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelForWordLayout = new javax.swing.GroupLayout(panelForWord);
         panelForWord.setLayout(panelForWordLayout);
         panelForWordLayout.setHorizontalGroup(
             panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelForWordLayout.createSequentialGroup()
+            .addGroup(panelForWordLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelWordFormed, javax.swing.GroupLayout.DEFAULT_SIZE, 1219, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelForWordLayout.createSequentialGroup()
+                        .addComponent(labelWordFormed, javax.swing.GroupLayout.DEFAULT_SIZE, 1219, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelForWordLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelForWordLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addComponent(buttonDelete)
+                .addGap(18, 18, 18)
+                .addComponent(buttonDeleteAll)
+                .addGap(36, 36, 36))
         );
         panelForWordLayout.setVerticalGroup(
             panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +249,11 @@ public class AnagramView extends javax.swing.JInternalFrame {
                 .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(105, 105, 105)
                 .addComponent(labelWordFormed, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addGroup(panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonDeleteAll)
+                    .addComponent(buttonDelete))
+                .addGap(23, 23, 23))
         );
 
         buttonLetter11.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
@@ -350,7 +402,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
                     .addComponent(buttonLetter8)
                     .addComponent(buttonLetter9)
                     .addComponent(buttonLetter10))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         setBounds(0, 0, 1255, 596);
@@ -363,15 +415,15 @@ public class AnagramView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_buttonReturnActionPerformed
 
     private void buttonLetter1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter1ActionPerformed
-        // TODO add your handling code here:
+        actionsByButtons(this.buttonLetter1);
     }//GEN-LAST:event_buttonLetter1ActionPerformed
 
     private void buttonLetter2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter2ActionPerformed
-        // TODO add your handling code here:
+        actionsByButtons(this.buttonLetter2);
     }//GEN-LAST:event_buttonLetter2ActionPerformed
 
     private void buttonLetter3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter3ActionPerformed
-        // TODO add your handling code here:
+        actionsByButtons(this.buttonLetter3);
     }//GEN-LAST:event_buttonLetter3ActionPerformed
 
     private void buttonLetter4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter4ActionPerformed
@@ -406,8 +458,39 @@ public class AnagramView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonLetter11ActionPerformed
 
+    private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
+        this.pressedButtons.get(this.roundNow - 1).setEnabled(true);
+        this.roundNow--;
+        String wordNow = this.labelWordFormed.getText();
+        int wordNowLength = wordNow.length();
+        String newWord = "";
+        
+        for(int i=0; i<(wordNowLength - 1); i++){
+            newWord = newWord + Character.toString(wordNow.charAt(i));
+        }
+        this.labelWordFormed.setText(newWord);
+        if(this.roundNow == 1){
+            this.buttonDelete.setEnabled(false);
+            this.buttonDeleteAll.setEnabled(false);
+        }        
+    }//GEN-LAST:event_buttonDeleteActionPerformed
+
+    private void buttonDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteAllActionPerformed
+        int wordLength = this.wordToDo.length();
+        for(int i=0; i<wordLength; i++){
+            this.listButtons.get(i).setEnabled(true);
+        }
+        this.labelWordFormed.setText("");
+        if(this.roundNow == 1){
+            this.buttonDelete.setEnabled(false);
+            this.buttonDeleteAll.setEnabled(false);
+        }
+    }//GEN-LAST:event_buttonDeleteAllActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonDelete;
+    private javax.swing.JButton buttonDeleteAll;
     private javax.swing.JButton buttonLetter1;
     private javax.swing.JButton buttonLetter10;
     private javax.swing.JButton buttonLetter11;

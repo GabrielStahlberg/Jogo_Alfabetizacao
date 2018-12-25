@@ -6,11 +6,10 @@
 package view;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JToggleButton;
 
 /**
  *
@@ -18,7 +17,7 @@ import javax.swing.JToggleButton;
  */
 public class AnagramView extends javax.swing.JInternalFrame {
     private MainWindow mainWindow;
-    private List<JToggleButton> buttonsList = new ArrayList<>(11);
+    private List<JButton> buttonsList = new ArrayList<>(11);
     private String wordToDo;
     /**
      * Creates new form AnagramView
@@ -57,6 +56,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
         buttonsList.add(this.buttonLetter9);
         buttonsList.add(this.buttonLetter10);
         buttonsList.add(this.buttonLetter11);
+        this.labelWordFormed.setText("");
         
         for(int i=wordLength; i<11; i++){
             this.buttonsList.get(i).setText("?");
@@ -67,94 +67,49 @@ public class AnagramView extends javax.swing.JInternalFrame {
             this.buttonsList.get(i).setText(letters.get(i));
         }
     }
-    
-    
-    public JToggleButton getButtonLetter1() {
+
+    public JButton getButtonLetter1() {
         return buttonLetter1;
     }
 
-    public void setButtonLetter1(JToggleButton buttonLetter1) {
-        this.buttonLetter1 = buttonLetter1;
-    }
-
-    public JToggleButton getButtonLetter10() {
+    public JButton getButtonLetter10() {
         return buttonLetter10;
     }
 
-    public void setButtonLetter10(JToggleButton buttonLetter10) {
-        this.buttonLetter10 = buttonLetter10;
-    }
-
-    public JToggleButton getButtonLetter11() {
+    public JButton getButtonLetter11() {
         return buttonLetter11;
     }
 
-    public void setButtonLetter11(JToggleButton buttonLetter11) {
-        this.buttonLetter11 = buttonLetter11;
-    }
-
-    public JToggleButton getButtonLetter2() {
+    public JButton getButtonLetter2() {
         return buttonLetter2;
     }
 
-    public void setButtonLetter2(JToggleButton buttonLetter2) {
-        this.buttonLetter2 = buttonLetter2;
-    }
-
-    public JToggleButton getButtonLetter3() {
+    public JButton getButtonLetter3() {
         return buttonLetter3;
     }
 
-    public void setButtonLetter3(JToggleButton buttonLetter3) {
-        this.buttonLetter3 = buttonLetter3;
-    }
-
-    public JToggleButton getButtonLetter4() {
+    public JButton getButtonLetter4() {
         return buttonLetter4;
     }
 
-    public void setButtonLetter4(JToggleButton buttonLetter4) {
-        this.buttonLetter4 = buttonLetter4;
-    }
-
-    public JToggleButton getButtonLetter5() {
+    public JButton getButtonLetter5() {
         return buttonLetter5;
     }
 
-    public void setButtonLetter5(JToggleButton buttonLetter5) {
-        this.buttonLetter5 = buttonLetter5;
-    }
-
-    public JToggleButton getButtonLetter6() {
+    public JButton getButtonLetter6() {
         return buttonLetter6;
     }
 
-    public void setButtonLetter6(JToggleButton buttonLetter6) {
-        this.buttonLetter6 = buttonLetter6;
-    }
-
-    public JToggleButton getButtonLetter7() {
+    public JButton getButtonLetter7() {
         return buttonLetter7;
     }
 
-    public void setButtonLetter7(JToggleButton buttonLetter7) {
-        this.buttonLetter7 = buttonLetter7;
-    }
-
-    public JToggleButton getButtonLetter8() {
+    public JButton getButtonLetter8() {
         return buttonLetter8;
     }
 
-    public void setButtonLetter8(JToggleButton buttonLetter8) {
-        this.buttonLetter8 = buttonLetter8;
-    }
-
-    public JToggleButton getButtonLetter9() {
+    public JButton getButtonLetter9() {
         return buttonLetter9;
-    }
-
-    public void setButtonLetter9(JToggleButton buttonLetter9) {
-        this.buttonLetter9 = buttonLetter9;
     }
 
     public JLabel getLabelWordFormed() {
@@ -187,17 +142,17 @@ public class AnagramView extends javax.swing.JInternalFrame {
         panelForWord = new javax.swing.JPanel();
         labelWordFormed = new javax.swing.JLabel();
         buttonReturn = new javax.swing.JButton();
-        buttonLetter1 = new javax.swing.JToggleButton();
-        buttonLetter2 = new javax.swing.JToggleButton();
-        buttonLetter3 = new javax.swing.JToggleButton();
-        buttonLetter4 = new javax.swing.JToggleButton();
-        buttonLetter5 = new javax.swing.JToggleButton();
-        buttonLetter6 = new javax.swing.JToggleButton();
-        buttonLetter7 = new javax.swing.JToggleButton();
-        buttonLetter8 = new javax.swing.JToggleButton();
-        buttonLetter9 = new javax.swing.JToggleButton();
-        buttonLetter10 = new javax.swing.JToggleButton();
-        buttonLetter11 = new javax.swing.JToggleButton();
+        buttonLetter11 = new javax.swing.JButton();
+        buttonLetter1 = new javax.swing.JButton();
+        buttonLetter2 = new javax.swing.JButton();
+        buttonLetter3 = new javax.swing.JButton();
+        buttonLetter4 = new javax.swing.JButton();
+        buttonLetter5 = new javax.swing.JButton();
+        buttonLetter6 = new javax.swing.JButton();
+        buttonLetter7 = new javax.swing.JButton();
+        buttonLetter8 = new javax.swing.JButton();
+        buttonLetter9 = new javax.swing.JButton();
+        buttonLetter10 = new javax.swing.JButton();
 
         jToggleButton4.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jToggleButton4.setText("G");
@@ -249,49 +204,104 @@ public class AnagramView extends javax.swing.JInternalFrame {
                 .addContainerGap(159, Short.MAX_VALUE))
         );
 
+        buttonLetter11.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
+        buttonLetter11.setText("G");
+        buttonLetter11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLetter11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLetter11ActionPerformed(evt);
+            }
+        });
+
         buttonLetter1.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter1.setText("G");
         buttonLetter1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLetter1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLetter1ActionPerformed(evt);
+            }
+        });
 
         buttonLetter2.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter2.setText("G");
         buttonLetter2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLetter2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLetter2ActionPerformed(evt);
+            }
+        });
 
         buttonLetter3.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter3.setText("G");
         buttonLetter3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLetter3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLetter3ActionPerformed(evt);
+            }
+        });
 
         buttonLetter4.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter4.setText("G");
         buttonLetter4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLetter4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLetter4ActionPerformed(evt);
+            }
+        });
 
         buttonLetter5.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter5.setText("G");
         buttonLetter5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLetter5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLetter5ActionPerformed(evt);
+            }
+        });
 
         buttonLetter6.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter6.setText("G");
         buttonLetter6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLetter6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLetter6ActionPerformed(evt);
+            }
+        });
 
         buttonLetter7.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter7.setText("G");
         buttonLetter7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLetter7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLetter7ActionPerformed(evt);
+            }
+        });
 
         buttonLetter8.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter8.setText("G");
         buttonLetter8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLetter8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLetter8ActionPerformed(evt);
+            }
+        });
 
         buttonLetter9.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter9.setText("G");
         buttonLetter9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLetter9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLetter9ActionPerformed(evt);
+            }
+        });
 
         buttonLetter10.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
         buttonLetter10.setText("G");
         buttonLetter10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        buttonLetter11.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
-        buttonLetter11.setText("G");
-        buttonLetter11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLetter10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLetter10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -329,6 +339,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
                 .addComponent(panelForWord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonLetter11)
                     .addComponent(buttonLetter1)
                     .addComponent(buttonLetter2)
                     .addComponent(buttonLetter3)
@@ -338,8 +349,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
                     .addComponent(buttonLetter7)
                     .addComponent(buttonLetter8)
                     .addComponent(buttonLetter9)
-                    .addComponent(buttonLetter10)
-                    .addComponent(buttonLetter11))
+                    .addComponent(buttonLetter10))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -352,19 +362,63 @@ public class AnagramView extends javax.swing.JInternalFrame {
         adjustButtons();
     }//GEN-LAST:event_buttonReturnActionPerformed
 
+    private void buttonLetter1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonLetter1ActionPerformed
+
+    private void buttonLetter2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonLetter2ActionPerformed
+
+    private void buttonLetter3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonLetter3ActionPerformed
+
+    private void buttonLetter4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonLetter4ActionPerformed
+
+    private void buttonLetter5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonLetter5ActionPerformed
+
+    private void buttonLetter6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonLetter6ActionPerformed
+
+    private void buttonLetter7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonLetter7ActionPerformed
+
+    private void buttonLetter8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonLetter8ActionPerformed
+
+    private void buttonLetter9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonLetter9ActionPerformed
+
+    private void buttonLetter10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonLetter10ActionPerformed
+
+    private void buttonLetter11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonLetter11ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton buttonLetter1;
-    private javax.swing.JToggleButton buttonLetter10;
-    private javax.swing.JToggleButton buttonLetter11;
-    private javax.swing.JToggleButton buttonLetter2;
-    private javax.swing.JToggleButton buttonLetter3;
-    private javax.swing.JToggleButton buttonLetter4;
-    private javax.swing.JToggleButton buttonLetter5;
-    private javax.swing.JToggleButton buttonLetter6;
-    private javax.swing.JToggleButton buttonLetter7;
-    private javax.swing.JToggleButton buttonLetter8;
-    private javax.swing.JToggleButton buttonLetter9;
+    private javax.swing.JButton buttonLetter1;
+    private javax.swing.JButton buttonLetter10;
+    private javax.swing.JButton buttonLetter11;
+    private javax.swing.JButton buttonLetter2;
+    private javax.swing.JButton buttonLetter3;
+    private javax.swing.JButton buttonLetter4;
+    private javax.swing.JButton buttonLetter5;
+    private javax.swing.JButton buttonLetter6;
+    private javax.swing.JButton buttonLetter7;
+    private javax.swing.JButton buttonLetter8;
+    private javax.swing.JButton buttonLetter9;
     private javax.swing.JButton buttonReturn;
     private javax.swing.JToggleButton jToggleButton12;
     private javax.swing.JToggleButton jToggleButton4;

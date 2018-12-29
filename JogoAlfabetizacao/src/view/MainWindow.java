@@ -352,7 +352,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("GIRAFA");
         auxListDatas.add("MÁGICO");
         auxListDatas.add("GELO");
-        auxListDatas.add("JILO");
+        auxListDatas.add("JILÓ");
         auxListDatas.add("GILETE");
         auxListDatas.add("GEMA");
         auxListDatas.add("GELATINA");
@@ -392,7 +392,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("GLACÊ");
         auxListDatas.add("CLAVE");
         auxListDatas.add("ATLETA");
-        auxListDatas.add("PLUMA");
+        auxListDatas.add("-----");
         auxListDatas.add("FLÂMULA");
         datas.put(21, auxListDatas);   
         auxListDatas = new ArrayList<>(10);
@@ -404,7 +404,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("BALEIA");
         auxListDatas.add("FLAUTA");
         auxListDatas.add("MOEDA");
-        auxListDatas.add("CANÔA");
+        auxListDatas.add("CANOA");
         auxListDatas.add("GAIOLA");
         datas.put(22, auxListDatas);   
         auxListDatas = new ArrayList<>(10);

@@ -200,7 +200,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("CALO");
         auxListDatas.add("SACO");
         auxListDatas.add("PACA");
-        auxListDatas.add("CÔCO");
+        auxListDatas.add("COCO");
         auxListDatas.add("COROA");
         datas.put(5, auxListDatas);
         auxListDatas = new ArrayList<>(10);
@@ -511,7 +511,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("TORRE");
         auxListDatas.add("CORRENTE");
         auxListDatas.add("BURRO");
-        auxListDatas.add("CERRETEL");
+        auxListDatas.add("CARRETEL");
         auxListDatas.add("-----");
         datas.put(31, auxListDatas);   
         auxListDatas = new ArrayList<>(10);
@@ -560,7 +560,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("HOLANDÊS");
         auxListDatas.add("HARMÔNICA");
         auxListDatas.add("HALTERES");
-        auxListDatas.add("HORTÊNCIA");
+        auxListDatas.add("HORTENCIA");
         datas.put(35, auxListDatas);   
         auxListDatas = new ArrayList<>(10);
 
@@ -631,7 +631,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("AVESTRUZ");
         auxListDatas.add("CAPUZ");
         auxListDatas.add("PERDIZ");
-        auxListDatas.add("NÓZ");
+        auxListDatas.add("NOZ");
         auxListDatas.add("DEZ");
         datas.put(41, auxListDatas);   
         auxListDatas = new ArrayList<>(10);
@@ -642,7 +642,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("CAPIM");
         auxListDatas.add("JARDIM");
         auxListDatas.add("VÁGEM");
-        auxListDatas.add("FUDIM");
+        auxListDatas.add("-----");
         auxListDatas.add("UM");
         auxListDatas.add("FOLHAGEM");
         datas.put(42, auxListDatas);   

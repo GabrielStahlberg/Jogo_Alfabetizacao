@@ -90,13 +90,13 @@ public class MainWindow extends javax.swing.JFrame {
         auxListColumns.add("CH");
         auxListColumns.add("Ç");
         auxListColumns.add("G");
-        auxListColumns.add("R FRACO");
+        auxListColumns.add("R-FRACO");
         auxListColumns.add("TR, PR, CR");
         auxListColumns.add("G COM E-I");
         this.columnsName.put(3, auxListColumns);
         auxListColumns = new ArrayList<>(10);       
 
-        auxListColumns.add("-----");
+        auxListColumns.add("C COM E-I");
         auxListColumns.add("AR, ER, OR");
         auxListColumns.add("CONSOANTE MAIS L");
         auxListColumns.add("ENCONTRO VOCÁLICO");
@@ -118,22 +118,22 @@ public class MainWindow extends javax.swing.JFrame {
         auxListColumns.add("R-FINAL");
         auxListColumns.add("QUE-QUI");
         auxListColumns.add("QUA");
-        auxListColumns.add("-----");
-        auxListColumns.add("-----");
+        auxListColumns.add("H");
+        auxListColumns.add("A-ÃO");
         this.columnsName.put(6, auxListColumns);
         auxListColumns = new ArrayList<>(10);
         
-        auxListColumns.add("-----");
-        auxListColumns.add("-----");
-        auxListColumns.add("-----");
-        auxListColumns.add("-----");
+        auxListColumns.add("GUE-GUI");
+        auxListColumns.add("GUA");
+        auxListColumns.add("Z");
+        auxListColumns.add("X COM SOM DE CH");
         auxListColumns.add("Z-FINAL");
         auxListColumns.add("M-FINAL");
         this.columnsName.put(7, auxListColumns);
         auxListColumns = new ArrayList<>(10);   
 
         auxListColumns.add("X-COM SOM");
-        auxListColumns.add("-----");
+        auxListColumns.add("PALAVRAS COMPOSTAS");
         auxListColumns.add("-----");
         auxListColumns.add("-----");
         auxListColumns.add("-----");
@@ -200,7 +200,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("CALO");
         auxListDatas.add("SACO");
         auxListDatas.add("PACA");
-        auxListDatas.add("COCO");
+        auxListDatas.add("CÔCO");
         auxListDatas.add("COROA");
         datas.put(5, auxListDatas);
         auxListDatas = new ArrayList<>(10);
@@ -361,15 +361,15 @@ public class MainWindow extends javax.swing.JFrame {
         datas.put(18, auxListDatas);
         auxListDatas = new ArrayList<>(10);
 
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
+        auxListDatas.add("CIPÓ");
+        auxListDatas.add("CEPO");
+        auxListDatas.add("CIDADE");
+        auxListDatas.add("BACIA");
+        auxListDatas.add("CINEMA");
+        auxListDatas.add("CEREJA");
+        auxListDatas.add("CAPACETE");
+        auxListDatas.add("CEBOLA");
+        auxListDatas.add("CERA");
         datas.put(19, auxListDatas);
         auxListDatas = new ArrayList<>(10);
 
@@ -392,7 +392,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("GLACÊ");
         auxListDatas.add("CLAVE");
         auxListDatas.add("ATLETA");
-        auxListDatas.add("-----");
+        auxListDatas.add("PLUMA");
         auxListDatas.add("FLÂMULA");
         datas.put(21, auxListDatas);   
         auxListDatas = new ArrayList<>(10);
@@ -438,7 +438,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("CAMPO");
         auxListDatas.add("BUMBO");
         auxListDatas.add("TAMPA");
-        auxListDatas.add("COMPORTA");
+        auxListDatas.add("COMPOTA");
         auxListDatas.add("ROCAMBOLE");
         auxListDatas.add("-----");
         datas.put(25, auxListDatas);   
@@ -500,7 +500,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("MASSA");
         auxListDatas.add("ASSISTÊNCIA");
         auxListDatas.add("BÚSSOLA");
-        auxListDatas.add("-----");
+        auxListDatas.add("MISSA");
         datas.put(30, auxListDatas);   
         auxListDatas = new ArrayList<>(10);
 
@@ -512,7 +512,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("CORRENTE");
         auxListDatas.add("BURRO");
         auxListDatas.add("CARRETEL");
-        auxListDatas.add("-----");
+        auxListDatas.add("CARRO");
         datas.put(31, auxListDatas);   
         auxListDatas = new ArrayList<>(10);
 
@@ -620,7 +620,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("XAROPE");
         auxListDatas.add("CAIXOTE");
         auxListDatas.add("AMEIXA");
-        auxListDatas.add("-----");
+        auxListDatas.add("LIXA");
         datas.put(40, auxListDatas);   
         auxListDatas = new ArrayList<>(10);
 
@@ -641,8 +641,8 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("TREM");
         auxListDatas.add("CAPIM");
         auxListDatas.add("JARDIM");
-        auxListDatas.add("VÁGEM");
-        auxListDatas.add("-----");
+        auxListDatas.add("VAGEM");
+        auxListDatas.add("FUDIM");
         auxListDatas.add("UM");
         auxListDatas.add("FOLHAGEM");
         datas.put(42, auxListDatas);   
@@ -660,15 +660,15 @@ public class MainWindow extends javax.swing.JFrame {
         datas.put(43, auxListDatas);   
         auxListDatas = new ArrayList<>(10);
 
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
-        auxListDatas.add("-----");
+        auxListDatas.add("AMOR-PERFEITO");
+        auxListDatas.add("COUVE-FLOR");
+        auxListDatas.add("PAPAI-NOEL");
+        auxListDatas.add("QUEBRA-LUZ");
+        auxListDatas.add("GUARDA-CHUVA");
+        auxListDatas.add("TICO-TICO");
+        auxListDatas.add("ARCO-ÍRIS");
+        auxListDatas.add("GUARDA-ROUPA");
+        auxListDatas.add("VITÓRIA-RÉGIA");
         datas.put(44, auxListDatas);   
         auxListDatas = new ArrayList<>(10);
 

@@ -642,7 +642,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("CAPIM");
         auxListDatas.add("JARDIM");
         auxListDatas.add("VAGEM");
-        auxListDatas.add("FUDIM");
+        auxListDatas.add("PUDIM");
         auxListDatas.add("UM");
         auxListDatas.add("FOLHAGEM");
         datas.put(42, auxListDatas);   

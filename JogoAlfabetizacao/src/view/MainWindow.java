@@ -1145,6 +1145,8 @@ public class MainWindow extends javax.swing.JFrame {
         this.desktop.add(startView);
         this.buttonHome.setEnabled(false);
         this.buttonMenu.setEnabled(false);
+        this.buttonAlert.setEnabled(false);
+        this.buttonAnagram.setEnabled(false);
         
         resetButtonsActivities();
     }//GEN-LAST:event_buttonHomeActionPerformed

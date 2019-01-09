@@ -94,7 +94,10 @@ public class MenuView extends javax.swing.JInternalFrame {
             level = Integer.parseInt(fieldLevel.getText());
             if(level > 0 && level < 45){
                 for(int i=0; i<this.max; i++){
-                    this.wordsActivity.add(this.mainWindow.getDatas(level).get(i));
+                    String word = this.mainWindow.getDatas(level).get(i);
+                    if(!word.equals("-----")){
+                        this.wordsActivity.add(word);
+                    }
                 }
                 this.mainWindow.getDesktop().removeAll();
                 mainWindow.getButtonHome().setEnabled(true);

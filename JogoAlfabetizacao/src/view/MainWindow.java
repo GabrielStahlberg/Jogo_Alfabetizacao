@@ -5,7 +5,10 @@
  */
 package view;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.Font;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -1153,7 +1156,10 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonMenuActionPerformed
 
     private void buttonSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSoundActionPerformed
-        ActivitiesView activitiesView = this.startView.getMv().getAv(); 
+        ActivitiesView activitiesView = this.startView.getMv().getAv();
+        URL som = getClass().getResource("/view/sounds/" + this.wordsForActivity.get(this.pageNow - 1) + ".wav");
+        AudioClip sound = Applet.newAudioClip(som);
+        sound.play();
     }//GEN-LAST:event_buttonSoundActionPerformed
 
     private void buttonShowWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowWordActionPerformed

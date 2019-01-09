@@ -58,9 +58,12 @@ public class AnagramView extends javax.swing.JInternalFrame {
         listButtons.add(this.buttonLetter9);
         listButtons.add(this.buttonLetter10);
         listButtons.add(this.buttonLetter11);
+        listButtons.add(this.buttonLetter12);
+        listButtons.add(this.buttonLetter13);
+        
         this.labelWordFormed.setText("");
         
-        for(int i=wordLength; i<11; i++){
+        for(int i=wordLength; i<13; i++){
             this.listButtons.get(i).setText("?");
             this.listButtons.get(i).setEnabled(false);
         }
@@ -71,49 +74,65 @@ public class AnagramView extends javax.swing.JInternalFrame {
     }
 
     public JButton getButtonLetter1() {
-        return buttonLetter1;
-    }
-
-    public JButton getButtonLetter10() {
-        return buttonLetter10;
-    }
-
-    public JButton getButtonLetter11() {
-        return buttonLetter11;
-    }
-
-    public JButton getButtonLetter2() {
         return buttonLetter2;
     }
 
-    public JButton getButtonLetter3() {
+    public JButton getButtonLetter10() {
+        return buttonLetter11;
+    }
+
+    public JButton getButtonLetter11() {
+        return buttonLetter12;
+    }
+
+    public JButton getButtonLetter2() {
         return buttonLetter3;
     }
 
-    public JButton getButtonLetter4() {
+    public JButton getButtonLetter3() {
         return buttonLetter4;
     }
 
-    public JButton getButtonLetter5() {
+    public JButton getButtonLetter4() {
         return buttonLetter5;
     }
 
-    public JButton getButtonLetter6() {
+    public JButton getButtonLetter5() {
         return buttonLetter6;
     }
 
-    public JButton getButtonLetter7() {
+    public JButton getButtonLetter6() {
         return buttonLetter7;
     }
 
-    public JButton getButtonLetter8() {
+    public JButton getButtonLetter7() {
         return buttonLetter8;
     }
 
-    public JButton getButtonLetter9() {
+    public JButton getButtonLetter8() {
         return buttonLetter9;
     }
 
+    public JButton getButtonLetter9() {
+        return buttonLetter10;
+    }
+
+    public JButton getButtonLetter12() {
+        return buttonLetter13;
+    }
+
+    public void setButtonLetter12(JButton buttonLetter12) {
+        this.buttonLetter13 = buttonLetter12;
+    }
+
+    public JButton getButtonLetter13() {
+        return buttonLetter1;
+    }
+
+    public void setButtonLetter13(JButton buttonLetter13) {
+        this.buttonLetter1 = buttonLetter13;
+    }
+    
     public JLabel getLabelWordFormed() {
         return labelWordFormed;
     }
@@ -160,8 +179,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
         buttonReturn = new javax.swing.JButton();
         buttonDelete = new javax.swing.JButton();
         buttonDeleteAll = new javax.swing.JButton();
-        buttonLetter11 = new javax.swing.JButton();
-        buttonLetter1 = new javax.swing.JButton();
+        buttonLetter12 = new javax.swing.JButton();
         buttonLetter2 = new javax.swing.JButton();
         buttonLetter3 = new javax.swing.JButton();
         buttonLetter4 = new javax.swing.JButton();
@@ -171,6 +189,9 @@ public class AnagramView extends javax.swing.JInternalFrame {
         buttonLetter8 = new javax.swing.JButton();
         buttonLetter9 = new javax.swing.JButton();
         buttonLetter10 = new javax.swing.JButton();
+        buttonLetter11 = new javax.swing.JButton();
+        buttonLetter13 = new javax.swing.JButton();
+        buttonLetter1 = new javax.swing.JButton();
 
         jToggleButton4.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jToggleButton4.setText("G");
@@ -258,21 +279,12 @@ public class AnagramView extends javax.swing.JInternalFrame {
                 .addGap(23, 23, 23))
         );
 
-        buttonLetter11.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
-        buttonLetter11.setText("G");
-        buttonLetter11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonLetter11.addActionListener(new java.awt.event.ActionListener() {
+        buttonLetter12.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
+        buttonLetter12.setText("G");
+        buttonLetter12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLetter12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonLetter11ActionPerformed(evt);
-            }
-        });
-
-        buttonLetter1.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
-        buttonLetter1.setText("G");
-        buttonLetter1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonLetter1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonLetter1ActionPerformed(evt);
+                buttonLetter12ActionPerformed(evt);
             }
         });
 
@@ -357,13 +369,40 @@ public class AnagramView extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonLetter11.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
+        buttonLetter11.setText("G");
+        buttonLetter11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLetter11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLetter11ActionPerformed(evt);
+            }
+        });
+
+        buttonLetter13.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
+        buttonLetter13.setText("G");
+        buttonLetter13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLetter13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLetter13ActionPerformed(evt);
+            }
+        });
+
+        buttonLetter1.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
+        buttonLetter1.setText("G");
+        buttonLetter1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonLetter1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLetter1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelForWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(114, 114, 114)
+                .addGap(23, 23, 23)
                 .addComponent(buttonLetter1)
                 .addGap(18, 18, 18)
                 .addComponent(buttonLetter2)
@@ -385,6 +424,10 @@ public class AnagramView extends javax.swing.JInternalFrame {
                 .addComponent(buttonLetter10)
                 .addGap(18, 18, 18)
                 .addComponent(buttonLetter11)
+                .addGap(18, 18, 18)
+                .addComponent(buttonLetter12)
+                .addGap(18, 18, 18)
+                .addComponent(buttonLetter13)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -393,8 +436,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
                 .addComponent(panelForWord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonLetter11)
-                    .addComponent(buttonLetter1)
+                    .addComponent(buttonLetter12)
                     .addComponent(buttonLetter2)
                     .addComponent(buttonLetter3)
                     .addComponent(buttonLetter4)
@@ -403,7 +445,10 @@ public class AnagramView extends javax.swing.JInternalFrame {
                     .addComponent(buttonLetter7)
                     .addComponent(buttonLetter8)
                     .addComponent(buttonLetter9)
-                    .addComponent(buttonLetter10))
+                    .addComponent(buttonLetter10)
+                    .addComponent(buttonLetter11)
+                    .addComponent(buttonLetter13)
+                    .addComponent(buttonLetter1))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -416,10 +461,6 @@ public class AnagramView extends javax.swing.JInternalFrame {
         adjustButtons();
     }//GEN-LAST:event_buttonReturnActionPerformed
 
-    private void buttonLetter1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter1ActionPerformed
-        actionsByButtons(this.buttonLetter1);
-    }//GEN-LAST:event_buttonLetter1ActionPerformed
-
     private void buttonLetter2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter2ActionPerformed
         actionsByButtons(this.buttonLetter2);
     }//GEN-LAST:event_buttonLetter2ActionPerformed
@@ -429,36 +470,40 @@ public class AnagramView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_buttonLetter3ActionPerformed
 
     private void buttonLetter4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter4ActionPerformed
-        // TODO add your handling code here:
+        actionsByButtons(this.buttonLetter4);
     }//GEN-LAST:event_buttonLetter4ActionPerformed
 
     private void buttonLetter5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter5ActionPerformed
-        // TODO add your handling code here:
+        actionsByButtons(this.buttonLetter5);
     }//GEN-LAST:event_buttonLetter5ActionPerformed
 
     private void buttonLetter6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter6ActionPerformed
-        // TODO add your handling code here:
+        actionsByButtons(this.buttonLetter6);
     }//GEN-LAST:event_buttonLetter6ActionPerformed
 
     private void buttonLetter7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter7ActionPerformed
-        // TODO add your handling code here:
+        actionsByButtons(this.buttonLetter7);
     }//GEN-LAST:event_buttonLetter7ActionPerformed
 
     private void buttonLetter8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter8ActionPerformed
-        // TODO add your handling code here:
+        actionsByButtons(this.buttonLetter8);
     }//GEN-LAST:event_buttonLetter8ActionPerformed
 
     private void buttonLetter9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter9ActionPerformed
-        // TODO add your handling code here:
+        actionsByButtons(this.buttonLetter9);
     }//GEN-LAST:event_buttonLetter9ActionPerformed
 
     private void buttonLetter10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter10ActionPerformed
-        // TODO add your handling code here:
+        actionsByButtons(this.buttonLetter10);
     }//GEN-LAST:event_buttonLetter10ActionPerformed
 
     private void buttonLetter11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter11ActionPerformed
-        // TODO add your handling code here:
+        actionsByButtons(this.buttonLetter11);
     }//GEN-LAST:event_buttonLetter11ActionPerformed
+
+    private void buttonLetter12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter12ActionPerformed
+        actionsByButtons(this.buttonLetter12);
+    }//GEN-LAST:event_buttonLetter12ActionPerformed
 
     private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
         this.pressedButtons.get(this.roundNow - 1).setEnabled(true);
@@ -489,6 +534,14 @@ public class AnagramView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_buttonDeleteAllActionPerformed
 
+    private void buttonLetter13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter13ActionPerformed
+        actionsByButtons(this.buttonLetter13);
+    }//GEN-LAST:event_buttonLetter13ActionPerformed
+
+    private void buttonLetter1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter1ActionPerformed
+        actionsByButtons(this.buttonLetter1);
+    }//GEN-LAST:event_buttonLetter1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonDelete;
@@ -496,6 +549,8 @@ public class AnagramView extends javax.swing.JInternalFrame {
     private javax.swing.JButton buttonLetter1;
     private javax.swing.JButton buttonLetter10;
     private javax.swing.JButton buttonLetter11;
+    private javax.swing.JButton buttonLetter12;
+    private javax.swing.JButton buttonLetter13;
     private javax.swing.JButton buttonLetter2;
     private javax.swing.JButton buttonLetter3;
     private javax.swing.JButton buttonLetter4;

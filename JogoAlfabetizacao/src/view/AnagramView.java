@@ -34,18 +34,30 @@ public class AnagramView extends javax.swing.JInternalFrame {
     }
     
     private List<String> shuffleLetters(){
-        List<String> letters = new ArrayList<>(11);
         int wordToDoLength = wordToDo.length();
-        
-        if(wordToDoLength == 2){
-            letters.add(Character.toString(this.wordToDo.charAt(1)));
-            letters.add(Character.toString(this.wordToDo.charAt(0)));
-        }else{
-            for(int i=0; i<wordToDoLength; i++){
-                letters.add(Character.toString(this.wordToDo.charAt(i)));
+        List<String> letters;
+        boolean ok;
+        do{
+            letters = new ArrayList<>(11);
+            StringBuffer sb = new StringBuffer();
+            ok = true;
+            if(wordToDoLength == 2){
+                letters.add(Character.toString(this.wordToDo.charAt(1)));
+                letters.add(Character.toString(this.wordToDo.charAt(0)));
+            }else{
+                for(int i=0; i<wordToDoLength; i++){
+                    letters.add(Character.toString(this.wordToDo.charAt(i)));
+                }
+                Collections.shuffle(letters);
             }
-            Collections.shuffle(letters);
-        }
+            for(int g=0; g<letters.size(); g++){
+                sb.append(letters.get(g));
+            }
+            if(sb.toString().equals(this.wordToDo)){
+                ok = false;
+            }
+        }while(!ok);
+    
         return letters;
     }
 

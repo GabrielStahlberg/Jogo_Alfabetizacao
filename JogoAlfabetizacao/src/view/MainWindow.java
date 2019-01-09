@@ -969,6 +969,7 @@ public class MainWindow extends javax.swing.JFrame {
         buttonShowWord = new javax.swing.JToggleButton();
         buttonAnagram = new javax.swing.JButton();
         buttonAlert = new javax.swing.JButton();
+        buttonInfo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Jogo de Alfabetização");
@@ -1069,6 +1070,14 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        buttonInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/info.png"))); // NOI18N
+        buttonInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonInfoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1083,7 +1092,9 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(buttonMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                         .addComponent(buttonAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(buttonAnagram, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1119,7 +1130,8 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(buttonSound, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonShowWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonAnagram, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(buttonAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(buttonAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(buttonInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
         setSize(new java.awt.Dimension(1266, 689));
@@ -1224,6 +1236,10 @@ public class MainWindow extends javax.swing.JFrame {
         this.desktop.add(anagramView);
     }//GEN-LAST:event_buttonAnagramActionPerformed
 
+    private void buttonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInfoActionPerformed
+        JOptionPane.showMessageDialog(null, "Olá", null, JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_buttonInfoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1264,6 +1280,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton buttonAnagram;
     private javax.swing.JButton buttonExit;
     private javax.swing.JButton buttonHome;
+    private javax.swing.JButton buttonInfo;
     private javax.swing.JButton buttonMenu;
     private javax.swing.JButton buttonNext;
     private javax.swing.JButton buttonPrevious;

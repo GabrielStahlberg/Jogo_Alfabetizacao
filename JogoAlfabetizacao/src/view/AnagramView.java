@@ -35,11 +35,17 @@ public class AnagramView extends javax.swing.JInternalFrame {
     
     private List<String> shuffleLetters(){
         List<String> letters = new ArrayList<>(11);
+        int wordToDoLength = wordToDo.length();
         
-        for(int i=0; i<wordToDo.length(); i++){
-            letters.add(Character.toString(this.wordToDo.charAt(i)));
+        if(wordToDoLength == 2){
+            letters.add(Character.toString(this.wordToDo.charAt(1)));
+            letters.add(Character.toString(this.wordToDo.charAt(0)));
+        }else{
+            for(int i=0; i<wordToDoLength; i++){
+                letters.add(Character.toString(this.wordToDo.charAt(i)));
+            }
+            Collections.shuffle(letters);
         }
-        Collections.shuffle(letters);
         return letters;
     }
 

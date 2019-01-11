@@ -941,8 +941,14 @@ public class MainWindow extends javax.swing.JFrame {
             case 10:
                 fontSize = 75;
                 break;
+            case 11:
+                fontSize = 55;
+                break;
+            case 12:
+                fontSize = 35;
+                break;
             default:
-                fontSize = 80;
+                fontSize = 20;
                 break;
         }
         return fontSize;

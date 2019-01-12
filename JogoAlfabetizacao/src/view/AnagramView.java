@@ -197,6 +197,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
         buttonReturn = new javax.swing.JButton();
         buttonDelete = new javax.swing.JButton();
         buttonDeleteAll = new javax.swing.JButton();
+        buttonConfirm = new javax.swing.JButton();
         buttonLetter12 = new javax.swing.JButton();
         buttonLetter2 = new javax.swing.JButton();
         buttonLetter3 = new javax.swing.JButton();
@@ -262,6 +263,17 @@ public class AnagramView extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonConfirm.setBackground(new java.awt.Color(0, 204, 51));
+        buttonConfirm.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        buttonConfirm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/confirm.png"))); // NOI18N
+        buttonConfirm.setText("Confirmar");
+        buttonConfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonConfirmActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelForWordLayout = new javax.swing.GroupLayout(panelForWord);
         panelForWord.setLayout(panelForWordLayout);
         panelForWordLayout.setHorizontalGroup(
@@ -281,7 +293,9 @@ public class AnagramView extends javax.swing.JInternalFrame {
                 .addComponent(buttonDelete)
                 .addGap(18, 18, 18)
                 .addComponent(buttonDeleteAll)
-                .addGap(36, 36, 36))
+                .addGap(18, 18, 18)
+                .addComponent(buttonConfirm)
+                .addGap(34, 34, 34))
         );
         panelForWordLayout.setVerticalGroup(
             panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,11 +304,12 @@ public class AnagramView extends javax.swing.JInternalFrame {
                 .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(105, 105, 105)
                 .addComponent(labelWordFormed, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonDeleteAll)
-                    .addComponent(buttonDelete))
-                .addGap(23, 23, 23))
+                    .addComponent(buttonDelete)
+                    .addComponent(buttonConfirm))
+                .addGap(27, 27, 27))
         );
 
         buttonLetter12.setFont(new java.awt.Font("Tahoma", 1, 55)); // NOI18N
@@ -560,8 +575,13 @@ public class AnagramView extends javax.swing.JInternalFrame {
         actionsByButtons(this.buttonLetter1);
     }//GEN-LAST:event_buttonLetter1ActionPerformed
 
+    private void buttonConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConfirmActionPerformed
+        
+    }//GEN-LAST:event_buttonConfirmActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonConfirm;
     private javax.swing.JButton buttonDelete;
     private javax.swing.JButton buttonDeleteAll;
     private javax.swing.JButton buttonLetter1;

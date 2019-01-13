@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,6 +23,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
     private List<JButton> listButtons = new ArrayList<>(11);
     private String wordToDo;
     private int roundNow = 1;
+    private int count = 0;
     private Map<Integer, JButton> pressedButtons = new HashMap<>();
     /**
      * Creates new form AnagramView
@@ -169,6 +171,17 @@ public class AnagramView extends javax.swing.JInternalFrame {
         this.mainWindow.getButtonSound().setEnabled(true);
     }
     
+    private void verifyWord(){
+        int wordLength = this.wordToDo.length();
+        
+        if(this.pressedButtons.size() == wordLength){
+            this.buttonConfirm.setEnabled(true);
+            
+            //AJUSTAR AQUI UTILIZANDO A VAR COUNT
+            
+        }
+    }
+    
     private void actionsByButtons(JButton button){
         this.pressedButtons.put(this.roundNow++, button);
         String wordStarted = this.labelWordFormed.getText();
@@ -179,6 +192,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
         
         this.buttonDelete.setEnabled(true);
         this.buttonDeleteAll.setEnabled(true);
+        verifyWord();
     }
     
     /**
@@ -268,6 +282,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
         buttonConfirm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/confirm.png"))); // NOI18N
         buttonConfirm.setText("Confirmar");
         buttonConfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonConfirm.setEnabled(false);
         buttonConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonConfirmActionPerformed(evt);
@@ -552,7 +567,8 @@ public class AnagramView extends javax.swing.JInternalFrame {
         if(this.roundNow == 1){
             this.buttonDelete.setEnabled(false);
             this.buttonDeleteAll.setEnabled(false);
-        }        
+        }
+        this.buttonConfirm.setEnabled(false);
     }//GEN-LAST:event_buttonDeleteActionPerformed
 
     private void buttonDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteAllActionPerformed
@@ -565,6 +581,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
             this.buttonDelete.setEnabled(false);
             this.buttonDeleteAll.setEnabled(false);
         }
+        this.buttonConfirm.setEnabled(false);
     }//GEN-LAST:event_buttonDeleteAllActionPerformed
 
     private void buttonLetter13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter13ActionPerformed

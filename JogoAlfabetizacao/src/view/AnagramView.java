@@ -174,11 +174,8 @@ public class AnagramView extends javax.swing.JInternalFrame {
     private void verifyWord(){
         int wordLength = this.wordToDo.length();
         
-        if(this.pressedButtons.size() == wordLength){
-            this.buttonConfirm.setEnabled(true);
-            
-            //AJUSTAR AQUI UTILIZANDO A VAR COUNT
-            
+        if(this.count == wordLength){
+            this.buttonConfirm.setEnabled(true);            
         }
     }
     
@@ -192,6 +189,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
         
         this.buttonDelete.setEnabled(true);
         this.buttonDeleteAll.setEnabled(true);
+        this.count++;
         verifyWord();
     }
     
@@ -569,6 +567,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
             this.buttonDeleteAll.setEnabled(false);
         }
         this.buttonConfirm.setEnabled(false);
+        this.count--;
     }//GEN-LAST:event_buttonDeleteActionPerformed
 
     private void buttonDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteAllActionPerformed
@@ -582,6 +581,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
             this.buttonDeleteAll.setEnabled(false);
         }
         this.buttonConfirm.setEnabled(false);
+        this.count = 0;
     }//GEN-LAST:event_buttonDeleteAllActionPerformed
 
     private void buttonLetter13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLetter13ActionPerformed

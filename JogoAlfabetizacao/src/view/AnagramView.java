@@ -610,7 +610,11 @@ public class AnagramView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_buttonLetter1ActionPerformed
 
     private void buttonConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConfirmActionPerformed
-        
+        this.mainWindow.resetButtonsAlert();
+        this.mainWindow.getDesktop().removeAll();
+        CongratsView congratsView = new CongratsView(this.mainWindow);
+        congratsView.setVisible(true);
+        this.mainWindow.getDesktop().add(congratsView);
     }//GEN-LAST:event_buttonConfirmActionPerformed
 
 

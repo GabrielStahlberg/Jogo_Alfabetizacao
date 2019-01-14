@@ -900,7 +900,7 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonSound.setEnabled(false);
     }
     
-    private void resetButtonsAlert(){
+    public void resetButtonsAlert(){
         this.buttonAlert.setEnabled(false);
         this.buttonShowImage.setEnabled(false);
         this.buttonShowWord.setEnabled(false);

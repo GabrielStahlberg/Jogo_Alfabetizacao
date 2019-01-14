@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class AnagramView extends javax.swing.JInternalFrame {
     private MainWindow mainWindow;
-    private List<JButton> listButtons = new ArrayList<>(11);
+    private List<JButton> listButtons = new ArrayList<>(13);
     private String wordToDo;
     private int roundNow = 1;
     private int count = 0;
@@ -179,6 +179,16 @@ public class AnagramView extends javax.swing.JInternalFrame {
         }
     }
     
+    private void verifyError(String newWord){
+        int newWordLength = newWord.length();
+        String wordForming = this.wordToDo.substring(0, newWordLength);
+        
+        if(!wordForming.equals(newWord)){
+            JOptionPane.showMessageDialog(null, "OPS! CUIDADO, TENTE NOVAMENTE.", null, 2);
+            delete();
+        }
+    }
+    
     private void actionsByButtons(JButton button){
         this.pressedButtons.put(this.roundNow++, button);
         String wordStarted = this.labelWordFormed.getText();
@@ -189,8 +199,30 @@ public class AnagramView extends javax.swing.JInternalFrame {
         
         this.buttonDelete.setEnabled(true);
         this.buttonDeleteAll.setEnabled(true);
+        
+        verifyError(newWord);
+        
         this.count++;
         verifyWord();
+    }
+    
+    private void delete(){
+        this.pressedButtons.get(this.roundNow - 1).setEnabled(true);
+        this.roundNow--;
+        String wordNow = this.labelWordFormed.getText();
+        int wordNowLength = wordNow.length();
+        String newWord = "";
+        
+        for(int i=0; i<(wordNowLength - 1); i++){
+            newWord = newWord + Character.toString(wordNow.charAt(i));
+        }
+        this.labelWordFormed.setText(newWord);
+        if(this.roundNow == 1){
+            this.buttonDelete.setEnabled(false);
+            this.buttonDeleteAll.setEnabled(false);
+        }
+        this.buttonConfirm.setEnabled(false);
+        this.count--;
     }
     
     /**
@@ -552,22 +584,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_buttonLetter12ActionPerformed
 
     private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
-        this.pressedButtons.get(this.roundNow - 1).setEnabled(true);
-        this.roundNow--;
-        String wordNow = this.labelWordFormed.getText();
-        int wordNowLength = wordNow.length();
-        String newWord = "";
-        
-        for(int i=0; i<(wordNowLength - 1); i++){
-            newWord = newWord + Character.toString(wordNow.charAt(i));
-        }
-        this.labelWordFormed.setText(newWord);
-        if(this.roundNow == 1){
-            this.buttonDelete.setEnabled(false);
-            this.buttonDeleteAll.setEnabled(false);
-        }
-        this.buttonConfirm.setEnabled(false);
-        this.count--;
+        delete();
     }//GEN-LAST:event_buttonDeleteActionPerformed
 
     private void buttonDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteAllActionPerformed

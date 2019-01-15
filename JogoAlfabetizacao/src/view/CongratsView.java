@@ -5,18 +5,34 @@
  */
 package view;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.net.URL;
+
 /**
  *
  * @author gabri
  */
 public class CongratsView extends javax.swing.JInternalFrame {
     private MainWindow mainWindow;
+    AudioClip sound;
     /**
      * Creates new form CongratsView
      */
     public CongratsView(MainWindow m) {
         initComponents();
         this.mainWindow = m;
+        startSound();
+    }
+    
+    private void startSound(){
+        URL wow = MainWindow.class.getResource("resources/wow.wav");
+        this.sound = Applet.newAudioClip(wow);
+        this.sound.play();
+        
+        URL palmas = MainWindow.class.getResource("resources/palmas.wav");
+        this.sound = Applet.newAudioClip(palmas);
+        this.sound.play();
     }
     
     private void adjustButtons(){

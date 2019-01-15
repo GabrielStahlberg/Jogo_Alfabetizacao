@@ -1247,13 +1247,14 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void buttonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInfoActionPerformed
         StringBuffer sb = new StringBuffer();
-        sb.append("Desenvolvido por: Gabriel Stahlberg Oliveira\n");
+        sb.append("Desenvolvido por: Gabriel Stahlberg Oliveira\n\n");
+        sb.append("Data: Janeiro/2019\n\n");
         sb.append("Objetivos: Atender às necessidades de aplicação de atividades para\n");
-        sb.append("pessoas com autimos utilizando a metodologia ABA\n");
+        sb.append("pessoas com autimos utilizando a metodologia ABA\n\n");
         sb.append("Referências:\n");
         sb.append("     https://www.pexels.com \n");
         sb.append("     https://www.shutterstock.com \n");
-        sb.append("     https://www.soarmp3.com \n");
+        sb.append("     https://www.soarmp3.com");
         JOptionPane.showMessageDialog(null, sb.toString(), null, JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_buttonInfoActionPerformed
 

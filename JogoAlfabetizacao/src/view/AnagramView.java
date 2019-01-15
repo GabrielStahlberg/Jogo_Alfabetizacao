@@ -162,8 +162,18 @@ public class AnagramView extends javax.swing.JInternalFrame {
     }
     
     private void adjustButtons(){
-        this.mainWindow.getButtonNext().setEnabled(true);
-        this.mainWindow.getButtonPrevious().setEnabled(true);
+        int max = this.mainWindow.getMax();
+        int pageNow = this.mainWindow.getPageNow();
+        
+        if(pageNow == 1){
+            this.mainWindow.getButtonNext().setEnabled(true);
+        }else if(pageNow == max){
+            this.mainWindow.getButtonPrevious().setEnabled(true);
+        }else{
+            this.mainWindow.getButtonPrevious().setEnabled(true);
+            this.mainWindow.getButtonNext().setEnabled(true);
+        }
+
         this.mainWindow.getButtonShowImage().setEnabled(true);
         this.mainWindow.getButtonShowWord().setEnabled(true);
         this.mainWindow.getButtonAnagram().setEnabled(true);

@@ -328,7 +328,7 @@ public class MainWindow extends javax.swing.JFrame {
         datas.put(15, auxListDatas);
         auxListDatas = new ArrayList<>(10);
 
-        auxListDatas.add("PÊRA");
+        auxListDatas.add("PERA");
         auxListDatas.add("CORUJA");
         auxListDatas.add("PARAFUSO");
         auxListDatas.add("ARADO");

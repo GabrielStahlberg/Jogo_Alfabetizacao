@@ -269,7 +269,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas = new ArrayList<>(10);
                 
         auxListDatas.add("JACARÉ");
-        auxListDatas.add("CAJÚ");
+        auxListDatas.add("CAJU");
         auxListDatas.add("JANELA");
         auxListDatas.add("PIJAMA");
         auxListDatas.add("JACA");
@@ -434,6 +434,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("TENDA");
         auxListDatas.add("BENGALA");
         datas.put(24, auxListDatas);
+        auxListDatas = new ArrayList<>(10);
         
         auxListDatas.add("CACHIMBO");
         auxListDatas.add("LÂMPADA");
@@ -563,7 +564,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("HOLANDÊS");
         auxListDatas.add("HARMÔNICA");
         auxListDatas.add("HALTERES");
-        auxListDatas.add("HORTENCIA");
+        auxListDatas.add("HORTÊNSIA");
         datas.put(35, auxListDatas);   
         auxListDatas = new ArrayList<>(10);
 
@@ -1185,14 +1186,28 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void buttonShowWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowWordActionPerformed
         ActivitiesView activitiesView = this.startView.getMv().getAv();
-        int fontSize;
+        int fontSize = 0;
         
         if(!this.buttonShowWord.isSelected()){
             this.buttonShowWord.setText("Exibir palavra");
             activitiesView.getLabelWordShowed().setText("");
         }else{
             this.buttonShowWord.setText("Ocultar palavra");
-            fontSize = prepareFontByWordLength(this.wordsForActivity.get(this.pageNow - 1));
+            
+            switch (this.wordsForActivity.get(this.pageNow - 1)) {
+                case "MURO":
+                    fontSize = 210;
+                    break;
+                case "MORANGO":
+                    fontSize = 115;
+                    break;
+                case "BOMBOM":
+                    fontSize = 125;
+                    break;
+                default:
+                    fontSize = prepareFontByWordLength(this.wordsForActivity.get(this.pageNow - 1));
+                    break;
+            }
             activitiesView.getLabelWordShowed().setFont(new Font("Tahoma", 1, fontSize));
             activitiesView.getLabelWordShowed().setText(this.wordsForActivity.get(this.pageNow - 1));
         }

@@ -1204,6 +1204,9 @@ public class MainWindow extends javax.swing.JFrame {
                 case "BOMBOM":
                     fontSize = 125;
                     break;
+                case "MACHADO":
+                    fontSize = 115;
+                    break;
                 default:
                     fontSize = prepareFontByWordLength(this.wordsForActivity.get(this.pageNow - 1));
                     break;

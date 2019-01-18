@@ -1272,7 +1272,9 @@ public class MainWindow extends javax.swing.JFrame {
         sb.append("Referências:\n");
         sb.append("     https://www.pexels.com \n");
         sb.append("     https://www.shutterstock.com \n");
-        sb.append("     https://www.soarmp3.com");
+        sb.append("     https://www.soarmp3.com \n");
+        sb.append("     https://www.iconfinder.com");
+        
         JOptionPane.showMessageDialog(null, sb.toString(), null, JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_buttonInfoActionPerformed
 

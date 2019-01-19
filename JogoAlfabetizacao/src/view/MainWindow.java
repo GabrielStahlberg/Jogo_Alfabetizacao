@@ -1179,7 +1179,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void buttonSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSoundActionPerformed
         ActivitiesView activitiesView = this.startView.getMv().getAv();
-        URL som = getClass().getResource("/view/sounds/" + this.wordsForActivity.get(this.pageNow - 1) + ".wav");
+        URL som = getClass().getResource("/view/sounds/" + this.wordsForActivity.get(this.pageNow - 1).toLowerCase() + ".wav");
         AudioClip sound = Applet.newAudioClip(som);
         sound.play();
     }//GEN-LAST:event_buttonSoundActionPerformed
@@ -1223,7 +1223,7 @@ public class MainWindow extends javax.swing.JFrame {
             activitiesView.getLabelImage().setIcon(null);
         }else{
             this.buttonShowImage.setText("Ocultar imagem");
-            activitiesView.getLabelImage().setIcon(new ImageIcon(getClass().getResource("/view/imagens/" + this.wordsForActivity.get(this.pageNow - 1) + ".png")));
+            activitiesView.getLabelImage().setIcon(new ImageIcon(getClass().getResource("/view/imagens/" + this.wordsForActivity.get(this.pageNow - 1).toLowerCase() + ".png")));
         }
     }//GEN-LAST:event_buttonShowImageActionPerformed
 

@@ -1267,8 +1267,6 @@ public class MainWindow extends javax.swing.JFrame {
         StringBuffer sb = new StringBuffer();
         sb.append("Desenvolvido por: Gabriel Stahlberg Oliveira\n\n");
         sb.append("Data: Janeiro/2019\n\n");
-        sb.append("Objetivos: Atender às necessidades de aplicação de atividades para\n");
-        sb.append("pessoas com autimos utilizando a metodologia ABA\n\n");
         sb.append("Referências:\n");
         sb.append("     https://www.pexels.com \n");
         sb.append("     https://www.shutterstock.com \n");

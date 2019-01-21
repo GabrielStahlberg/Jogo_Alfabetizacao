@@ -43,6 +43,7 @@ public class CongratsView extends javax.swing.JInternalFrame {
         this.mainWindow.getButtonAlert().setEnabled(true);
         this.mainWindow.getButtonAnagram().setEnabled(true);
         this.mainWindow.getButtonSound().setEnabled(true);
+        this.mainWindow.getButtonGuess().setEnabled(true);
     }
 
     /**

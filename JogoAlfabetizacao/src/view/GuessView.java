@@ -10,13 +10,24 @@ package view;
  * @author Gabriel Stahlberg
  */
 public class GuessView extends javax.swing.JInternalFrame {
-    private MainWindow mainW;
+    private MainWindow mainWindow;
     /**
      * Creates new form GuessView
      */
     public GuessView(MainWindow m) {
         initComponents();
-        this.mainW = m;
+        this.mainWindow = m;
+    }
+    
+    private void adjustButtons(){
+        this.mainWindow.getButtonNext().setEnabled(true);
+        this.mainWindow.getButtonPrevious().setEnabled(true);
+        this.mainWindow.getButtonShowImage().setEnabled(true);
+        this.mainWindow.getButtonShowWord().setEnabled(true);
+        this.mainWindow.getButtonAlert().setEnabled(true);
+        this.mainWindow.getButtonAnagram().setEnabled(true);
+        this.mainWindow.getButtonGuess().setEnabled(true);
+        this.mainWindow.getButtonSound().setEnabled(true);
     }
 
     /**
@@ -37,6 +48,7 @@ public class GuessView extends javax.swing.JInternalFrame {
         labelWord1 = new javax.swing.JLabel();
         labelWord3 = new javax.swing.JLabel();
         labelWord2 = new javax.swing.JLabel();
+        buttonReturn = new javax.swing.JButton();
 
         setMaximizable(true);
         setResizable(true);
@@ -76,6 +88,15 @@ public class GuessView extends javax.swing.JInternalFrame {
         labelWord2.setText("AMOR-PERFEITO");
         labelWord2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
+        buttonReturn.setBackground(new java.awt.Color(102, 102, 102));
+        buttonReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/return.png"))); // NOI18N
+        buttonReturn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonReturnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,13 +104,10 @@ public class GuessView extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
+                        .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(buttonWord3)
@@ -102,7 +120,12 @@ public class GuessView extends javax.swing.JInternalFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(buttonWord2)
                                 .addGap(37, 37, 37)
-                                .addComponent(labelWord2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(labelWord2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -110,11 +133,17 @@ public class GuessView extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addContainerGap()
+                .addComponent(labelImage, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
+                .addGap(31, 31, 31))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonWord1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(labelWord1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -126,18 +155,21 @@ public class GuessView extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonWord3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(labelWord3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(63, 63, 63))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelImage, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
-                .addGap(31, 31, 31))
+                .addGap(40, 40, 40))
         );
 
         setBounds(0, 0, 1255, 596);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReturnActionPerformed
+        this.setVisible(false);
+        this.mainWindow.getDesktop().add(this.mainWindow.getMv().getAv());
+        adjustButtons();
+    }//GEN-LAST:event_buttonReturnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonReturn;
     private javax.swing.JButton buttonWord1;
     private javax.swing.JButton buttonWord2;
     private javax.swing.JButton buttonWord3;

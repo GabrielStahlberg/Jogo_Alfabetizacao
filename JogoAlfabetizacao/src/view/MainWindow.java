@@ -203,7 +203,7 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas.add("CALO");
         auxListDatas.add("SACO");
         auxListDatas.add("PACA");
-        auxListDatas.add("CÔCO");
+        auxListDatas.add("COCO");
         auxListDatas.add("COROA");
         datas.put(5, auxListDatas);
         auxListDatas = new ArrayList<>(10);

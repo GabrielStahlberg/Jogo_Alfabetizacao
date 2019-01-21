@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -252,6 +253,9 @@ public class AnagramView extends javax.swing.JInternalFrame {
         buttonDelete = new javax.swing.JButton();
         buttonDeleteAll = new javax.swing.JButton();
         buttonConfirm = new javax.swing.JButton();
+        labelImage = new javax.swing.JLabel();
+        buttonShowImage = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
         buttonLetter12 = new javax.swing.JButton();
         buttonLetter2 = new javax.swing.JButton();
         buttonLetter3 = new javax.swing.JButton();
@@ -329,20 +333,25 @@ public class AnagramView extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonShowImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/off.png"))); // NOI18N
+        buttonShowImage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonShowImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonShowImageActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("* Clique no botão caso queira exibir ou não a imagem");
+
         javax.swing.GroupLayout panelForWordLayout = new javax.swing.GroupLayout(panelForWord);
         panelForWord.setLayout(panelForWordLayout);
         panelForWordLayout.setHorizontalGroup(
             panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelForWordLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelForWordLayout.createSequentialGroup()
-                        .addComponent(labelWordFormed, javax.swing.GroupLayout.DEFAULT_SIZE, 1219, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelForWordLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))))
+                .addComponent(labelWordFormed, javax.swing.GroupLayout.DEFAULT_SIZE, 1219, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelForWordLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(buttonDelete)
@@ -351,15 +360,36 @@ public class AnagramView extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(buttonConfirm)
                 .addGap(34, 34, 34))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelForWordLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelForWordLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28))
+                    .addGroup(panelForWordLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(buttonShowImage, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         panelForWordLayout.setVerticalGroup(
             panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelForWordLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105)
+                .addGroup(panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelForWordLayout.createSequentialGroup()
+                        .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)
+                        .addComponent(buttonShowImage, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(labelWordFormed, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addGap(44, 44, 44)
                 .addGroup(panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonDeleteAll)
                     .addComponent(buttonDelete)
@@ -627,6 +657,16 @@ public class AnagramView extends javax.swing.JInternalFrame {
         this.mainWindow.getDesktop().add(congratsView);
     }//GEN-LAST:event_buttonConfirmActionPerformed
 
+    private void buttonShowImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowImageActionPerformed
+        if(this.buttonShowImage.isSelected()){
+            this.buttonShowImage.setIcon(new ImageIcon(getClass().getResource("/view/resources/on.png")));
+            this.labelImage.setIcon(new ImageIcon(getClass().getResource("/view/imagensA/" + this.wordToDo.toLowerCase() +".png")));
+        }else{
+            this.buttonShowImage.setIcon(new ImageIcon(getClass().getResource("/view/resources/off.png")));
+            this.labelImage.setIcon(null);
+        }
+    }//GEN-LAST:event_buttonShowImageActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonConfirm;
@@ -646,8 +686,11 @@ public class AnagramView extends javax.swing.JInternalFrame {
     private javax.swing.JButton buttonLetter8;
     private javax.swing.JButton buttonLetter9;
     private javax.swing.JButton buttonReturn;
+    private javax.swing.JToggleButton buttonShowImage;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JToggleButton jToggleButton12;
     private javax.swing.JToggleButton jToggleButton4;
+    private javax.swing.JLabel labelImage;
     private javax.swing.JLabel labelWordFormed;
     private javax.swing.JPanel panelForWord;
     // End of variables declaration//GEN-END:variables

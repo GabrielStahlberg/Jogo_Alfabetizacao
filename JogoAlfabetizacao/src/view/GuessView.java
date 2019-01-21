@@ -5,18 +5,29 @@
  */
 package view;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Gabriel Stahlberg
  */
 public class GuessView extends javax.swing.JInternalFrame {
     private MainWindow mainWindow;
+    private List<String> wordsList;
+    private int pageNow;
+    private String wordToGuess;
+    private List<String> wordsAleatory;
     /**
      * Creates new form GuessView
      */
     public GuessView(MainWindow m) {
         initComponents();
         this.mainWindow = m;
+        this.wordsList = this.mainWindow.getWordsForActivity();
+        this.pageNow = 1;
+        this.wordsAleatory = new ArrayList<>(3);
+        this.wordToGuess = this.wordsList.get(0);
     }
     
     private void adjustButtons(){
@@ -28,6 +39,10 @@ public class GuessView extends javax.swing.JInternalFrame {
         this.mainWindow.getButtonAnagram().setEnabled(true);
         this.mainWindow.getButtonGuess().setEnabled(true);
         this.mainWindow.getButtonSound().setEnabled(true);
+    }
+    
+    private void controlPages(){
+        
     }
 
     /**
@@ -49,6 +64,8 @@ public class GuessView extends javax.swing.JInternalFrame {
         labelWord3 = new javax.swing.JLabel();
         labelWord2 = new javax.swing.JLabel();
         buttonReturn = new javax.swing.JButton();
+        buttonPrevious = new javax.swing.JButton();
+        buttonNext = new javax.swing.JButton();
 
         setMaximizable(true);
         setResizable(true);
@@ -97,6 +114,24 @@ public class GuessView extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonPrevious.setBackground(new java.awt.Color(102, 102, 102));
+        buttonPrevious.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/previous.png"))); // NOI18N
+        buttonPrevious.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonPrevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPreviousActionPerformed(evt);
+            }
+        });
+
+        buttonNext.setBackground(new java.awt.Color(102, 102, 102));
+        buttonNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/next.png"))); // NOI18N
+        buttonNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNextActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,15 +162,27 @@ public class GuessView extends javax.swing.JInternalFrame {
                             .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(buttonPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonNext, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelImage, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
-                .addGap(31, 31, 31))
+                .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonPrevious)
+                    .addComponent(buttonNext))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,8 +214,18 @@ public class GuessView extends javax.swing.JInternalFrame {
         adjustButtons();
     }//GEN-LAST:event_buttonReturnActionPerformed
 
+    private void buttonPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPreviousActionPerformed
+        
+    }//GEN-LAST:event_buttonPreviousActionPerformed
+
+    private void buttonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextActionPerformed
+        
+    }//GEN-LAST:event_buttonNextActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonNext;
+    private javax.swing.JButton buttonPrevious;
     private javax.swing.JButton buttonReturn;
     private javax.swing.JButton buttonWord1;
     private javax.swing.JButton buttonWord2;

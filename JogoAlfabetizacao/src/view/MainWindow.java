@@ -867,6 +867,14 @@ public class MainWindow extends javax.swing.JFrame {
     public void setPageNow(int pageNow) {
         this.pageNow = pageNow;
     }
+
+    public JButton getButtonGuess() {
+        return buttonGuess;
+    }
+
+    public void setButtonGuess(JButton buttonGuess) {
+        this.buttonGuess = buttonGuess;
+    }
     
     private void resetButtonsActivities(){
         this.buttonNext.setEnabled(false);
@@ -899,6 +907,18 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonNext.setEnabled(false);
         this.buttonPrevious.setEnabled(false);  
         this.buttonSound.setEnabled(false);
+        this.buttonGuess.setEnabled(false);
+    }
+    
+        private void resetButtonsGuess(){
+        this.buttonGuess.setEnabled(false);
+        this.buttonShowImage.setEnabled(false);
+        this.buttonShowWord.setEnabled(false);
+        this.buttonNext.setEnabled(false);
+        this.buttonPrevious.setEnabled(false);  
+        this.buttonSound.setEnabled(false);
+        this.buttonAnagram.setEnabled(false);
+        this.buttonAlert.setEnabled(false);
     }
     
     public void resetButtonsAlert(){
@@ -909,6 +929,7 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonPrevious.setEnabled(false);  
         this.buttonAnagram.setEnabled(false);
         this.buttonSound.setEnabled(false);
+        this.buttonGuess.setEnabled(false);
     }
     
     private int prepareFontByWordLength(String word){
@@ -977,6 +998,7 @@ public class MainWindow extends javax.swing.JFrame {
         buttonAnagram = new javax.swing.JButton();
         buttonAlert = new javax.swing.JButton();
         buttonInfo = new javax.swing.JButton();
+        buttonGuess = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1084,6 +1106,15 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        buttonGuess.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/guess.png"))); // NOI18N
+        buttonGuess.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonGuess.setEnabled(false);
+        buttonGuess.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGuessActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1100,11 +1131,13 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(buttonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                        .addGap(41, 41, 41)
                         .addComponent(buttonAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonAnagram, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonGuess, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addComponent(buttonShowWord)
                         .addGap(18, 18, 18)
                         .addComponent(buttonShowImage)
@@ -1137,7 +1170,8 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(buttonShowWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonAnagram, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(buttonAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(buttonInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(buttonInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(buttonGuess, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
         setSize(new java.awt.Dimension(1266, 689));
@@ -1276,6 +1310,14 @@ public class MainWindow extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, sb.toString(), null, JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_buttonInfoActionPerformed
 
+    private void buttonGuessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuessActionPerformed
+        resetButtonsGuess();
+        this.desktop.removeAll();
+        GuessView guessView = new GuessView(this);
+        guessView.setVisible(true);
+        this.desktop.add(guessView);
+    }//GEN-LAST:event_buttonGuessActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1315,6 +1357,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton buttonAlert;
     private javax.swing.JButton buttonAnagram;
     private javax.swing.JButton buttonExit;
+    private javax.swing.JButton buttonGuess;
     private javax.swing.JButton buttonHome;
     private javax.swing.JButton buttonInfo;
     private javax.swing.JButton buttonMenu;

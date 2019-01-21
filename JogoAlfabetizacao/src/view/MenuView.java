@@ -138,6 +138,7 @@ public class MenuView extends javax.swing.JInternalFrame {
         this.mainWindow.getLabelPagina().setText("Página 1 de " + wordsActivity.size());
         this.mainWindow.getButtonAlert().setEnabled(true);
         this.mainWindow.getButtonAnagram().setEnabled(true);
+        this.mainWindow.getButtonGuess().setEnabled(true);
     }
     
 

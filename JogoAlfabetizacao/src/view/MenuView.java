@@ -99,6 +99,10 @@ public class MenuView extends javax.swing.JInternalFrame {
                         this.wordsActivity.add(word);
                     }
                 }
+                for(String w : this.mainWindow.getDatas(level)){
+                    this.mainWindow.getWordsForGuess().add(w);
+                }
+                
                 this.mainWindow.getDesktop().removeAll();
                 mainWindow.getButtonHome().setEnabled(true);
                 mainWindow.getButtonMenu().setEnabled(true);

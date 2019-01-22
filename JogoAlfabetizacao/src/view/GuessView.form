@@ -114,6 +114,9 @@
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonWord1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonWord2">
       <Properties>
@@ -124,6 +127,9 @@
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonWord2ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonWord3">
       <Properties>
@@ -134,6 +140,9 @@
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonWord3ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelImage">
       <Properties>

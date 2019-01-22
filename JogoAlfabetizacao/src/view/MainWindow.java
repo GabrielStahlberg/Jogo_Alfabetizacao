@@ -36,6 +36,7 @@ public class MainWindow extends javax.swing.JFrame {
     private MenuView mv;
     private StartView startView;
     private List<String> wordsForActivity;
+    private List<String> wordsForGuess = new ArrayList<>(9);
     private int max;
     private int pageNow = 1;
 
@@ -754,6 +755,14 @@ public class MainWindow extends javax.swing.JFrame {
 
     public void setDesktop(JDesktopPane desktop) {
         this.desktop = desktop;
+    }
+
+    public List<String> getWordsForGuess() {
+        return wordsForGuess;
+    }
+
+    public void setWordsForGuess(List<String> wordsForGuess) {
+        this.wordsForGuess = wordsForGuess;
     }
 
     public List<String> getDatas(int level) {

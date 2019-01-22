@@ -5,32 +5,40 @@
  */
 package view;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.awt.Color;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import javax.swing.ImageIcon;
 
 /**
  *
  * @author Gabriel Stahlberg
  */
 public class GuessView extends javax.swing.JInternalFrame {
+
     private MainWindow mainWindow;
     private List<String> wordsList;
     private int pageNow;
     private String wordToGuess;
+    private AudioClip sound;
+    private int max;
+
     /**
      * Creates new form GuessView
      */
     public GuessView(MainWindow m) {
         initComponents();
         this.mainWindow = m;
-        this.wordsList = this.mainWindow.getWordsForActivity();
+        this.wordsList = this.mainWindow.getWordsForGuess();
         this.pageNow = 1;
+        this.max = this.mainWindow.getWordsForActivity().size();
         adjustComponents();
     }
-    
-    private void adjustButtons(){
+
+    private void adjustButtons() {
         this.mainWindow.getButtonNext().setEnabled(true);
         this.mainWindow.getButtonPrevious().setEnabled(true);
         this.mainWindow.getButtonShowImage().setEnabled(true);
@@ -40,31 +48,57 @@ public class GuessView extends javax.swing.JInternalFrame {
         this.mainWindow.getButtonGuess().setEnabled(true);
         this.mainWindow.getButtonSound().setEnabled(true);
     }
-    
-    private void adjustComponents(){
+
+    private void adjustComponents() {
         List<String> wordsAleatory = new ArrayList<>(3);
         List<String> listAux = new ArrayList<>(9);
         String word = this.wordsList.get(this.pageNow - 1);
         //this.labelImage.setIcon(new ImageIcon(getClass().getResource("/view/imagensB/" + word.toLowerCase() + ".png")));
         wordsAleatory.add(word);
         this.wordToGuess = word;
-        
+
         this.wordsList.forEach((wordNow) -> {
             listAux.add(wordNow);
         });
-        
-        do{
+
+        do {
             Collections.shuffle(listAux);
-            if(!listAux.get(0).equals(word)){
+            if (!listAux.get(0).equals(word)) {
                 wordsAleatory.add(listAux.remove(0));
             }
-        }while(wordsAleatory.size() != 3);
-        
+        } while (wordsAleatory.size() != 3);
+
         Collections.shuffle(wordsAleatory);
-        
+
         this.labelWord1.setText(wordsAleatory.get(0));
         this.labelWord2.setText(wordsAleatory.get(1));
         this.labelWord3.setText(wordsAleatory.get(2));
+    }
+
+    private void setDisableButtons() {
+        this.buttonWord1.setEnabled(false);
+        this.buttonWord2.setEnabled(false);
+        this.buttonWord3.setEnabled(false);
+    }
+    private void setEnableButtons() {
+        this.buttonWord1.setEnabled(true);
+        this.buttonWord2.setEnabled(true);
+        this.buttonWord3.setEnabled(true);
+        
+        this.labelWord1.setForeground(Color.black);
+        this.labelWord2.setForeground(Color.black);
+        this.labelWord3.setForeground(Color.black);
+    }
+    
+
+    private void startSound() {
+        URL wow = MainWindow.class.getResource("resources/wow.wav");
+        this.sound = Applet.newAudioClip(wow);
+        this.sound.play();
+
+        URL palmas = MainWindow.class.getResource("resources/palmas.wav");
+        this.sound = Applet.newAudioClip(palmas);
+        this.sound.play();
     }
 
     /**
@@ -92,12 +126,27 @@ public class GuessView extends javax.swing.JInternalFrame {
 
         buttonWord1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/finger.png"))); // NOI18N
         buttonWord1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonWord1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonWord1ActionPerformed(evt);
+            }
+        });
 
         buttonWord2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/finger.png"))); // NOI18N
         buttonWord2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonWord2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonWord2ActionPerformed(evt);
+            }
+        });
 
         buttonWord3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/finger.png"))); // NOI18N
         buttonWord3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonWord3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonWord3ActionPerformed(evt);
+            }
+        });
 
         labelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagensB/amor-perfeito.png"))); // NOI18N
         labelImage.setText("jLabel3");
@@ -218,7 +267,8 @@ public class GuessView extends javax.swing.JInternalFrame {
     private void buttonPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPreviousActionPerformed
         this.pageNow--;
         adjustComponents();
-        if(this.pageNow == 1){
+        setEnableButtons();
+        if (this.pageNow == 1) {
             this.buttonPrevious.setEnabled(false);
         }
         this.buttonNext.setEnabled(true);
@@ -228,11 +278,41 @@ public class GuessView extends javax.swing.JInternalFrame {
         this.buttonPrevious.setEnabled(true);
         this.pageNow++;
         adjustComponents();
-  
-        if(this.wordsList.size() == this.pageNow){
+        setEnableButtons();
+        if (this.max == this.pageNow) {
             this.buttonNext.setEnabled(false);
         }
     }//GEN-LAST:event_buttonNextActionPerformed
+
+    private void buttonWord1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonWord1ActionPerformed
+        if (this.labelWord1.getText().equals(this.wordToGuess)) {
+            this.labelWord1.setForeground(Color.green);
+            startSound();
+        } else {
+            this.labelWord1.setForeground(Color.red);
+        }
+        setDisableButtons();
+    }//GEN-LAST:event_buttonWord1ActionPerformed
+
+    private void buttonWord2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonWord2ActionPerformed
+        if (this.labelWord2.getText().equals(this.wordToGuess)) {
+            this.labelWord2.setForeground(Color.green);
+            startSound();
+        } else {
+            this.labelWord2.setForeground(Color.red);
+        }
+        setDisableButtons();
+    }//GEN-LAST:event_buttonWord2ActionPerformed
+
+    private void buttonWord3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonWord3ActionPerformed
+        if (this.labelWord3.getText().equals(this.wordToGuess)) {
+            this.labelWord3.setForeground(Color.green);
+            startSound();
+        } else {
+            this.labelWord3.setForeground(Color.red);
+        }
+        setDisableButtons();
+    }//GEN-LAST:event_buttonWord3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

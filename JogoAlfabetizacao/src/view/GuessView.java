@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -35,6 +36,7 @@ public class GuessView extends javax.swing.JInternalFrame {
         this.wordsList = this.mainWindow.getWordsForGuess();
         this.pageNow = 1;
         this.max = this.mainWindow.getWordsForActivity().size();
+        this.buttonPrevious.setEnabled(false);
         adjustComponents();
     }
 
@@ -53,7 +55,7 @@ public class GuessView extends javax.swing.JInternalFrame {
         List<String> wordsAleatory = new ArrayList<>(3);
         List<String> listAux = new ArrayList<>(9);
         String word = this.wordsList.get(this.pageNow - 1);
-        //this.labelImage.setIcon(new ImageIcon(getClass().getResource("/view/imagensB/" + word.toLowerCase() + ".png")));
+        this.labelImage.setIcon(new ImageIcon(getClass().getResource("/view/imagensB/" + word.toLowerCase() + ".png")));
         wordsAleatory.add(word);
         this.wordToGuess = word;
 

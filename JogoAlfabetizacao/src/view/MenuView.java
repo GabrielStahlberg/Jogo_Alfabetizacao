@@ -99,8 +99,13 @@ public class MenuView extends javax.swing.JInternalFrame {
                         this.wordsActivity.add(word);
                     }
                 }
+                if(!this.mainWindow.getWordsForGuess().isEmpty()){
+                    this.mainWindow.setWordsForGuess(new ArrayList<>(9));
+                }
                 for(String w : this.mainWindow.getDatas(level)){
-                    this.mainWindow.getWordsForGuess().add(w);
+                    if(!w.equals("-----")){
+                        this.mainWindow.getWordsForGuess().add(w);
+                    }
                 }
                 
                 this.mainWindow.getDesktop().removeAll();

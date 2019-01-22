@@ -1196,6 +1196,7 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonMenu.setEnabled(false);
         this.buttonAlert.setEnabled(false);
         this.buttonAnagram.setEnabled(false);
+        this.buttonGuess.setEnabled(false);
         
         resetButtonsActivities();
     }//GEN-LAST:event_buttonHomeActionPerformed
@@ -1216,6 +1217,7 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonMenu.setEnabled(false);
         this.buttonAlert.setEnabled(false);
         this.buttonAnagram.setEnabled(false);
+        this.buttonGuess.setEnabled(false);
         
         resetButtonsActivities();
     }//GEN-LAST:event_buttonMenuActionPerformed

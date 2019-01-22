@@ -6,7 +6,9 @@
 package view;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -17,7 +19,6 @@ public class GuessView extends javax.swing.JInternalFrame {
     private List<String> wordsList;
     private int pageNow;
     private String wordToGuess;
-    private List<String> wordsAleatory;
     /**
      * Creates new form GuessView
      */
@@ -26,8 +27,7 @@ public class GuessView extends javax.swing.JInternalFrame {
         this.mainWindow = m;
         this.wordsList = this.mainWindow.getWordsForActivity();
         this.pageNow = 1;
-        this.wordsAleatory = new ArrayList<>(3);
-        this.wordToGuess = this.wordsList.get(0);
+        adjustComponents();
     }
     
     private void adjustButtons(){
@@ -41,8 +41,30 @@ public class GuessView extends javax.swing.JInternalFrame {
         this.mainWindow.getButtonSound().setEnabled(true);
     }
     
-    private void controlPages(){
+    private void adjustComponents(){
+        List<String> wordsAleatory = new ArrayList<>(3);
+        List<String> listAux = new ArrayList<>(9);
+        String word = this.wordsList.get(this.pageNow - 1);
+        //this.labelImage.setIcon(new ImageIcon(getClass().getResource("/view/imagensB/" + word.toLowerCase() + ".png")));
+        wordsAleatory.add(word);
+        this.wordToGuess = word;
         
+        this.wordsList.forEach((wordNow) -> {
+            listAux.add(wordNow);
+        });
+        
+        do{
+            Collections.shuffle(listAux);
+            if(!listAux.get(0).equals(word)){
+                wordsAleatory.add(listAux.remove(0));
+            }
+        }while(wordsAleatory.size() != 3);
+        
+        Collections.shuffle(wordsAleatory);
+        
+        this.labelWord1.setText(wordsAleatory.get(0));
+        this.labelWord2.setText(wordsAleatory.get(1));
+        this.labelWord3.setText(wordsAleatory.get(2));
     }
 
     /**
@@ -54,8 +76,6 @@ public class GuessView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         buttonWord1 = new javax.swing.JButton();
         buttonWord2 = new javax.swing.JButton();
         buttonWord3 = new javax.swing.JButton();
@@ -70,14 +90,6 @@ public class GuessView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(53, 44, 200));
-        jLabel1.setText("QUAL DESSAS PALAVRAS");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(53, 44, 200));
-        jLabel2.setText("CORRESPONDE À IMAGEM:");
-
         buttonWord1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/finger.png"))); // NOI18N
         buttonWord1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -91,17 +103,17 @@ public class GuessView extends javax.swing.JInternalFrame {
         labelImage.setText("jLabel3");
 
         labelWord1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        labelWord1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelWord1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelWord1.setText("AMOR-PERFEITO");
         labelWord1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         labelWord3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        labelWord3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelWord3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelWord3.setText("AMOR-PERFEITO");
         labelWord3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         labelWord2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        labelWord2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelWord2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelWord2.setText("AMOR-PERFEITO");
         labelWord2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
@@ -137,31 +149,23 @@ public class GuessView extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(buttonWord3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelWord3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(buttonWord1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelWord1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(buttonWord2)
-                                .addGap(37, 37, 37)
-                                .addComponent(labelWord2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                    .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(buttonWord3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelWord3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(buttonWord1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelWord1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(buttonWord2)
+                            .addGap(37, 37, 37)
+                            .addComponent(labelWord2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -176,33 +180,30 @@ public class GuessView extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonPrevious)
-                    .addComponent(buttonNext))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonPrevious)
+                            .addComponent(buttonNext)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(97, 97, 97)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonWord1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labelWord1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labelWord2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonWord2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonWord3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labelWord3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonWord1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelWord1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelWord2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonWord2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonWord3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelWord3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
         );
 
         setBounds(0, 0, 1255, 596);
@@ -215,11 +216,22 @@ public class GuessView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_buttonReturnActionPerformed
 
     private void buttonPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPreviousActionPerformed
-        
+        this.pageNow--;
+        adjustComponents();
+        if(this.pageNow == 1){
+            this.buttonPrevious.setEnabled(false);
+        }
+        this.buttonNext.setEnabled(true);
     }//GEN-LAST:event_buttonPreviousActionPerformed
 
     private void buttonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextActionPerformed
-        
+        this.buttonPrevious.setEnabled(true);
+        this.pageNow++;
+        adjustComponents();
+  
+        if(this.wordsList.size() == this.pageNow){
+            this.buttonNext.setEnabled(false);
+        }
     }//GEN-LAST:event_buttonNextActionPerformed
 
 
@@ -230,8 +242,6 @@ public class GuessView extends javax.swing.JInternalFrame {
     private javax.swing.JButton buttonWord1;
     private javax.swing.JButton buttonWord2;
     private javax.swing.JButton buttonWord3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel labelImage;
     private javax.swing.JLabel labelWord1;
     private javax.swing.JLabel labelWord2;

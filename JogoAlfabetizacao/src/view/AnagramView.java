@@ -256,7 +256,6 @@ public class AnagramView extends javax.swing.JInternalFrame {
         buttonConfirm = new javax.swing.JButton();
         labelImage = new javax.swing.JLabel();
         buttonShowImage = new javax.swing.JToggleButton();
-        jLabel1 = new javax.swing.JLabel();
         buttonLetter12 = new javax.swing.JButton();
         buttonLetter2 = new javax.swing.JButton();
         buttonLetter3 = new javax.swing.JButton();
@@ -342,9 +341,6 @@ public class AnagramView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("* Clique no botão caso queira exibir ou não a imagem");
-
         javax.swing.GroupLayout panelForWordLayout = new javax.swing.GroupLayout(panelForWord);
         panelForWord.setLayout(panelForWordLayout);
         panelForWordLayout.setHorizontalGroup(
@@ -355,6 +351,8 @@ public class AnagramView extends javax.swing.JInternalFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelForWordLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonShowImage, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
                 .addComponent(buttonDelete)
                 .addGap(18, 18, 18)
                 .addComponent(buttonDeleteAll)
@@ -364,17 +362,9 @@ public class AnagramView extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelForWordLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelForWordLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))
-                    .addGroup(panelForWordLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(buttonShowImage, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         panelForWordLayout.setVerticalGroup(
             panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,19 +372,16 @@ public class AnagramView extends javax.swing.JInternalFrame {
                 .addGap(21, 21, 21)
                 .addGroup(panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelForWordLayout.createSequentialGroup()
-                        .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
-                        .addComponent(buttonShowImage, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1)))
+                    .addComponent(buttonReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(labelWordFormed, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addGroup(panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonDeleteAll)
-                    .addComponent(buttonDelete)
-                    .addComponent(buttonConfirm))
+                .addGroup(panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelForWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonDeleteAll)
+                        .addComponent(buttonDelete)
+                        .addComponent(buttonConfirm))
+                    .addComponent(buttonShowImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27))
         );
 
@@ -688,7 +675,6 @@ public class AnagramView extends javax.swing.JInternalFrame {
     private javax.swing.JButton buttonLetter9;
     private javax.swing.JButton buttonReturn;
     private javax.swing.JToggleButton buttonShowImage;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JToggleButton jToggleButton12;
     private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JLabel labelImage;

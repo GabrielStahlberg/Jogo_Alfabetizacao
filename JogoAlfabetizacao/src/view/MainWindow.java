@@ -64,9 +64,9 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonPrevious.setEnabled(false);
         this.buttonShowImage.setEnabled(false);
         this.buttonShowWord.setEnabled(false);
+        this.buttonShowWord2.setEnabled(false);
         this.buttonSound.setEnabled(false);
         this.labelPagina.setEnabled(false);
-        this.buttonAlert.setEnabled(false);
         this.buttonAnagram.setEnabled(false);
     }
     /**
@@ -845,14 +845,6 @@ public class MainWindow extends javax.swing.JFrame {
         this.max = max;
     }
 
-    public JButton getButtonAlert() {
-        return buttonAlert;
-    }
-
-    public void setButtonAlert(JButton buttonAlert) {
-        this.buttonAlert = buttonAlert;
-    }
-
     public JButton getButtonAnagram() {
         return buttonAnagram;
     }
@@ -884,17 +876,30 @@ public class MainWindow extends javax.swing.JFrame {
     public void setButtonGuess(JButton buttonGuess) {
         this.buttonGuess = buttonGuess;
     }
+
+    public JToggleButton getButtonShowWord2() {
+        return buttonShowWord2;
+    }
+
+    public void setButtonShowWord2(JToggleButton buttonShowWord2) {
+        this.buttonShowWord2 = buttonShowWord2;
+    }
     
     private void resetButtonsActivities(){
         this.buttonNext.setEnabled(false);
         this.buttonShowImage.setSelected(false);
         this.buttonShowWord.setSelected(false);
+        this.buttonShowWord2.setSelected(false);
         this.buttonPrevious.setEnabled(false);  
         this.buttonShowImage.setEnabled(false);
         this.buttonShowWord.setEnabled(false);
+        this.buttonShowWord2.setEnabled(false);
         this.buttonSound.setEnabled(false);
         this.labelPagina.setText("Página ? de ?");
         this.labelPagina.setEnabled(false);
+        this.buttonShowImage.setText("Exibir imagem");
+        this.buttonShowWord.setText("Exibir palavra");
+        this.buttonShowWord2.setText("Exibir palavra");
         
         this.pageNow = 1;
     }
@@ -902,10 +907,13 @@ public class MainWindow extends javax.swing.JFrame {
     private void resetImageWord(){
         ActivitiesView activitiesView = this.startView.getMv().getAv();
         activitiesView.getLabelWordShowed().setText("");
+        activitiesView.getLabelWordShowed2().setText("");
         activitiesView.getLabelImage().setIcon(null);
         this.buttonShowImage.setSelected(false);
         this.buttonShowWord.setSelected(false);
         this.buttonShowWord.setText("Exibir palavra");
+        this.buttonShowWord2.setSelected(false);
+        this.buttonShowWord2.setText("Exibir palavra");
         this.buttonShowImage.setText("Exibir imagem");
     }
     
@@ -913,6 +921,7 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonAnagram.setEnabled(false);
         this.buttonShowImage.setEnabled(false);
         this.buttonShowWord.setEnabled(false);
+        this.buttonShowWord2.setEnabled(false);
         this.buttonNext.setEnabled(false);
         this.buttonPrevious.setEnabled(false);  
         this.buttonSound.setEnabled(false);
@@ -923,17 +932,17 @@ public class MainWindow extends javax.swing.JFrame {
         this.buttonGuess.setEnabled(false);
         this.buttonShowImage.setEnabled(false);
         this.buttonShowWord.setEnabled(false);
+        this.buttonShowWord2.setEnabled(false);
         this.buttonNext.setEnabled(false);
         this.buttonPrevious.setEnabled(false);  
         this.buttonSound.setEnabled(false);
         this.buttonAnagram.setEnabled(false);
-        this.buttonAlert.setEnabled(false);
     }
     
     public void resetButtonsAlert(){
-        this.buttonAlert.setEnabled(false);
         this.buttonShowImage.setEnabled(false);
         this.buttonShowWord.setEnabled(false);
+        this.buttonShowWord2.setEnabled(false);
         this.buttonNext.setEnabled(false);
         this.buttonPrevious.setEnabled(false);  
         this.buttonAnagram.setEnabled(false);
@@ -1005,9 +1014,9 @@ public class MainWindow extends javax.swing.JFrame {
         buttonShowImage = new javax.swing.JToggleButton();
         buttonShowWord = new javax.swing.JToggleButton();
         buttonAnagram = new javax.swing.JButton();
-        buttonAlert = new javax.swing.JButton();
         buttonInfo = new javax.swing.JButton();
         buttonGuess = new javax.swing.JButton();
+        buttonShowWord2 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1070,7 +1079,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         buttonShowImage.setBackground(new java.awt.Color(51, 0, 204));
-        buttonShowImage.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        buttonShowImage.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         buttonShowImage.setForeground(new java.awt.Color(255, 255, 255));
         buttonShowImage.setText("Exibir imagem");
         buttonShowImage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1081,7 +1090,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         buttonShowWord.setBackground(new java.awt.Color(51, 0, 204));
-        buttonShowWord.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        buttonShowWord.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         buttonShowWord.setForeground(new java.awt.Color(255, 255, 255));
         buttonShowWord.setText("Exibir palavra");
         buttonShowWord.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1096,14 +1105,6 @@ public class MainWindow extends javax.swing.JFrame {
         buttonAnagram.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAnagramActionPerformed(evt);
-            }
-        });
-
-        buttonAlert.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/resources/alerta.png"))); // NOI18N
-        buttonAlert.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonAlert.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAlertActionPerformed(evt);
             }
         });
 
@@ -1124,6 +1125,17 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        buttonShowWord2.setBackground(new java.awt.Color(51, 0, 204));
+        buttonShowWord2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        buttonShowWord2.setForeground(new java.awt.Color(255, 255, 255));
+        buttonShowWord2.setText("Exibir palavra");
+        buttonShowWord2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonShowWord2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonShowWord2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1140,17 +1152,17 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(buttonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(buttonAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(51, 51, 51)
                         .addComponent(buttonAnagram, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonGuess, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addComponent(buttonShowWord2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonShowWord)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonShowImage)
-                        .addGap(18, 18, 18)
+                        .addGap(29, 29, 29)
                         .addComponent(buttonSound)
                         .addGap(18, 18, 18)
                         .addComponent(buttonPrevious)
@@ -1174,13 +1186,13 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(buttonExit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(buttonNext, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonPrevious, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonShowImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonSound, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonShowWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonAnagram, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(buttonAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(buttonInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(buttonGuess, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(buttonGuess, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(buttonShowWord2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonShowImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonShowWord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         setSize(new java.awt.Dimension(1266, 689));
@@ -1194,7 +1206,6 @@ public class MainWindow extends javax.swing.JFrame {
         this.desktop.add(startView);
         this.buttonHome.setEnabled(false);
         this.buttonMenu.setEnabled(false);
-        this.buttonAlert.setEnabled(false);
         this.buttonAnagram.setEnabled(false);
         this.buttonGuess.setEnabled(false);
         
@@ -1215,7 +1226,6 @@ public class MainWindow extends javax.swing.JFrame {
         this.startView.setMv(this.mv);
         this.desktop.add(mv);
         this.buttonMenu.setEnabled(false);
-        this.buttonAlert.setEnabled(false);
         this.buttonAnagram.setEnabled(false);
         this.buttonGuess.setEnabled(false);
         
@@ -1292,14 +1302,6 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonNextActionPerformed
 
-    private void buttonAlertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAlertActionPerformed
-        resetButtonsAlert();
-        this.desktop.removeAll();
-        CongratsView congratsView = new CongratsView(this);
-        congratsView.setVisible(true);
-        this.desktop.add(congratsView);
-    }//GEN-LAST:event_buttonAlertActionPerformed
-
     private void buttonAnagramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAnagramActionPerformed
         resetButtonsAnagram();
         this.desktop.removeAll();
@@ -1328,6 +1330,38 @@ public class MainWindow extends javax.swing.JFrame {
         guessView.setVisible(true);
         this.desktop.add(guessView);
     }//GEN-LAST:event_buttonGuessActionPerformed
+
+    private void buttonShowWord2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowWord2ActionPerformed
+        ActivitiesView activitiesView = this.startView.getMv().getAv();
+        int fontSize = 0;
+        
+        if(!this.buttonShowWord2.isSelected()){
+            this.buttonShowWord2.setText("Exibir palavra");
+            activitiesView.getLabelWordShowed2().setText("");
+        }else{
+            this.buttonShowWord2.setText("Ocultar palavra");
+            
+            switch (this.wordsForActivity.get(this.pageNow - 1)) {
+                case "MURO":
+                    fontSize = 210;
+                    break;
+                case "MORANGO":
+                    fontSize = 115;
+                    break;
+                case "BOMBOM":
+                    fontSize = 125;
+                    break;
+                case "MACHADO":
+                    fontSize = 115;
+                    break;
+                default:
+                    fontSize = prepareFontByWordLength(this.wordsForActivity.get(this.pageNow - 1));
+                    break;
+            }
+            activitiesView.getLabelWordShowed2().setFont(new Font("Tahoma", 1, fontSize));
+            activitiesView.getLabelWordShowed2().setText(this.wordsForActivity.get(this.pageNow - 1));
+        }
+    }//GEN-LAST:event_buttonShowWord2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1365,7 +1399,6 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAlert;
     private javax.swing.JButton buttonAnagram;
     private javax.swing.JButton buttonExit;
     private javax.swing.JButton buttonGuess;
@@ -1376,6 +1409,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton buttonPrevious;
     private javax.swing.JToggleButton buttonShowImage;
     private javax.swing.JToggleButton buttonShowWord;
+    private javax.swing.JToggleButton buttonShowWord2;
     private javax.swing.JButton buttonSound;
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JLabel labelPagina;

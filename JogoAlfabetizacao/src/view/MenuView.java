@@ -140,12 +140,12 @@ public class MenuView extends javax.swing.JInternalFrame {
         this.mainWindow.getButtonNext().setEnabled(true);
         this.mainWindow.getButtonShowImage().setEnabled(true);
         this.mainWindow.getButtonShowWord().setEnabled(true);
+        this.mainWindow.getButtonShowWord2().setEnabled(true);
         this.mainWindow.getButtonSound().setEnabled(true);
         this.mainWindow.setWordsForActivity(wordsActivity);
         this.mainWindow.setMax(wordsActivity.size());
         this.mainWindow.getLabelPagina().setEnabled(true);
         this.mainWindow.getLabelPagina().setText("Página 1 de " + wordsActivity.size());
-        this.mainWindow.getButtonAlert().setEnabled(true);
         this.mainWindow.getButtonAnagram().setEnabled(true);
         this.mainWindow.getButtonGuess().setEnabled(true);
     }
@@ -244,6 +244,8 @@ public class MenuView extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Noto Sans", 1, 30)); // NOI18N
         jLabel3.setText("ESCOLHA O NÍVEL(Nº) QUE DESEJA:");
 
+        fieldLevel.setEnabled(false);
+
         buttonBegin.setBackground(new java.awt.Color(77, 153, 57));
         buttonBegin.setFont(new java.awt.Font("Noto Sans", 1, 18)); // NOI18N
         buttonBegin.setForeground(new java.awt.Color(253, 251, 251));
@@ -339,12 +341,12 @@ public class MenuView extends javax.swing.JInternalFrame {
         if(!this.buttonNext.isEnabled() && this.countLevel != 42){
             this.buttonNext.setEnabled(true);
         }
+        this.fieldLevel.setEnabled(true);
         this.buttonBegin.setEnabled(true);        
     }//GEN-LAST:event_buttonChooseActionPerformed
 
     private void buttonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextActionPerformed
         this.page++;
-        //this.tableLevel.getColumnModel().getColumn(0).setHeaderValue("TESTE");
         renameColumns();
         if(this.countLevel == 36){
             this.buttonNext.setEnabled(false);

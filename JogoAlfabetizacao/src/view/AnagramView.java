@@ -338,6 +338,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
 
         buttonShowImage.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         buttonShowImage.setText("Exibir imagem");
+        buttonShowImage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonShowImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonShowImageActionPerformed(evt);
@@ -346,6 +347,7 @@ public class AnagramView extends javax.swing.JInternalFrame {
 
         buttonShowWord.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         buttonShowWord.setText("Exibir palavra");
+        buttonShowWord.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonShowWord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonShowWordActionPerformed(evt);

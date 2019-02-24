@@ -233,12 +233,12 @@ public class MainWindow extends javax.swing.JFrame {
         datas.put(7, auxListDatas);
         auxListDatas = new ArrayList<>(10);
 
-        auxListDatas.add("BOTA");
+        auxListDatas.add("BEBÊ");
         auxListDatas.add("BOLA");
         auxListDatas.add("BOCA");
+        auxListDatas.add("BOTA");
         auxListDatas.add("BULE");
         auxListDatas.add("BOLO");
-        auxListDatas.add("BEBÊ");
         auxListDatas.add("BOI");
         auxListDatas.add("BODE");
         auxListDatas.add("BALA");
@@ -341,8 +341,8 @@ public class MainWindow extends javax.swing.JFrame {
         datas.put(16, auxListDatas);
         auxListDatas = new ArrayList<>(10);
 
-        auxListDatas.add("TRIGO");
-        auxListDatas.add("CRAVO");
+        auxListDatas.add("TRATOR");
+        auxListDatas.add("CROCODILO");
         auxListDatas.add("PRATO");
         auxListDatas.add("LIVRO");
         auxListDatas.add("BRAÇO");
@@ -365,13 +365,13 @@ public class MainWindow extends javax.swing.JFrame {
         datas.put(18, auxListDatas);
         auxListDatas = new ArrayList<>(10);
 
-        auxListDatas.add("CIPÓ");
-        auxListDatas.add("CEPO");
-        auxListDatas.add("CIDADE");
-        auxListDatas.add("BACIA");
-        auxListDatas.add("CINEMA");
-        auxListDatas.add("CEREJA");
         auxListDatas.add("CAPACETE");
+        auxListDatas.add("CEREJA");
+        auxListDatas.add("BACIA");
+        auxListDatas.add("CIDADE");
+        auxListDatas.add("CEPO");
+        auxListDatas.add("CIPÓ");
+        auxListDatas.add("CINEMA");
         auxListDatas.add("CEBOLA");
         auxListDatas.add("CERA");
         datas.put(19, auxListDatas);
@@ -415,7 +415,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         auxListDatas.add("ESCADA");
         auxListDatas.add("CASTELO");
-        auxListDatas.add("DOIS");
+        auxListDatas.add("LÁPIS");
         auxListDatas.add("ESTRELA");
         auxListDatas.add("DISCO");
         auxListDatas.add("ESCOVA");
@@ -511,13 +511,13 @@ public class MainWindow extends javax.swing.JFrame {
 
         auxListDatas.add("SERROTE");
         auxListDatas.add("GARRAFA");
+        auxListDatas.add("CARRO");
         auxListDatas.add("FERRO");
         auxListDatas.add("JARRA");
         auxListDatas.add("TORRE");
         auxListDatas.add("CORRENTE");
         auxListDatas.add("BURRO");
         auxListDatas.add("CARRETEL");
-        auxListDatas.add("CARRO");
         datas.put(31, auxListDatas);   
         auxListDatas = new ArrayList<>(10);
 
@@ -654,24 +654,24 @@ public class MainWindow extends javax.swing.JFrame {
         auxListDatas = new ArrayList<>(10);
 
         auxListDatas.add("TÁXI");
-        auxListDatas.add("BOX");
-        auxListDatas.add("TÓRAX");
+        auxListDatas.add("XEROX");
+        auxListDatas.add("DUREX");
+        auxListDatas.add("MAXILAR");
         auxListDatas.add("BOXEADOR");
         auxListDatas.add("FIXADOR");
-        auxListDatas.add("TAXÍMETRO");
         auxListDatas.add("AXILA");
         auxListDatas.add("CRUCIFIXO");
         auxListDatas.add("OXIGÊNIO");
         datas.put(43, auxListDatas);   
         auxListDatas = new ArrayList<>(10);
 
+        auxListDatas.add("ARCO-ÍRIS");
+        auxListDatas.add("GUARDA-CHUVA");
+        auxListDatas.add("PAPAI-NOEL");
         auxListDatas.add("AMOR-PERFEITO");
         auxListDatas.add("COUVE-FLOR");
-        auxListDatas.add("PAPAI-NOEL");
         auxListDatas.add("QUEBRA-LUZ");
-        auxListDatas.add("GUARDA-CHUVA");
         auxListDatas.add("TICO-TICO");
-        auxListDatas.add("ARCO-ÍRIS");
         auxListDatas.add("GUARDA-ROUPA");
         auxListDatas.add("VITÓRIA-RÉGIA");
         datas.put(44, auxListDatas);   
